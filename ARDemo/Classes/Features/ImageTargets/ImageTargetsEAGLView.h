@@ -20,6 +20,7 @@ countries.
 
 #define kNumAugmentationTextures 5
 
+#define LOAD_BUNDLE
 
 // EAGLView is a subclass of UIView and conforms to the informal protocol
 // UIGLViewProtocol

@@ -1,2 +1,3 @@
-ARDemo.xcodeproj/project.xcworkspace/xcuserdata
-ARDemo.xcodeproj/xcuserdata
+xcuserdata
+build
+output

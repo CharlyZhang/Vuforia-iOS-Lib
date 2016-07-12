@@ -6,6 +6,31 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		2DA3909D1D34D1370044AE42 /* createARLib */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 2DA3909E1D34D1370044AE42 /* Build configuration list for PBXAggregateTarget "createARLib" */;
+			buildPhases = (
+				2DA390A11D34D13E0044AE42 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = createARLib;
+			productName = createARLib;
+		};
+		2DA390A21D34D3790044AE42 /* CopyInclude */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 2DA390A31D34D3790044AE42 /* Build configuration list for PBXAggregateTarget "CopyInclude" */;
+			buildPhases = (
+				2DA390A61D34D37E0044AE42 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = CopyInclude;
+			productName = Copy;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		2DA38FA81D3483530044AE42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DA38FA61D3483530044AE42 /* Main.storyboard */; };
 		2DA38FAA1D3483530044AE42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DA38FA91D3483530044AE42 /* Assets.xcassets */; };
@@ -21,10 +46,6 @@
 		2DA38FDB1D3487540044AE42 /* SampleApplicationSession.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FCC1D3487540044AE42 /* SampleApplicationSession.mm */; };
 		2DA38FDC1D3487540044AE42 /* SampleApplicationShaderUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FCE1D3487540044AE42 /* SampleApplicationShaderUtils.m */; };
 		2DA38FDD1D3487540044AE42 /* SampleApplicationUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FCF1D3487540044AE42 /* SampleApplicationUtils.cpp */; };
-		2DA38FDE1D3487540044AE42 /* Line.fragsh in Resources */ = {isa = PBXBuildFile; fileRef = 2DA38FD31D3487540044AE42 /* Line.fragsh */; };
-		2DA38FDF1D3487540044AE42 /* Line.vertsh in Resources */ = {isa = PBXBuildFile; fileRef = 2DA38FD41D3487540044AE42 /* Line.vertsh */; };
-		2DA38FE01D3487540044AE42 /* Simple.fragsh in Resources */ = {isa = PBXBuildFile; fileRef = 2DA38FD51D3487540044AE42 /* Simple.fragsh */; };
-		2DA38FE11D3487540044AE42 /* Simple.vertsh in Resources */ = {isa = PBXBuildFile; fileRef = 2DA38FD61D3487540044AE42 /* Simple.vertsh */; };
 		2DA38FE21D3487540044AE42 /* Texture.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FD91D3487540044AE42 /* Texture.mm */; };
 		2DA38FE91D3487E30044AE42 /* ImageTargetsEAGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FE61D3487E30044AE42 /* ImageTargetsEAGLView.mm */; };
 		2DA38FEA1D3487E30044AE42 /* ImageTargetsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FE81D3487E30044AE42 /* ImageTargetsViewController.mm */; };
@@ -52,9 +73,96 @@
 		2DA390471D348C4A0044AE42 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DA390461D348C4A0044AE42 /* Foundation.framework */; };
 		2DA390491D348C5D0044AE42 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DA390481D348C5D0044AE42 /* CoreMedia.framework */; };
 		2DA3904B1D348C670044AE42 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DA3904A1D348C670044AE42 /* CoreMotion.framework */; };
-		2DA390501D348D450044AE42 /* models in Resources */ = {isa = PBXBuildFile; fileRef = 2DA3904F1D348D450044AE42 /* models */; };
-		2DA390521D348DD70044AE42 /* datasets in Resources */ = {isa = PBXBuildFile; fileRef = 2DA390511D348DD70044AE42 /* datasets */; };
+		2DA390601D34CDC70044AE42 /* CZGeometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DA3900A1D3489FC0044AE42 /* CZGeometry.cpp */; };
+		2DA390611D34CDC70044AE42 /* CZMat4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DA3900D1D3489FC0044AE42 /* CZMat4.cpp */; };
+		2DA390621D34CDC70044AE42 /* CZNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DA3900F1D3489FC0044AE42 /* CZNode.cpp */; };
+		2DA390631D34CDC70044AE42 /* CZShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DA390111D3489FC0044AE42 /* CZShader.cpp */; };
+		2DA390641D34CDC70044AE42 /* CZUtil.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2DA390131D3489FC0044AE42 /* CZUtil.mm */; };
+		2DA390651D34CDC70044AE42 /* CZMaterial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DA390181D3489FC0044AE42 /* CZMaterial.cpp */; };
+		2DA390661D34CDC70044AE42 /* CZMaterialLib.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DA3901A1D3489FC0044AE42 /* CZMaterialLib.cpp */; };
+		2DA390671D34CDC70044AE42 /* CZObjFileParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DA3901C1D3489FC0044AE42 /* CZObjFileParser.cpp */; };
+		2DA390681D34CDC70044AE42 /* CZObjModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DA3901E1D3489FC0044AE42 /* CZObjModel.cpp */; };
+		2DA390691D34CDC70044AE42 /* ModelFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DA390201D3489FC0044AE42 /* ModelFactory.cpp */; };
+		2DA3906A1D34CDC70044AE42 /* ObjLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DA390221D3489FC0044AE42 /* ObjLoader.cpp */; };
+		2DA3906B1D34CDC70044AE42 /* ObjModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DA390241D3489FC0044AE42 /* ObjModel.cpp */; };
+		2DA3906C1D34CDC70044AE42 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA3902B1D3489FC0044AE42 /* UIImage+Resize.m */; };
+		2DA3906D1D34CDC70044AE42 /* ImageTargetsEAGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FE61D3487E30044AE42 /* ImageTargetsEAGLView.mm */; };
+		2DA3906E1D34CDC70044AE42 /* ImageTargetsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FE81D3487E30044AE42 /* ImageTargetsViewController.mm */; };
+		2DA3906F1D34CDC70044AE42 /* SampleAppAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FED1D3489710044AE42 /* SampleAppAboutViewController.m */; };
+		2DA390701D34CDC70044AE42 /* SampleAppMenuViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FEF1D3489710044AE42 /* SampleAppMenuViewController.mm */; };
+		2DA390711D34CDC70044AE42 /* SampleAppSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FF11D3489710044AE42 /* SampleAppSelectorViewController.m */; };
+		2DA390721D34CDC70044AE42 /* PresentMenuSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FF41D3489710044AE42 /* PresentMenuSegue.m */; };
+		2DA390731D34CDC70044AE42 /* UnwindMenuSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FF61D3489710044AE42 /* UnwindMenuSegue.m */; };
+		2DA390741D34CDC70044AE42 /* SampleApplication3DModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FCA1D3487540044AE42 /* SampleApplication3DModel.m */; };
+		2DA390751D34CDC70044AE42 /* SampleApplicationSession.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FCC1D3487540044AE42 /* SampleApplicationSession.mm */; };
+		2DA390761D34CDC70044AE42 /* SampleApplicationShaderUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FCE1D3487540044AE42 /* SampleApplicationShaderUtils.m */; };
+		2DA390771D34CDC70044AE42 /* SampleApplicationUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FCF1D3487540044AE42 /* SampleApplicationUtils.cpp */; };
+		2DA390781D34CDC70044AE42 /* Texture.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FD91D3487540044AE42 /* Texture.mm */; };
+		2DA390791D34CDDC0044AE42 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DA3904A1D348C670044AE42 /* CoreMotion.framework */; };
+		2DA3907A1D34CDDC0044AE42 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DA390481D348C5D0044AE42 /* CoreMedia.framework */; };
+		2DA3907B1D34CDDC0044AE42 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DA390461D348C4A0044AE42 /* Foundation.framework */; };
+		2DA3907C1D34CDDC0044AE42 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DA390441D348C360044AE42 /* Security.framework */; };
+		2DA3907D1D34CDDC0044AE42 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DA390421D348C280044AE42 /* SystemConfiguration.framework */; };
+		2DA3907E1D34CDDC0044AE42 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DA390401D348BD20044AE42 /* AVFoundation.framework */; };
+		2DA3907F1D34CDDC0044AE42 /* libVuforia.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DA38FC51D3486C40044AE42 /* libVuforia.a */; };
+		2DA390801D34CDDC0044AE42 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DA38FBB1D3485A80044AE42 /* UIKit.framework */; };
+		2DA390811D34CDDC0044AE42 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DA38FB91D34859B0044AE42 /* QuartzCore.framework */; };
+		2DA390821D34CDDC0044AE42 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DA38FB71D3485920044AE42 /* OpenGLES.framework */; };
+		2DA390831D34CE9A0044AE42 /* SampleAppAboutViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DA38FEC1D3489710044AE42 /* SampleAppAboutViewController.h */; };
+		2DA390841D34CE9A0044AE42 /* SampleAppMenuViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DA38FEE1D3489710044AE42 /* SampleAppMenuViewController.h */; };
+		2DA390851D34CE9A0044AE42 /* SampleAppSelectorViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DA38FF01D3489710044AE42 /* SampleAppSelectorViewController.h */; };
+		2DA390861D34CE9A0044AE42 /* PresentMenuSegue.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DA38FF31D3489710044AE42 /* PresentMenuSegue.h */; };
+		2DA390871D34CE9A0044AE42 /* UnwindMenuSegue.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DA38FF51D3489710044AE42 /* UnwindMenuSegue.h */; };
+		2DA390881D34CE9A0044AE42 /* Quad.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DA38FC81D3487540044AE42 /* Quad.h */; };
+		2DA390891D34CE9A0044AE42 /* SampleApplication3DModel.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DA38FC91D3487540044AE42 /* SampleApplication3DModel.h */; };
+		2DA3908A1D34CE9A0044AE42 /* SampleApplicationSession.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DA38FCB1D3487540044AE42 /* SampleApplicationSession.h */; };
+		2DA3908B1D34CE9A0044AE42 /* SampleApplicationShaderUtils.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DA38FCD1D3487540044AE42 /* SampleApplicationShaderUtils.h */; };
+		2DA3908C1D34CE9A0044AE42 /* SampleApplicationUtils.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DA38FD01D3487540044AE42 /* SampleApplicationUtils.h */; };
+		2DA3908D1D34CE9A0044AE42 /* SampleGLResourceHandler.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DA38FD11D3487540044AE42 /* SampleGLResourceHandler.h */; };
+		2DA3908E1D34CE9A0044AE42 /* Teapot.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DA38FD71D3487540044AE42 /* Teapot.h */; };
+		2DA3908F1D34CE9A0044AE42 /* Texture.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DA38FD81D3487540044AE42 /* Texture.h */; };
+		2DA391431D34DB190044AE42 /* ImageTargetsEAGLView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DA38FE51D3487E30044AE42 /* ImageTargetsEAGLView.h */; };
+		2DA391441D34DB190044AE42 /* ImageTargetsViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DA38FE71D3487E30044AE42 /* ImageTargetsViewController.h */; };
+		2DA3915C1D34E6F70044AE42 /* Line.fragsh in Resources */ = {isa = PBXBuildFile; fileRef = 2DA38FD31D3487540044AE42 /* Line.fragsh */; };
+		2DA3915D1D34E6F70044AE42 /* Line.vertsh in Resources */ = {isa = PBXBuildFile; fileRef = 2DA38FD41D3487540044AE42 /* Line.vertsh */; };
+		2DA3915E1D34E6F70044AE42 /* Simple.fragsh in Resources */ = {isa = PBXBuildFile; fileRef = 2DA38FD51D3487540044AE42 /* Simple.fragsh */; };
+		2DA3915F1D34E6F70044AE42 /* Simple.vertsh in Resources */ = {isa = PBXBuildFile; fileRef = 2DA38FD61D3487540044AE42 /* Simple.vertsh */; };
+		2DC4E2DE1D34EFD200BFB57B /* Line.fragsh in Resources */ = {isa = PBXBuildFile; fileRef = 2DA38FD31D3487540044AE42 /* Line.fragsh */; };
+		2DC4E2DF1D34EFD200BFB57B /* Line.vertsh in Resources */ = {isa = PBXBuildFile; fileRef = 2DA38FD41D3487540044AE42 /* Line.vertsh */; };
+		2DC4E2E01D34EFD200BFB57B /* Simple.fragsh in Resources */ = {isa = PBXBuildFile; fileRef = 2DA38FD51D3487540044AE42 /* Simple.fragsh */; };
+		2DC4E2E11D34EFD200BFB57B /* Simple.vertsh in Resources */ = {isa = PBXBuildFile; fileRef = 2DA38FD61D3487540044AE42 /* Simple.vertsh */; };
+		2DC4E2FE1D34F01900BFB57B /* datasets in Resources */ = {isa = PBXBuildFile; fileRef = 2DC4E2FC1D34F01900BFB57B /* datasets */; };
+		2DC4E2FF1D34F01900BFB57B /* datasets in Resources */ = {isa = PBXBuildFile; fileRef = 2DC4E2FC1D34F01900BFB57B /* datasets */; };
+		2DC4E3001D34F01900BFB57B /* models in Resources */ = {isa = PBXBuildFile; fileRef = 2DC4E2FD1D34F01900BFB57B /* models */; };
+		2DC4E3011D34F01900BFB57B /* models in Resources */ = {isa = PBXBuildFile; fileRef = 2DC4E2FD1D34F01900BFB57B /* models */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2DA390551D34CD3C0044AE42 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = include;
+			dstSubfolderSpec = 16;
+			files = (
+				2DA391431D34DB190044AE42 /* ImageTargetsEAGLView.h in CopyFiles */,
+				2DA391441D34DB190044AE42 /* ImageTargetsViewController.h in CopyFiles */,
+				2DA390831D34CE9A0044AE42 /* SampleAppAboutViewController.h in CopyFiles */,
+				2DA390841D34CE9A0044AE42 /* SampleAppMenuViewController.h in CopyFiles */,
+				2DA390851D34CE9A0044AE42 /* SampleAppSelectorViewController.h in CopyFiles */,
+				2DA390861D34CE9A0044AE42 /* PresentMenuSegue.h in CopyFiles */,
+				2DA390871D34CE9A0044AE42 /* UnwindMenuSegue.h in CopyFiles */,
+				2DA390881D34CE9A0044AE42 /* Quad.h in CopyFiles */,
+				2DA390891D34CE9A0044AE42 /* SampleApplication3DModel.h in CopyFiles */,
+				2DA3908A1D34CE9A0044AE42 /* SampleApplicationSession.h in CopyFiles */,
+				2DA3908B1D34CE9A0044AE42 /* SampleApplicationShaderUtils.h in CopyFiles */,
+				2DA3908C1D34CE9A0044AE42 /* SampleApplicationUtils.h in CopyFiles */,
+				2DA3908D1D34CE9A0044AE42 /* SampleGLResourceHandler.h in CopyFiles */,
+				2DA3908E1D34CE9A0044AE42 /* Teapot.h in CopyFiles */,
+				2DA3908F1D34CE9A0044AE42 /* Texture.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		2DA38F9A1D3483530044AE42 /* ARDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -137,8 +245,12 @@
 		2DA390461D348C4A0044AE42 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2DA390481D348C5D0044AE42 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		2DA3904A1D348C670044AE42 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
-		2DA3904F1D348D450044AE42 /* models */ = {isa = PBXFileReference; lastKnownFileType = folder; name = models; path = Resources/models; sourceTree = "<group>"; };
-		2DA390511D348DD70044AE42 /* datasets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = datasets; path = Resources/datasets; sourceTree = "<group>"; };
+		2DA390571D34CD3C0044AE42 /* libAR.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAR.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2DA390951D34D0930044AE42 /* ARResources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ARResources.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		2DA390971D34D0940044AE42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2DA391591D34E3730044AE42 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
+		2DC4E2FC1D34F01900BFB57B /* datasets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = datasets; path = Resources/datasets; sourceTree = "<group>"; };
+		2DC4E2FD1D34F01900BFB57B /* models */ = {isa = PBXFileReference; lastKnownFileType = folder; name = models; path = Resources/models; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,12 +271,37 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2DA390541D34CD3C0044AE42 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2DA390791D34CDDC0044AE42 /* CoreMotion.framework in Frameworks */,
+				2DA3907A1D34CDDC0044AE42 /* CoreMedia.framework in Frameworks */,
+				2DA3907B1D34CDDC0044AE42 /* Foundation.framework in Frameworks */,
+				2DA3907C1D34CDDC0044AE42 /* Security.framework in Frameworks */,
+				2DA3907D1D34CDDC0044AE42 /* SystemConfiguration.framework in Frameworks */,
+				2DA3907E1D34CDDC0044AE42 /* AVFoundation.framework in Frameworks */,
+				2DA3907F1D34CDDC0044AE42 /* libVuforia.a in Frameworks */,
+				2DA390801D34CDDC0044AE42 /* UIKit.framework in Frameworks */,
+				2DA390811D34CDDC0044AE42 /* QuartzCore.framework in Frameworks */,
+				2DA390821D34CDDC0044AE42 /* OpenGLES.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2DA390921D34D0930044AE42 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		2DA38F911D3483520044AE42 = {
 			isa = PBXGroup;
 			children = (
+				2DA390961D34D0930044AE42 /* ARResources */,
 				2DA38FB61D3485630044AE42 /* Frameworks */,
 				2DA38F9C1D3483530044AE42 /* ARDemo */,
 				2DA38F9B1D3483530044AE42 /* Products */,
@@ -175,6 +312,8 @@
 			isa = PBXGroup;
 			children = (
 				2DA38F9A1D3483530044AE42 /* ARDemo.app */,
+				2DA390571D34CD3C0044AE42 /* libAR.a */,
+				2DA390951D34D0930044AE42 /* ARResources.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -202,6 +341,7 @@
 		2DA38FB61D3485630044AE42 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2DA391591D34E3730044AE42 /* libstdc++.6.0.9.tbd */,
 				2DA3904A1D348C670044AE42 /* CoreMotion.framework */,
 				2DA390481D348C5D0044AE42 /* CoreMedia.framework */,
 				2DA390461D348C4A0044AE42 /* Foundation.framework */,
@@ -351,8 +491,8 @@
 		2DA3904C1D348CCF0044AE42 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				2DA390511D348DD70044AE42 /* datasets */,
-				2DA3904F1D348D450044AE42 /* models */,
+				2DC4E2FC1D34F01900BFB57B /* datasets */,
+				2DC4E2FD1D34F01900BFB57B /* models */,
 				2DA38FA61D3483530044AE42 /* Main.storyboard */,
 				2DA38FA91D3483530044AE42 /* Assets.xcassets */,
 				2DA38FAB1D3483530044AE42 /* LaunchScreen.storyboard */,
@@ -372,6 +512,14 @@
 				2DA38FC11D3486440044AE42 /* ViewController.m */,
 			);
 			name = Classes;
+			sourceTree = "<group>";
+		};
+		2DA390961D34D0930044AE42 /* ARResources */ = {
+			isa = PBXGroup;
+			children = (
+				2DA390971D34D0940044AE42 /* Info.plist */,
+			);
+			path = ARResources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -394,6 +542,41 @@
 			productReference = 2DA38F9A1D3483530044AE42 /* ARDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
+		2DA390561D34CD3C0044AE42 /* AR */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2DA3905D1D34CD3C0044AE42 /* Build configuration list for PBXNativeTarget "AR" */;
+			buildPhases = (
+				2DA390531D34CD3C0044AE42 /* Sources */,
+				2DA390541D34CD3C0044AE42 /* Frameworks */,
+				2DA390551D34CD3C0044AE42 /* CopyFiles */,
+				2DA390901D34CFA20044AE42 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AR;
+			productName = AR;
+			productReference = 2DA390571D34CD3C0044AE42 /* libAR.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		2DA390941D34D0930044AE42 /* ARResources */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2DA390981D34D0940044AE42 /* Build configuration list for PBXNativeTarget "ARResources" */;
+			buildPhases = (
+				2DA390911D34D0930044AE42 /* Sources */,
+				2DA390921D34D0930044AE42 /* Frameworks */,
+				2DA390931D34D0930044AE42 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ARResources;
+			productName = ARResources;
+			productReference = 2DA390951D34D0930044AE42 /* ARResources.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -406,6 +589,21 @@
 					2DA38F991D3483530044AE42 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = JWD48Y236P;
+					};
+					2DA390561D34CD3C0044AE42 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 7NC252WH29;
+					};
+					2DA390941D34D0930044AE42 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					2DA3909D1D34D1370044AE42 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 7NC252WH29;
+					};
+					2DA390A21D34D3790044AE42 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 7NC252WH29;
 					};
 				};
 			};
@@ -423,6 +621,10 @@
 			projectRoot = "";
 			targets = (
 				2DA38F991D3483530044AE42 /* ARDemo */,
+				2DA390561D34CD3C0044AE42 /* AR */,
+				2DA390941D34D0930044AE42 /* ARResources */,
+				2DA3909D1D34D1370044AE42 /* createARLib */,
+				2DA390A21D34D3790044AE42 /* CopyInclude */,
 			);
 		};
 /* End PBXProject section */
@@ -432,19 +634,74 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DA38FE11D3487540044AE42 /* Simple.vertsh in Resources */,
-				2DA38FDE1D3487540044AE42 /* Line.fragsh in Resources */,
-				2DA390501D348D450044AE42 /* models in Resources */,
-				2DA38FDF1D3487540044AE42 /* Line.vertsh in Resources */,
-				2DA390521D348DD70044AE42 /* datasets in Resources */,
-				2DA38FE01D3487540044AE42 /* Simple.fragsh in Resources */,
+				2DC4E2E11D34EFD200BFB57B /* Simple.vertsh in Resources */,
+				2DC4E2FE1D34F01900BFB57B /* datasets in Resources */,
+				2DC4E2DE1D34EFD200BFB57B /* Line.fragsh in Resources */,
+				2DC4E2DF1D34EFD200BFB57B /* Line.vertsh in Resources */,
+				2DC4E2E01D34EFD200BFB57B /* Simple.fragsh in Resources */,
+				2DC4E3001D34F01900BFB57B /* models in Resources */,
 				2DA38FAD1D3483530044AE42 /* LaunchScreen.storyboard in Resources */,
 				2DA38FAA1D3483530044AE42 /* Assets.xcassets in Resources */,
 				2DA38FA81D3483530044AE42 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2DA390931D34D0930044AE42 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2DC4E2FF1D34F01900BFB57B /* datasets in Resources */,
+				2DA3915C1D34E6F70044AE42 /* Line.fragsh in Resources */,
+				2DC4E3011D34F01900BFB57B /* models in Resources */,
+				2DA3915D1D34E6F70044AE42 /* Line.vertsh in Resources */,
+				2DA3915E1D34E6F70044AE42 /* Simple.fragsh in Resources */,
+				2DA3915F1D34E6F70044AE42 /* Simple.vertsh in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2DA390901D34CFA20044AE42 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "";
+		};
+		2DA390A11D34D13E0044AE42 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# define output folder environment variable\nUNIVERSAL_OUTPUTFOLDER=output/${CONFIGURATION}\nLIB_NAME=AR\n\n\n# Step 1. Build Device and Simulator versions\nxcodebuild -target \"${LIB_NAME}\" ONLY_ACTIVE_ARCH=NO -configuration ${CONFIGURATION} -sdk iphoneos BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\"\nxcodebuild -target \"${LIB_NAME}\" -configuration ${CONFIGURATION} -sdk iphonesimulator -arch i386 -arch x86_64 BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\"\nxcodebuild -target \"${LIB_NAME}Resources\"-configuration ${CONFIGURATION} -sdk iphoneos BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\"\n\n# make sure the output directory exists\nmkdir -p \"${UNIVERSAL_OUTPUTFOLDER}\"\n\n# Step 2. Create universal binary file using lipo\nlipo -create -output \"${UNIVERSAL_OUTPUTFOLDER}/lib${LIB_NAME}.a\" \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/lib${LIB_NAME}.a\" \"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/lib${LIB_NAME}.a\"\n\n# Last touch. copy the header files. Just for convenience\ncp -R \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/include\" \"${UNIVERSAL_OUTPUTFOLDER}/\"\n\ncp -R \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${LIB_NAME}Resources.bundle\" \"${UNIVERSAL_OUTPUTFOLDER}/\"\n";
+		};
+		2DA390A61D34D37E0044AE42 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# define output folder environment variable\nUNIVERSAL_OUTPUTFOLDER=output/${CONFIGURATION}\nOBJ_MODEL_INC=ARDemo/Classes/ObjModel\nVUFORIA_INC=../../build/include\n\nmkdir -p \"${OBJ_MODEL_INC}/include/basic\"\nmkdir -p \"${OBJ_MODEL_INC}/include/objModel\"\n\ncp -r `find \"${OBJ_MODEL_INC}\" -name *.h -or -name *.hpp -maxdepth 1` \"${OBJ_MODEL_INC}/include\"\ncp -r `find \"${OBJ_MODEL_INC}/basic\" -name *.h -or -name *.hpp -maxdepth 1` \"${OBJ_MODEL_INC}/include/basic\"\ncp -r `find \"${OBJ_MODEL_INC}/objModel\" -name *.h -or -name *.hpp -maxdepth 1` \"${OBJ_MODEL_INC}/include/objModel\"\n\ncp -R \"${OBJ_MODEL_INC}/include\" \"${UNIVERSAL_OUTPUTFOLDER}/\"\ncp -R \"${VUFORIA_INC}\" \"${UNIVERSAL_OUTPUTFOLDER}/\"\n\nrm -rf \"${OBJ_MODEL_INC}/include/\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2DA38F961D3483530044AE42 /* Sources */ = {
@@ -479,6 +736,45 @@
 				2DA3903B1D3489FC0044AE42 /* ModelFactory.cpp in Sources */,
 				2DA38FDB1D3487540044AE42 /* SampleApplicationSession.mm in Sources */,
 				2DA3903C1D3489FC0044AE42 /* ObjLoader.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2DA390531D34CD3C0044AE42 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2DA390601D34CDC70044AE42 /* CZGeometry.cpp in Sources */,
+				2DA390611D34CDC70044AE42 /* CZMat4.cpp in Sources */,
+				2DA390621D34CDC70044AE42 /* CZNode.cpp in Sources */,
+				2DA390631D34CDC70044AE42 /* CZShader.cpp in Sources */,
+				2DA390641D34CDC70044AE42 /* CZUtil.mm in Sources */,
+				2DA390651D34CDC70044AE42 /* CZMaterial.cpp in Sources */,
+				2DA390661D34CDC70044AE42 /* CZMaterialLib.cpp in Sources */,
+				2DA390671D34CDC70044AE42 /* CZObjFileParser.cpp in Sources */,
+				2DA390681D34CDC70044AE42 /* CZObjModel.cpp in Sources */,
+				2DA390691D34CDC70044AE42 /* ModelFactory.cpp in Sources */,
+				2DA3906A1D34CDC70044AE42 /* ObjLoader.cpp in Sources */,
+				2DA3906B1D34CDC70044AE42 /* ObjModel.cpp in Sources */,
+				2DA3906C1D34CDC70044AE42 /* UIImage+Resize.m in Sources */,
+				2DA3906D1D34CDC70044AE42 /* ImageTargetsEAGLView.mm in Sources */,
+				2DA3906E1D34CDC70044AE42 /* ImageTargetsViewController.mm in Sources */,
+				2DA3906F1D34CDC70044AE42 /* SampleAppAboutViewController.m in Sources */,
+				2DA390701D34CDC70044AE42 /* SampleAppMenuViewController.mm in Sources */,
+				2DA390711D34CDC70044AE42 /* SampleAppSelectorViewController.m in Sources */,
+				2DA390721D34CDC70044AE42 /* PresentMenuSegue.m in Sources */,
+				2DA390731D34CDC70044AE42 /* UnwindMenuSegue.m in Sources */,
+				2DA390741D34CDC70044AE42 /* SampleApplication3DModel.m in Sources */,
+				2DA390751D34CDC70044AE42 /* SampleApplicationSession.mm in Sources */,
+				2DA390761D34CDC70044AE42 /* SampleApplicationShaderUtils.m in Sources */,
+				2DA390771D34CDC70044AE42 /* SampleApplicationUtils.cpp in Sources */,
+				2DA390781D34CDC70044AE42 /* Texture.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2DA390911D34D0930044AE42 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -623,6 +919,93 @@
 			};
 			name = Release;
 		};
+		2DA3905E1D34CD3C0044AE42 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = ../../build/include;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = ../../build/lib/arm;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		2DA3905F1D34CD3C0044AE42 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = ../../build/include;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = ../../build/lib/arm;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		2DA390991D34D0940044AE42 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = ARResources/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = com.founder.ARResources;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		2DA3909A1D34D0940044AE42 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = ARResources/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = com.founder.ARResources;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		2DA3909F1D34D1370044AE42 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		2DA390A01D34D1370044AE42 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		2DA390A41D34D3790044AE42 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		2DA390A51D34D3790044AE42 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -640,6 +1023,42 @@
 			buildConfigurations = (
 				2DA38FB21D3483530044AE42 /* Debug */,
 				2DA38FB31D3483530044AE42 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2DA3905D1D34CD3C0044AE42 /* Build configuration list for PBXNativeTarget "AR" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2DA3905E1D34CD3C0044AE42 /* Debug */,
+				2DA3905F1D34CD3C0044AE42 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2DA390981D34D0940044AE42 /* Build configuration list for PBXNativeTarget "ARResources" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2DA390991D34D0940044AE42 /* Debug */,
+				2DA3909A1D34D0940044AE42 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2DA3909E1D34D1370044AE42 /* Build configuration list for PBXAggregateTarget "createARLib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2DA3909F1D34D1370044AE42 /* Debug */,
+				2DA390A01D34D1370044AE42 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2DA390A31D34D3790044AE42 /* Build configuration list for PBXAggregateTarget "CopyInclude" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2DA390A41D34D3790044AE42 /* Debug */,
+				2DA390A51D34D3790044AE42 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

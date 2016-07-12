@@ -20,6 +20,8 @@ countries.
 #import "PresentMenuSegue.h"
 #import "SampleAppMenuViewController.h"
 
+#define NO_MENU
+
 @interface ImageTargetsViewController ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *ARViewPlaceholder;
@@ -236,8 +238,14 @@ countries.
 
 // load the data associated to the trackers
 - (bool) doLoadTrackersData {
+#ifdef LOAD_BUNDLE
+        dataSetStonesAndChips = [self loadObjectTrackerDataSet:@"ARResources.bundle/datasets/ImageTargets/StonesAndChips.xml"];
+        dataSetMyData = [self loadObjectTrackerDataSet:@"ARResources.bundle/datasets/ImageTargets/VuforiaTestDevice.xml"];
+#else
     dataSetStonesAndChips = [self loadObjectTrackerDataSet:@"datasets/ImageTargets/StonesAndChips.xml"];
     dataSetMyData = [self loadObjectTrackerDataSet:@"datasets/ImageTargets/VuforiaTestDevice.xml"];
+#endif
+        
     if ((dataSetStonesAndChips == NULL) || (dataSetMyData == NULL)) {
         NSLog(@"Failed to load datasets");
         return NO;
@@ -502,17 +510,20 @@ countries.
 
 - (void)doubleTapGestureAction:(UITapGestureRecognizer*)theGesture
 {
-
+#ifndef NO_MENU
     if (!self.showingMenu) {
         [self performSegueWithIdentifier: @"PresentMenu" sender: self];
     }
+#endif
 }
 
 - (void)swipeGestureAction:(UISwipeGestureRecognizer*)gesture
 {
+#ifndef NO_MENU
     if (!self.showingMenu) {
         [self performSegueWithIdentifier:@"PresentMenu" sender:self];
     }
+#endif
 }
 
 

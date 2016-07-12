@@ -48,6 +48,15 @@ countries.
 namespace {
     // --- Data private to this unit ---
 
+#ifdef LOAD_BUNDLE
+    const char* textureFilenames[] = {
+        "ARResources.bundle/models/TextureTeapotBrass.png",
+        "ARResources.bundle/models/TextureTeapotBlue.png",
+        "ARResources.bundle/models/TextureTeapotRed.png",
+        "ARResources.bundle/models/TextureTeapotGreen.png",
+        "ARResources.bundle/models/plane/texture.jpg"
+    };
+#else
     // Teapot texture filenames
     const char* textureFilenames[] = {
         "models/TextureTeapotBrass.png",
@@ -56,7 +65,7 @@ namespace {
         "models/TextureTeapotGreen.png",
         "models/plane/texture.jpg"
     };
-    
+#endif
     // Model scale factor
     const float kObjectScaleNormal = 3.0f;
     const float kObjectScaleOffTargetTracking = 12.0f;
@@ -127,11 +136,13 @@ namespace {
             glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
             glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, [augmentationTexture[i] width], [augmentationTexture[i] height], 0, GL_RGBA, GL_UNSIGNED_BYTE, (GLvoid*)[augmentationTexture[i] pngData]);
         }
-
+        
         offTargetTrackingEnabled = NO;
         
         [self loadMyModel];
         [self initShaders];
+        
+        SampleApplicationUtils::checkGlError("Inital!");
         
         SampleApplicationUtils::setIndentityMatrix(translateMat.data);
         SampleApplicationUtils::setIndentityMatrix(scaleMat.data);
@@ -183,7 +194,11 @@ namespace {
 }
 
 - (void) loadMyModel {
+#ifdef LOAD_BUNDLE
+    NSString *modelPath = [[[NSBundle mainBundle]bundlePath] stringByAppendingPathComponent:@"ARResources.bundle/models/plane/plane.obj"];
+#else
     NSString *modelPath = [[[NSBundle mainBundle]bundlePath] stringByAppendingPathComponent:@"models/plane/plane.obj"];
+#endif
     myModel = ModelFactory::createObjModel([modelPath UTF8String]);
 }
 
@@ -290,8 +305,16 @@ namespace {
         } else {
             glBindTexture(GL_TEXTURE_2D, augmentationTexture[targetIndex].textureID);
         }
+        
+        
+        SampleApplicationUtils::checkGlError("before enable array!");
+        
         glUniformMatrix4fv(mvpMatrixHandle, 1, GL_FALSE, (const GLfloat*)&modelViewProjection.data[0]);
+        
+        SampleApplicationUtils::checkGlError("before active texture!");
         glUniform1i(texSampler2DHandle, 0 /*GL_TEXTURE0*/);
+        
+        SampleApplicationUtils::checkGlError("after transform uniform!");
         
         if (offTargetTrackingEnabled) {
             for (std::vector<CZGeometry*>::iterator itr = myModel->geometries.begin(); itr != myModel->geometries.end(); itr++)
@@ -324,9 +347,14 @@ namespace {
 
 - (void)initShaders
 {
+#ifdef LOAD_BUNDLE
+    shaderProgramID = [SampleApplicationShaderUtils createProgramWithVertexShaderFileName:@"ARResources.bundle/Simple.vertsh"
+                                                   fragmentShaderFileName:@"ARResources.bundle/Simple.fragsh"];
+#else
     shaderProgramID = [SampleApplicationShaderUtils createProgramWithVertexShaderFileName:@"Simple.vertsh"
-                                                   fragmentShaderFileName:@"Simple.fragsh"];
-
+                                                    fragmentShaderFileName:@"Simple.fragsh"];
+#endif
+    
     if (0 < shaderProgramID) {
         vertexHandle = glGetAttribLocation(shaderProgramID, "vertexPosition");
         normalHandle = glGetAttribLocation(shaderProgramID, "vertexNormal");
