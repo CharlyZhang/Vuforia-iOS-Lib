@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
+  <Tracking>
+    <ImageTarget name="FontImage" size="200.000000 39.560440" />
+    <ImageTarget name="SunStructure" size="200.000000 200.000000" />
+    <ImageTarget name="yellowman" size="200.000000 112.934631" />
+    <ImageTarget name="img20120929" size="465.000000 456.000000" />
+  </Tracking>
+</QCARConfig>
