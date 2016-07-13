@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "ARViewController.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    NSDictionary *config = @{@"dataSets" : @{
+                                     @"myData" : @"datasets/ImageTargets/VuforiaTestDevice.xml",
+                                     @"chips" : @"datasets/ImageTargets/StonesAndChips.xml"
+                                     }};
+    self.window.rootViewController = [[ARViewController alloc]initWithParam:config];
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
