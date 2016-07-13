@@ -8,9 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+#define AR_CONFIG_INIT_FLAG    @"initFlag"
+#define AR_CONFIG_DATA_SETS    @"dataSets"
+#define AR_CONFIG_MODEL        @"models"
+
 @interface ARViewController : UIViewController
 
 /*/
+ @"initFlag" : @"...."
  @"dataSets": @{@"name1":@"path1",@"name2":@"path2"...}
  @"models" : @{@"targetName" : @"modelPath"}
 /*/

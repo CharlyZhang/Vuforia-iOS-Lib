@@ -65,7 +65,7 @@ typedef map<string, Vuforia::DataSet*> DataSetMap;
     
     CGRect viewFrame = [self getCurrentARViewFrame];
     
-    NSDictionary *modelsConfig = [configurations objectForKey:@"models"];
+    NSDictionary *modelsConfig = [configurations objectForKey:AR_CONFIG_MODEL];
     eaglView = [[AREAGLView alloc] initWithFrame:viewFrame appSession:vapp modelsConfig:modelsConfig];
     [self setView:eaglView];
     AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
@@ -95,7 +95,8 @@ typedef map<string, Vuforia::DataSet*> DataSetMap;
      object:nil];
     
     // initialize AR
-    [vapp initAR:Vuforia::GL_20 orientation:self.interfaceOrientation];
+    NSString *initFlag = [configurations objectForKey:AR_CONFIG_INIT_FLAG];
+    [vapp initAR:Vuforia::GL_20 orientation:self.interfaceOrientation flags:initFlag];
     
     // show loading animation while AR is being initialized
     [self showLoadingAnimation];
@@ -183,7 +184,7 @@ typedef map<string, Vuforia::DataSet*> DataSetMap;
 // load the data associated to the trackers
 - (bool) doLoadTrackersData {
     datasets.clear();
-    NSDictionary *datasetPath = [configurations objectForKey:@"dataSets"];
+    NSDictionary *datasetPath = [configurations objectForKey:AR_CONFIG_DATA_SETS];
     
     curDataSetName = "";
     for(NSString *dName in datasetPath)

@@ -71,6 +71,7 @@ Copyright (c) 2016 PTC Inc. All Rights Reserved.
 
 // initialize the AR library. This is an asynchronous method. When the initialization is complete, the callback method initARDone will be called
 - (void) initAR:(int) VuforiaInitFlags orientation:(UIInterfaceOrientation) ARViewOrientation;
+- (void) initAR:(int) VuforiaInitFlags orientation:(UIInterfaceOrientation) ARViewOrientation flags:(NSString*) initFlag;
 
 // start the AR session
 - (bool) startAR:(Vuforia::CameraDevice::CAMERA_DIRECTION) camera error:(NSError **)error;
