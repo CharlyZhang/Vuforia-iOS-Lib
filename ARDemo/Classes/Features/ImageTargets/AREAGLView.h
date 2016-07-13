@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 #import <Vuforia/UIGLViewProtocol.h>
 #import "SampleApplicationSession.h"
-#import "SampleGLResourceHandler.h"
 
-@interface AREAGLView : UIView <UIGLViewProtocol, SampleGLResourceHandler> 
+@protocol ARGLResourceHandler;
+
+@interface AREAGLView : UIView <UIGLViewProtocol, ARGLResourceHandler> 
 
 /*/
  @{@"targetName" : @"modelPath"}

@@ -47,8 +47,6 @@
 		2DA38FDC1D3487540044AE42 /* SampleApplicationShaderUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FCE1D3487540044AE42 /* SampleApplicationShaderUtils.m */; };
 		2DA38FDD1D3487540044AE42 /* SampleApplicationUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FCF1D3487540044AE42 /* SampleApplicationUtils.cpp */; };
 		2DA38FE21D3487540044AE42 /* Texture.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FD91D3487540044AE42 /* Texture.mm */; };
-		2DA38FE91D3487E30044AE42 /* ImageTargetsEAGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FE61D3487E30044AE42 /* ImageTargetsEAGLView.mm */; };
-		2DA38FEA1D3487E30044AE42 /* ImageTargetsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FE81D3487E30044AE42 /* ImageTargetsViewController.mm */; };
 		2DA38FF71D3489710044AE42 /* SampleAppAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FED1D3489710044AE42 /* SampleAppAboutViewController.m */; };
 		2DA38FF81D3489710044AE42 /* SampleAppMenuViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FEF1D3489710044AE42 /* SampleAppMenuViewController.mm */; };
 		2DA38FF91D3489710044AE42 /* SampleAppSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FF11D3489710044AE42 /* SampleAppSelectorViewController.m */; };
@@ -115,7 +113,6 @@
 		2DCF47211D35E796005226C9 /* AREAGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2DCF47201D35E796005226C9 /* AREAGLView.mm */; };
 		2DCF47221D35E796005226C9 /* AREAGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2DCF47201D35E796005226C9 /* AREAGLView.mm */; };
 		2DCF47231D361CB4005226C9 /* ARViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DCF47191D34F720005226C9 /* ARViewController.h */; };
-		2DCF47271D361FB6005226C9 /* SampleGLResourceHandler.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DA38FD11D3487540044AE42 /* SampleGLResourceHandler.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -125,7 +122,6 @@
 			dstPath = include;
 			dstSubfolderSpec = 16;
 			files = (
-				2DCF47271D361FB6005226C9 /* SampleGLResourceHandler.h in CopyFiles */,
 				2DCF47231D361CB4005226C9 /* ARViewController.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -689,8 +685,6 @@
 				2DA38FF91D3489710044AE42 /* SampleAppSelectorViewController.m in Sources */,
 				2DA38FC41D3486440044AE42 /* ViewController.m in Sources */,
 				2DA38FF81D3489710044AE42 /* SampleAppMenuViewController.mm in Sources */,
-				2DA38FEA1D3487E30044AE42 /* ImageTargetsViewController.mm in Sources */,
-				2DA38FE91D3487E30044AE42 /* ImageTargetsEAGLView.mm in Sources */,
 				2DA3903D1D3489FC0044AE42 /* ObjModel.cpp in Sources */,
 				2DA390391D3489FC0044AE42 /* CZObjFileParser.cpp in Sources */,
 				2DA38FF71D3489710044AE42 /* SampleAppAboutViewController.m in Sources */,

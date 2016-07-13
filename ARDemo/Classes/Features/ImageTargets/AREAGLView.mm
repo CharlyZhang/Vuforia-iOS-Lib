@@ -12,6 +12,7 @@
 #import "CZObjModel.h"
 #import "SampleApplicationUtils.h"
 #import "SampleApplicationShaderUtils.h"
+#import "ARViewController.h"                //< for `ARGLResourceHandler`
 
 #import <QuartzCore/QuartzCore.h>
 #import <OpenGLES/ES2/gl.h>

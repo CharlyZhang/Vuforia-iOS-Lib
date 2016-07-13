@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "ARViewController.h"
 
 @interface AppDelegate ()
 

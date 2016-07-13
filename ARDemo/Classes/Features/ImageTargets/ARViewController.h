@@ -12,6 +12,13 @@
 #define AR_CONFIG_DATA_SETS    @"dataSets"
 #define AR_CONFIG_MODEL        @"models"
 
+@protocol ARGLResourceHandler
+
+@required
+- (void) freeOpenGLESResources;
+- (void) finishOpenGLESCommands;
+@end
+
 @interface ARViewController : UIViewController
 
 /*/
