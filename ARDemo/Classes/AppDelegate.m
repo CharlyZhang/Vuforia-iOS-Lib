@@ -21,6 +21,10 @@
     NSDictionary *config = @{@"dataSets" : @{
                                      @"myData" : @"datasets/ImageTargets/VuforiaTestDevice.xml",
                                      @"chips" : @"datasets/ImageTargets/StonesAndChips.xml"
+                                     },
+                             @"models"  : @{
+                                     @"img20120929" : @"models/plane/plane.obj",
+                                     @"SunStructure"    :   @"models/南禅寺1/ww.obj"
                                      }};
     self.window.rootViewController = [[ARViewController alloc]initWithParam:config];
     [self.window makeKeyAndVisible];

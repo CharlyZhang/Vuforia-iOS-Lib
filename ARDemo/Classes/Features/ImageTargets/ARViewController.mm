@@ -8,7 +8,7 @@
 
 #import "ARViewController.h"
 #import "SampleApplicationSession.h"
-#import "ImageTargetsEAGLView.h"
+#import "AREAGLView.h"
 #import "AppDelegate.h"
 #import <Vuforia/Vuforia.h>
 #import <Vuforia/TrackerManager.h>
@@ -21,6 +21,8 @@
 #include <string>
 using namespace std;
 
+#define DEBUG
+
 typedef map<string, Vuforia::DataSet*> DataSetMap;
 @interface ARViewController ()  <SampleApplicationControl>
 {
@@ -29,7 +31,7 @@ typedef map<string, Vuforia::DataSet*> DataSetMap;
     DataSetMap datasets;
 }
 
-@property (nonatomic, strong) ImageTargetsEAGLView* eaglView;
+@property (nonatomic, strong) AREAGLView* eaglView;
 @property (nonatomic, strong) UITapGestureRecognizer * tapGestureRecognizer;
 @property (nonatomic, strong) SampleApplicationSession * vapp;
 @property (nonatomic, strong) NSDictionary *configurations;
@@ -65,7 +67,8 @@ typedef map<string, Vuforia::DataSet*> DataSetMap;
     
     CGRect viewFrame = [self getCurrentARViewFrame];
     
-    eaglView = [[ImageTargetsEAGLView alloc] initWithFrame:viewFrame appSession:vapp];
+    NSDictionary *modelsConfig = [configurations objectForKey:@"models"];
+    eaglView = [[AREAGLView alloc] initWithFrame:viewFrame appSession:vapp modelsConfig:modelsConfig];
     [self setView:eaglView];
     AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     appDelegate.glResourceHandler = eaglView;
@@ -127,6 +130,11 @@ typedef map<string, Vuforia::DataSet*> DataSetMap;
     appDelegate.glResourceHandler = nil;
     
     [super viewWillDisappear:animated];
+}
+
+- (BOOL) shouldAutorotate
+{
+    return NO;
 }
 
 - (void)dealloc
@@ -198,6 +206,9 @@ typedef map<string, Vuforia::DataSet*> DataSetMap;
         return NO;
     }
     
+#ifdef DEBUG
+    self.activeDataSetName = @"myData";
+#endif
     return YES;
 }
 

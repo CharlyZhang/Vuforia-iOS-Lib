@@ -11,7 +11,8 @@
 @interface ARViewController : UIViewController
 
 /*/
- @"dataSets": @{@"name1":@"path1",@"name2":@"path2"...};
+ @"dataSets": @{@"name1":@"path1",@"name2":@"path2"...}
+ @"models" : @{@"targetName" : @"modelPath"}
 /*/
 
 - (instancetype)initWithParam:(NSDictionary*)config;

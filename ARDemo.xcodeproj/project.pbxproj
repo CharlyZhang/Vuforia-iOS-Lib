@@ -137,6 +137,8 @@
 		2DC4E3011D34F01900BFB57B /* models in Resources */ = {isa = PBXBuildFile; fileRef = 2DC4E2FD1D34F01900BFB57B /* models */; };
 		2DCF471C1D34F720005226C9 /* ARViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2DCF471A1D34F720005226C9 /* ARViewController.mm */; };
 		2DCF471D1D34FDAC005226C9 /* ARViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2DCF471A1D34F720005226C9 /* ARViewController.mm */; };
+		2DCF47211D35E796005226C9 /* AREAGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2DCF47201D35E796005226C9 /* AREAGLView.mm */; };
+		2DCF47221D35E796005226C9 /* AREAGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2DCF47201D35E796005226C9 /* AREAGLView.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -255,6 +257,8 @@
 		2DC4E2FD1D34F01900BFB57B /* models */ = {isa = PBXFileReference; lastKnownFileType = folder; name = models; path = Resources/models; sourceTree = "<group>"; };
 		2DCF47191D34F720005226C9 /* ARViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARViewController.h; sourceTree = "<group>"; };
 		2DCF471A1D34F720005226C9 /* ARViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ARViewController.mm; sourceTree = "<group>"; };
+		2DCF471F1D35E796005226C9 /* AREAGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AREAGLView.h; sourceTree = "<group>"; };
+		2DCF47201D35E796005226C9 /* AREAGLView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AREAGLView.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -411,6 +415,8 @@
 				2DA38FE81D3487E30044AE42 /* ImageTargetsViewController.mm */,
 				2DCF47191D34F720005226C9 /* ARViewController.h */,
 				2DCF471A1D34F720005226C9 /* ARViewController.mm */,
+				2DCF471F1D35E796005226C9 /* AREAGLView.h */,
+				2DCF47201D35E796005226C9 /* AREAGLView.mm */,
 			);
 			path = ImageTargets;
 			sourceTree = "<group>";
@@ -740,6 +746,7 @@
 				2DA390371D3489FC0044AE42 /* CZMaterial.cpp in Sources */,
 				2DA390351D3489FC0044AE42 /* CZUtil.mm in Sources */,
 				2DCF471D1D34FDAC005226C9 /* ARViewController.mm in Sources */,
+				2DCF47211D35E796005226C9 /* AREAGLView.mm in Sources */,
 				2DA3903B1D3489FC0044AE42 /* ModelFactory.cpp in Sources */,
 				2DA38FDB1D3487540044AE42 /* SampleApplicationSession.mm in Sources */,
 				2DA3903C1D3489FC0044AE42 /* ObjLoader.cpp in Sources */,
@@ -767,6 +774,7 @@
 				2DA3906E1D34CDC70044AE42 /* ImageTargetsViewController.mm in Sources */,
 				2DCF471C1D34F720005226C9 /* ARViewController.mm in Sources */,
 				2DA3906F1D34CDC70044AE42 /* SampleAppAboutViewController.m in Sources */,
+				2DCF47221D35E796005226C9 /* AREAGLView.mm in Sources */,
 				2DA390701D34CDC70044AE42 /* SampleAppMenuViewController.mm in Sources */,
 				2DA390711D34CDC70044AE42 /* SampleAppSelectorViewController.m in Sources */,
 				2DA390721D34CDC70044AE42 /* PresentMenuSegue.m in Sources */,
