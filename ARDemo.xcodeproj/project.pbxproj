@@ -18,17 +18,6 @@
 			name = createARLib;
 			productName = createARLib;
 		};
-		2DA390A21D34D3790044AE42 /* CopyInclude */ = {
-			isa = PBXAggregateTarget;
-			buildConfigurationList = 2DA390A31D34D3790044AE42 /* Build configuration list for PBXAggregateTarget "CopyInclude" */;
-			buildPhases = (
-				2DA390A61D34D37E0044AE42 /* ShellScript */,
-			);
-			dependencies = (
-			);
-			name = CopyInclude;
-			productName = Copy;
-		};
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
@@ -101,11 +90,6 @@
 		2DA3915D1D34E6F70044AE42 /* Line.vertsh in Resources */ = {isa = PBXBuildFile; fileRef = 2DA38FD41D3487540044AE42 /* Line.vertsh */; };
 		2DA3915E1D34E6F70044AE42 /* Simple.fragsh in Resources */ = {isa = PBXBuildFile; fileRef = 2DA38FD51D3487540044AE42 /* Simple.fragsh */; };
 		2DA3915F1D34E6F70044AE42 /* Simple.vertsh in Resources */ = {isa = PBXBuildFile; fileRef = 2DA38FD61D3487540044AE42 /* Simple.vertsh */; };
-		2DC4E2DE1D34EFD200BFB57B /* Line.fragsh in Resources */ = {isa = PBXBuildFile; fileRef = 2DA38FD31D3487540044AE42 /* Line.fragsh */; };
-		2DC4E2DF1D34EFD200BFB57B /* Line.vertsh in Resources */ = {isa = PBXBuildFile; fileRef = 2DA38FD41D3487540044AE42 /* Line.vertsh */; };
-		2DC4E2E01D34EFD200BFB57B /* Simple.fragsh in Resources */ = {isa = PBXBuildFile; fileRef = 2DA38FD51D3487540044AE42 /* Simple.fragsh */; };
-		2DC4E2E11D34EFD200BFB57B /* Simple.vertsh in Resources */ = {isa = PBXBuildFile; fileRef = 2DA38FD61D3487540044AE42 /* Simple.vertsh */; };
-		2DC4E2FE1D34F01900BFB57B /* datasets in Resources */ = {isa = PBXBuildFile; fileRef = 2DC4E2FC1D34F01900BFB57B /* datasets */; };
 		2DC4E2FF1D34F01900BFB57B /* datasets in Resources */ = {isa = PBXBuildFile; fileRef = 2DC4E2FC1D34F01900BFB57B /* datasets */; };
 		2DC4E3001D34F01900BFB57B /* models in Resources */ = {isa = PBXBuildFile; fileRef = 2DC4E2FD1D34F01900BFB57B /* models */; };
 		2DCF471C1D34F720005226C9 /* ARViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2DCF471A1D34F720005226C9 /* ARViewController.mm */; };
@@ -113,7 +97,18 @@
 		2DCF47211D35E796005226C9 /* AREAGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2DCF47201D35E796005226C9 /* AREAGLView.mm */; };
 		2DCF47221D35E796005226C9 /* AREAGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2DCF47201D35E796005226C9 /* AREAGLView.mm */; };
 		2DCF47231D361CB4005226C9 /* ARViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DCF47191D34F720005226C9 /* ARViewController.h */; };
+		2DCF472D1D36281A005226C9 /* ARResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2DCF472C1D36281A005226C9 /* ARResources.bundle */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2DCF472A1D3627FF005226C9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2DA38F921D3483530044AE42 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2DA390941D34D0930044AE42;
+			remoteInfo = ARResources;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		2DA390551D34CD3C0044AE42 /* CopyFiles */ = {
@@ -160,10 +155,6 @@
 		2DA38FD71D3487540044AE42 /* Teapot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Teapot.h; sourceTree = "<group>"; };
 		2DA38FD81D3487540044AE42 /* Texture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Texture.h; sourceTree = "<group>"; };
 		2DA38FD91D3487540044AE42 /* Texture.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Texture.mm; sourceTree = "<group>"; };
-		2DA38FE51D3487E30044AE42 /* ImageTargetsEAGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageTargetsEAGLView.h; sourceTree = "<group>"; };
-		2DA38FE61D3487E30044AE42 /* ImageTargetsEAGLView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ImageTargetsEAGLView.mm; sourceTree = "<group>"; };
-		2DA38FE71D3487E30044AE42 /* ImageTargetsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageTargetsViewController.h; sourceTree = "<group>"; };
-		2DA38FE81D3487E30044AE42 /* ImageTargetsViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ImageTargetsViewController.mm; sourceTree = "<group>"; };
 		2DA38FEC1D3489710044AE42 /* SampleAppAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleAppAboutViewController.h; sourceTree = "<group>"; };
 		2DA38FED1D3489710044AE42 /* SampleAppAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleAppAboutViewController.m; sourceTree = "<group>"; };
 		2DA38FEE1D3489710044AE42 /* SampleAppMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleAppMenuViewController.h; sourceTree = "<group>"; };
@@ -219,6 +210,7 @@
 		2DCF471A1D34F720005226C9 /* ARViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ARViewController.mm; sourceTree = "<group>"; };
 		2DCF471F1D35E796005226C9 /* AREAGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AREAGLView.h; sourceTree = "<group>"; };
 		2DCF47201D35E796005226C9 /* AREAGLView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AREAGLView.mm; sourceTree = "<group>"; };
+		2DCF472C1D36281A005226C9 /* ARResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ARResources.bundle; path = output/Debug/ARResources.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,19 +248,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2DA390921D34D0930044AE42 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		2DA38F911D3483520044AE42 = {
 			isa = PBXGroup;
 			children = (
+				2DCF472C1D36281A005226C9 /* ARResources.bundle */,
 				2DA390961D34D0930044AE42 /* ARResources */,
 				2DA38FB61D3485630044AE42 /* Frameworks */,
 				2DA38F9C1D3483530044AE42 /* ARDemo */,
@@ -369,10 +355,6 @@
 		2DA38FE41D3487E30044AE42 /* ImageTargets */ = {
 			isa = PBXGroup;
 			children = (
-				2DA38FE51D3487E30044AE42 /* ImageTargetsEAGLView.h */,
-				2DA38FE61D3487E30044AE42 /* ImageTargetsEAGLView.mm */,
-				2DA38FE71D3487E30044AE42 /* ImageTargetsViewController.h */,
-				2DA38FE81D3487E30044AE42 /* ImageTargetsViewController.mm */,
 				2DCF47191D34F720005226C9 /* ARViewController.h */,
 				2DCF471A1D34F720005226C9 /* ARViewController.mm */,
 				2DCF471F1D35E796005226C9 /* AREAGLView.h */,
@@ -508,6 +490,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				2DCF472B1D3627FF005226C9 /* PBXTargetDependency */,
 			);
 			name = ARDemo;
 			productName = ARDemo;
@@ -536,9 +519,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2DA390981D34D0940044AE42 /* Build configuration list for PBXNativeTarget "ARResources" */;
 			buildPhases = (
-				2DA390911D34D0930044AE42 /* Sources */,
-				2DA390921D34D0930044AE42 /* Frameworks */,
 				2DA390931D34D0930044AE42 /* Resources */,
+				2DCF47291D36271F005226C9 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -573,10 +555,6 @@
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 7NC252WH29;
 					};
-					2DA390A21D34D3790044AE42 = {
-						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 7NC252WH29;
-					};
 				};
 			};
 			buildConfigurationList = 2DA38F951D3483530044AE42 /* Build configuration list for PBXProject "ARDemo" */;
@@ -596,7 +574,6 @@
 				2DA390561D34CD3C0044AE42 /* AR */,
 				2DA390941D34D0930044AE42 /* ARResources */,
 				2DA3909D1D34D1370044AE42 /* createARLib */,
-				2DA390A21D34D3790044AE42 /* CopyInclude */,
 			);
 		};
 /* End PBXProject section */
@@ -606,11 +583,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DC4E2E11D34EFD200BFB57B /* Simple.vertsh in Resources */,
-				2DC4E2FE1D34F01900BFB57B /* datasets in Resources */,
-				2DC4E2DE1D34EFD200BFB57B /* Line.fragsh in Resources */,
-				2DC4E2DF1D34EFD200BFB57B /* Line.vertsh in Resources */,
-				2DC4E2E01D34EFD200BFB57B /* Simple.fragsh in Resources */,
+				2DCF472D1D36281A005226C9 /* ARResources.bundle in Resources */,
 				2DC4E3001D34F01900BFB57B /* models in Resources */,
 				2DA38FAD1D3483530044AE42 /* LaunchScreen.storyboard in Resources */,
 				2DA38FAA1D3483530044AE42 /* Assets.xcassets in Resources */,
@@ -657,9 +630,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# define output folder environment variable\nUNIVERSAL_OUTPUTFOLDER=output/${CONFIGURATION}\nLIB_NAME=AR\n\n\n# Step 1. Build Device and Simulator versions\nxcodebuild -target \"${LIB_NAME}\" ONLY_ACTIVE_ARCH=NO -configuration ${CONFIGURATION} -sdk iphoneos BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\"\nxcodebuild -target \"${LIB_NAME}\" -configuration ${CONFIGURATION} -sdk iphonesimulator -arch i386 -arch x86_64 BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\"\nxcodebuild -target \"${LIB_NAME}Resources\"-configuration ${CONFIGURATION} -sdk iphoneos BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\"\n\n# make sure the output directory exists\nmkdir -p \"${UNIVERSAL_OUTPUTFOLDER}\"\nrm -rf \"${UNIVERSAL_OUTPUTFOLDER}/*\"\n\n# Step 2. Create universal binary file using lipo\nlipo -create -output \"${UNIVERSAL_OUTPUTFOLDER}/lib${LIB_NAME}.a\" \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/lib${LIB_NAME}.a\" \"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/lib${LIB_NAME}.a\"\n\n# Last touch. copy the header files. Just for convenience\ncp -R \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/include\" \"${UNIVERSAL_OUTPUTFOLDER}/\"\n\ncp -R \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${LIB_NAME}Resources.bundle\" \"${UNIVERSAL_OUTPUTFOLDER}/\"\n";
+			shellScript = "# define output folder environment variable\nUNIVERSAL_OUTPUTFOLDER=output/${CONFIGURATION}\nLIB_NAME=AR\nBUNDLE_NAME=ARResources\n\n# Step 1. Build Device and Simulator versions\nxcodebuild -target \"${LIB_NAME}\" ONLY_ACTIVE_ARCH=NO -configuration ${CONFIGURATION} -sdk iphoneos BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\"\nxcodebuild -target \"${LIB_NAME}\" -configuration ${CONFIGURATION} -sdk iphonesimulator -arch i386 -arch x86_64 BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\"\n\n# build bundle file\nxcodebuild -target \"${BUNDLE_NAME}\" -configuration ${CONFIGURATION} -sdk iphoneos BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\"\n\n# make sure the output directory exists\nrm -rf \"${UNIVERSAL_OUTPUTFOLDER}\"\nmkdir -p \"${UNIVERSAL_OUTPUTFOLDER}\"\n\n# Step 2. Create universal binary file using lipo\nlipo -create -output \"${UNIVERSAL_OUTPUTFOLDER}/lib${LIB_NAME}.a\" \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/lib${LIB_NAME}.a\" \"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/lib${LIB_NAME}.a\"\n\n# Last touch. copy the header files. Just for convenience\ncp -R \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/include\" \"${UNIVERSAL_OUTPUTFOLDER}/\"\n\n# copy bundle file\ncp -R \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${BUNDLE_NAME}.bundle\" \"${UNIVERSAL_OUTPUTFOLDER}/\"\n";
 		};
-		2DA390A61D34D37E0044AE42 /* ShellScript */ = {
+		2DCF47291D36271F005226C9 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -670,7 +643,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# define output folder environment variable\nUNIVERSAL_OUTPUTFOLDER=output/${CONFIGURATION}\nOBJ_MODEL_INC=ARDemo/Classes/ObjModel\nVUFORIA_INC=../../build/include\n\nmkdir -p \"${OBJ_MODEL_INC}/include/basic\"\nmkdir -p \"${OBJ_MODEL_INC}/include/objModel\"\n\ncp -r `find \"${OBJ_MODEL_INC}\" -name *.h -or -name *.hpp -maxdepth 1` \"${OBJ_MODEL_INC}/include\"\ncp -r `find \"${OBJ_MODEL_INC}/basic\" -name *.h -or -name *.hpp -maxdepth 1` \"${OBJ_MODEL_INC}/include/basic\"\ncp -r `find \"${OBJ_MODEL_INC}/objModel\" -name *.h -or -name *.hpp -maxdepth 1` \"${OBJ_MODEL_INC}/include/objModel\"\n\ncp -R \"${OBJ_MODEL_INC}/include\" \"${UNIVERSAL_OUTPUTFOLDER}/\"\ncp -R \"${VUFORIA_INC}\" \"${UNIVERSAL_OUTPUTFOLDER}/\"\n\nrm -rf \"${OBJ_MODEL_INC}/include/\"";
+			shellScript = "# define output folder environment variable\nUNIVERSAL_OUTPUTFOLDER=output/${CONFIGURATION}\nBUNDLE_NAME=ARResources\n\n# make sure the output directory exists\nmkdir -p \"${UNIVERSAL_OUTPUTFOLDER}\"\nrm -rf \"${UNIVERSAL_OUTPUTFOLDER}/${BUNDLE_NAME}.bundle\"\n\ncp -R \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${BUNDLE_NAME}.bundle\" \"${UNIVERSAL_OUTPUTFOLDER}/\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -735,14 +708,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2DA390911D34D0930044AE42 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2DCF472B1D3627FF005226C9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2DA390941D34D0930044AE42 /* ARResources */;
+			targetProxy = 2DCF472A1D3627FF005226C9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		2DA38FA61D3483530044AE42 /* Main.storyboard */ = {
@@ -956,20 +930,6 @@
 			};
 			name = Release;
 		};
-		2DA390A41D34D3790044AE42 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		2DA390A51D34D3790044AE42 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1014,15 +974,6 @@
 			buildConfigurations = (
 				2DA3909F1D34D1370044AE42 /* Debug */,
 				2DA390A01D34D1370044AE42 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		2DA390A31D34D3790044AE42 /* Build configuration list for PBXAggregateTarget "CopyInclude" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2DA390A41D34D3790044AE42 /* Debug */,
-				2DA390A51D34D3790044AE42 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

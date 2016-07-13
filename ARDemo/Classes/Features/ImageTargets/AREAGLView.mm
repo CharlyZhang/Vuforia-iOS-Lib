@@ -28,7 +28,6 @@
 #include <map>
 #include <string>
 
-#define LOAD_BUNDLE
 using namespace std;
 
 typedef map<CZImage*,short> TextureMap;
@@ -317,13 +316,8 @@ const float kObjectScaleOffTargetTracking = 12.0f;
 
 - (void)initShaders
 {
-#ifdef LOAD_BUNDLE
     shaderProgramID = [SampleApplicationShaderUtils createProgramWithVertexShaderFileName:@"ARResources.bundle/Simple.vertsh"
                                                                    fragmentShaderFileName:@"ARResources.bundle/Simple.fragsh"];
-#else
-    shaderProgramID = [SampleApplicationShaderUtils createProgramWithVertexShaderFileName:@"Simple.vertsh"
-                                                                   fragmentShaderFileName:@"Simple.fragsh"];
-#endif
     
     if (0 < shaderProgramID) {
         vertexHandle = glGetAttribLocation(shaderProgramID, "vertexPosition");
