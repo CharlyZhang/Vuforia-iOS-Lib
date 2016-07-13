@@ -7,12 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SampleGLResourceHandler.h"
+
+#import "ARViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property (nonatomic, weak) id<SampleGLResourceHandler> glResourceHandler;
+@property (nonatomic, weak) id<ARGLResourceHandler> glResourceHandler;
 
 @end
 

@@ -51,7 +51,6 @@
 		2DCF46FE1D34F15A005226C9 /* ARResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ARResources.bundle; path = ../../output/Debug/ARResources.bundle; sourceTree = "<group>"; };
 		2DCF47241D361EF4005226C9 /* ARViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ARViewController.h; path = ../../output/Debug/include/ARViewController.h; sourceTree = "<group>"; };
 		2DCF47251D361F87005226C9 /* models */ = {isa = PBXFileReference; lastKnownFileType = folder; name = models; path = ../../ARDemo/Resources/models; sourceTree = "<group>"; };
-		2DCF47281D361FE1005226C9 /* SampleGLResourceHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SampleGLResourceHandler.h; path = ../../output/Debug/include/SampleGLResourceHandler.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,7 +139,6 @@
 		2DCF47021D34F17F005226C9 /* include */ = {
 			isa = PBXGroup;
 			children = (
-				2DCF47281D361FE1005226C9 /* SampleGLResourceHandler.h */,
 				2DCF47241D361EF4005226C9 /* ARViewController.h */,
 			);
 			name = include;
