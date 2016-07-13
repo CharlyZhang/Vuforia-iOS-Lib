@@ -55,6 +55,8 @@ const float kObjectScaleOffTargetTracking = 12.0f;
     GLint textureCoordHandle;
     GLint mvpMatrixHandle;
     GLint texSampler2DHandle;
+    GLint kdHandle;
+    GLint hasTexHandle;
     
     // Texture used when rendering augmentation
     GLuint textures[128];
@@ -227,6 +229,8 @@ const float kObjectScaleOffTargetTracking = 12.0f;
     else
         glFrontFace(GL_CCW);   //Back camera
     
+    glActiveTexture(GL_TEXTURE0);
+    
     // Set the viewport
     glViewport(vapp.viewport.posX, vapp.viewport.posY, vapp.viewport.sizeX, vapp.viewport.sizeY);
     
@@ -281,17 +285,18 @@ const float kObjectScaleOffTargetTracking = 12.0f;
         
         glUniformMatrix4fv(mvpMatrixHandle, 1, GL_FALSE, (const GLfloat*)&modelViewProjection.data[0]);
         
-        SampleApplicationUtils::checkGlError("before active texture!");
         glUniform1i(texSampler2DHandle, 0 /*GL_TEXTURE0*/);
-        
-        SampleApplicationUtils::checkGlError("after transform uniform!");
         
         if (pModel) {
             for (std::vector<CZGeometry*>::iterator itr = pModel->geometries.begin(); itr != pModel->geometries.end(); itr++)
             {
                 CZGeometry *pGeometry = *itr;
                 CZMaterial *pMaterial = pModel->materialLib.get(pGeometry->materialName);
-                [self enableTexture:pMaterial->texImage];
+                glUniform3f(kdHandle, pMaterial->Kd[0],pMaterial->Kd[1],pMaterial->Kd[2]);
+                if ([self enableTexture:pMaterial->texImage])
+                    glUniform1i(hasTexHandle, 1);
+                else
+                    glUniform1i(hasTexHandle, 0);
                 glDrawArrays(GL_TRIANGLES, (GLint)pGeometry->firstIdx, (GLsizei)pGeometry->vertNum);
                 
             }
@@ -325,6 +330,8 @@ const float kObjectScaleOffTargetTracking = 12.0f;
         textureCoordHandle = glGetAttribLocation(shaderProgramID, "vertexTexCoord");
         mvpMatrixHandle = glGetUniformLocation(shaderProgramID, "modelViewProjectionMatrix");
         texSampler2DHandle  = glGetUniformLocation(shaderProgramID,"texSampler2D");
+        kdHandle = glGetUniformLocation(shaderProgramID, "kd");
+        hasTexHandle = glGetUniformLocation(shaderProgramID, "hasTex");
     }
     else {
         NSLog(@"Could not initialise augmentation shader");
@@ -491,14 +498,13 @@ const float kObjectScaleOffTargetTracking = 12.0f;
                 glTexImage2D(GL_TEXTURE_2D, 0, GL_LUMINANCE, (GLsizei)image->width , (GLsizei)image->height,
                              0, GL_LUMINANCE, GL_UNSIGNED_BYTE, image->data);
             }
-            
             //	gluBuild2DMipmaps(GL_TEXTURE_2D, components, width, height, texFormat, GL_UNSIGNED_BYTE, bits);
             glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
             glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
             glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
             glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-            CZCheckGLError();
             textureMap[image] = texInd;
+            NSLog(@"image(%ld), textureId %d",(long)image,textures[texInd]);
         }
     }
     else
@@ -506,8 +512,8 @@ const float kObjectScaleOffTargetTracking = 12.0f;
         texInd = itr->second;
     }
     
-    glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, textures[texInd]);
+    CZCheckGLError();
     
     return YES;
 
