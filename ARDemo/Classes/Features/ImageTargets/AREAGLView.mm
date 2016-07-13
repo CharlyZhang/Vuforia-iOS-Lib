@@ -27,7 +27,7 @@
 #include <map>
 #include <string>
 
-//#define LOAD_BUNDLE
+#define LOAD_BUNDLE
 using namespace std;
 
 typedef map<CZImage*,short> TextureMap;

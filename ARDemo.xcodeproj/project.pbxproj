@@ -86,18 +86,9 @@
 		2DA3906A1D34CDC70044AE42 /* ObjLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DA390221D3489FC0044AE42 /* ObjLoader.cpp */; };
 		2DA3906B1D34CDC70044AE42 /* ObjModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DA390241D3489FC0044AE42 /* ObjModel.cpp */; };
 		2DA3906C1D34CDC70044AE42 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA3902B1D3489FC0044AE42 /* UIImage+Resize.m */; };
-		2DA3906D1D34CDC70044AE42 /* ImageTargetsEAGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FE61D3487E30044AE42 /* ImageTargetsEAGLView.mm */; };
-		2DA3906E1D34CDC70044AE42 /* ImageTargetsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FE81D3487E30044AE42 /* ImageTargetsViewController.mm */; };
-		2DA3906F1D34CDC70044AE42 /* SampleAppAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FED1D3489710044AE42 /* SampleAppAboutViewController.m */; };
-		2DA390701D34CDC70044AE42 /* SampleAppMenuViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FEF1D3489710044AE42 /* SampleAppMenuViewController.mm */; };
-		2DA390711D34CDC70044AE42 /* SampleAppSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FF11D3489710044AE42 /* SampleAppSelectorViewController.m */; };
-		2DA390721D34CDC70044AE42 /* PresentMenuSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FF41D3489710044AE42 /* PresentMenuSegue.m */; };
-		2DA390731D34CDC70044AE42 /* UnwindMenuSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FF61D3489710044AE42 /* UnwindMenuSegue.m */; };
-		2DA390741D34CDC70044AE42 /* SampleApplication3DModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FCA1D3487540044AE42 /* SampleApplication3DModel.m */; };
 		2DA390751D34CDC70044AE42 /* SampleApplicationSession.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FCC1D3487540044AE42 /* SampleApplicationSession.mm */; };
 		2DA390761D34CDC70044AE42 /* SampleApplicationShaderUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FCE1D3487540044AE42 /* SampleApplicationShaderUtils.m */; };
 		2DA390771D34CDC70044AE42 /* SampleApplicationUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FCF1D3487540044AE42 /* SampleApplicationUtils.cpp */; };
-		2DA390781D34CDC70044AE42 /* Texture.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FD91D3487540044AE42 /* Texture.mm */; };
 		2DA390791D34CDDC0044AE42 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DA3904A1D348C670044AE42 /* CoreMotion.framework */; };
 		2DA3907A1D34CDDC0044AE42 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DA390481D348C5D0044AE42 /* CoreMedia.framework */; };
 		2DA3907B1D34CDDC0044AE42 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DA390461D348C4A0044AE42 /* Foundation.framework */; };
@@ -108,21 +99,6 @@
 		2DA390801D34CDDC0044AE42 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DA38FBB1D3485A80044AE42 /* UIKit.framework */; };
 		2DA390811D34CDDC0044AE42 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DA38FB91D34859B0044AE42 /* QuartzCore.framework */; };
 		2DA390821D34CDDC0044AE42 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DA38FB71D3485920044AE42 /* OpenGLES.framework */; };
-		2DA390831D34CE9A0044AE42 /* SampleAppAboutViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DA38FEC1D3489710044AE42 /* SampleAppAboutViewController.h */; };
-		2DA390841D34CE9A0044AE42 /* SampleAppMenuViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DA38FEE1D3489710044AE42 /* SampleAppMenuViewController.h */; };
-		2DA390851D34CE9A0044AE42 /* SampleAppSelectorViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DA38FF01D3489710044AE42 /* SampleAppSelectorViewController.h */; };
-		2DA390861D34CE9A0044AE42 /* PresentMenuSegue.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DA38FF31D3489710044AE42 /* PresentMenuSegue.h */; };
-		2DA390871D34CE9A0044AE42 /* UnwindMenuSegue.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DA38FF51D3489710044AE42 /* UnwindMenuSegue.h */; };
-		2DA390881D34CE9A0044AE42 /* Quad.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DA38FC81D3487540044AE42 /* Quad.h */; };
-		2DA390891D34CE9A0044AE42 /* SampleApplication3DModel.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DA38FC91D3487540044AE42 /* SampleApplication3DModel.h */; };
-		2DA3908A1D34CE9A0044AE42 /* SampleApplicationSession.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DA38FCB1D3487540044AE42 /* SampleApplicationSession.h */; };
-		2DA3908B1D34CE9A0044AE42 /* SampleApplicationShaderUtils.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DA38FCD1D3487540044AE42 /* SampleApplicationShaderUtils.h */; };
-		2DA3908C1D34CE9A0044AE42 /* SampleApplicationUtils.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DA38FD01D3487540044AE42 /* SampleApplicationUtils.h */; };
-		2DA3908D1D34CE9A0044AE42 /* SampleGLResourceHandler.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DA38FD11D3487540044AE42 /* SampleGLResourceHandler.h */; };
-		2DA3908E1D34CE9A0044AE42 /* Teapot.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DA38FD71D3487540044AE42 /* Teapot.h */; };
-		2DA3908F1D34CE9A0044AE42 /* Texture.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DA38FD81D3487540044AE42 /* Texture.h */; };
-		2DA391431D34DB190044AE42 /* ImageTargetsEAGLView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DA38FE51D3487E30044AE42 /* ImageTargetsEAGLView.h */; };
-		2DA391441D34DB190044AE42 /* ImageTargetsViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DA38FE71D3487E30044AE42 /* ImageTargetsViewController.h */; };
 		2DA3915C1D34E6F70044AE42 /* Line.fragsh in Resources */ = {isa = PBXBuildFile; fileRef = 2DA38FD31D3487540044AE42 /* Line.fragsh */; };
 		2DA3915D1D34E6F70044AE42 /* Line.vertsh in Resources */ = {isa = PBXBuildFile; fileRef = 2DA38FD41D3487540044AE42 /* Line.vertsh */; };
 		2DA3915E1D34E6F70044AE42 /* Simple.fragsh in Resources */ = {isa = PBXBuildFile; fileRef = 2DA38FD51D3487540044AE42 /* Simple.fragsh */; };
@@ -134,11 +110,12 @@
 		2DC4E2FE1D34F01900BFB57B /* datasets in Resources */ = {isa = PBXBuildFile; fileRef = 2DC4E2FC1D34F01900BFB57B /* datasets */; };
 		2DC4E2FF1D34F01900BFB57B /* datasets in Resources */ = {isa = PBXBuildFile; fileRef = 2DC4E2FC1D34F01900BFB57B /* datasets */; };
 		2DC4E3001D34F01900BFB57B /* models in Resources */ = {isa = PBXBuildFile; fileRef = 2DC4E2FD1D34F01900BFB57B /* models */; };
-		2DC4E3011D34F01900BFB57B /* models in Resources */ = {isa = PBXBuildFile; fileRef = 2DC4E2FD1D34F01900BFB57B /* models */; };
 		2DCF471C1D34F720005226C9 /* ARViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2DCF471A1D34F720005226C9 /* ARViewController.mm */; };
 		2DCF471D1D34FDAC005226C9 /* ARViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2DCF471A1D34F720005226C9 /* ARViewController.mm */; };
 		2DCF47211D35E796005226C9 /* AREAGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2DCF47201D35E796005226C9 /* AREAGLView.mm */; };
 		2DCF47221D35E796005226C9 /* AREAGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2DCF47201D35E796005226C9 /* AREAGLView.mm */; };
+		2DCF47231D361CB4005226C9 /* ARViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DCF47191D34F720005226C9 /* ARViewController.h */; };
+		2DCF47271D361FB6005226C9 /* SampleGLResourceHandler.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DA38FD11D3487540044AE42 /* SampleGLResourceHandler.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -148,21 +125,8 @@
 			dstPath = include;
 			dstSubfolderSpec = 16;
 			files = (
-				2DA391431D34DB190044AE42 /* ImageTargetsEAGLView.h in CopyFiles */,
-				2DA391441D34DB190044AE42 /* ImageTargetsViewController.h in CopyFiles */,
-				2DA390831D34CE9A0044AE42 /* SampleAppAboutViewController.h in CopyFiles */,
-				2DA390841D34CE9A0044AE42 /* SampleAppMenuViewController.h in CopyFiles */,
-				2DA390851D34CE9A0044AE42 /* SampleAppSelectorViewController.h in CopyFiles */,
-				2DA390861D34CE9A0044AE42 /* PresentMenuSegue.h in CopyFiles */,
-				2DA390871D34CE9A0044AE42 /* UnwindMenuSegue.h in CopyFiles */,
-				2DA390881D34CE9A0044AE42 /* Quad.h in CopyFiles */,
-				2DA390891D34CE9A0044AE42 /* SampleApplication3DModel.h in CopyFiles */,
-				2DA3908A1D34CE9A0044AE42 /* SampleApplicationSession.h in CopyFiles */,
-				2DA3908B1D34CE9A0044AE42 /* SampleApplicationShaderUtils.h in CopyFiles */,
-				2DA3908C1D34CE9A0044AE42 /* SampleApplicationUtils.h in CopyFiles */,
-				2DA3908D1D34CE9A0044AE42 /* SampleGLResourceHandler.h in CopyFiles */,
-				2DA3908E1D34CE9A0044AE42 /* Teapot.h in CopyFiles */,
-				2DA3908F1D34CE9A0044AE42 /* Texture.h in CopyFiles */,
+				2DCF47271D361FB6005226C9 /* SampleGLResourceHandler.h in CopyFiles */,
+				2DCF47231D361CB4005226C9 /* ARViewController.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -664,7 +628,6 @@
 			files = (
 				2DC4E2FF1D34F01900BFB57B /* datasets in Resources */,
 				2DA3915C1D34E6F70044AE42 /* Line.fragsh in Resources */,
-				2DC4E3011D34F01900BFB57B /* models in Resources */,
 				2DA3915D1D34E6F70044AE42 /* Line.vertsh in Resources */,
 				2DA3915E1D34E6F70044AE42 /* Simple.fragsh in Resources */,
 				2DA3915F1D34E6F70044AE42 /* Simple.vertsh in Resources */,
@@ -698,7 +661,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# define output folder environment variable\nUNIVERSAL_OUTPUTFOLDER=output/${CONFIGURATION}\nLIB_NAME=AR\n\n\n# Step 1. Build Device and Simulator versions\nxcodebuild -target \"${LIB_NAME}\" ONLY_ACTIVE_ARCH=NO -configuration ${CONFIGURATION} -sdk iphoneos BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\"\nxcodebuild -target \"${LIB_NAME}\" -configuration ${CONFIGURATION} -sdk iphonesimulator -arch i386 -arch x86_64 BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\"\nxcodebuild -target \"${LIB_NAME}Resources\"-configuration ${CONFIGURATION} -sdk iphoneos BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\"\n\n# make sure the output directory exists\nmkdir -p \"${UNIVERSAL_OUTPUTFOLDER}\"\n\n# Step 2. Create universal binary file using lipo\nlipo -create -output \"${UNIVERSAL_OUTPUTFOLDER}/lib${LIB_NAME}.a\" \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/lib${LIB_NAME}.a\" \"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/lib${LIB_NAME}.a\"\n\n# Last touch. copy the header files. Just for convenience\ncp -R \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/include\" \"${UNIVERSAL_OUTPUTFOLDER}/\"\n\ncp -R \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${LIB_NAME}Resources.bundle\" \"${UNIVERSAL_OUTPUTFOLDER}/\"\n";
+			shellScript = "# define output folder environment variable\nUNIVERSAL_OUTPUTFOLDER=output/${CONFIGURATION}\nLIB_NAME=AR\n\n\n# Step 1. Build Device and Simulator versions\nxcodebuild -target \"${LIB_NAME}\" ONLY_ACTIVE_ARCH=NO -configuration ${CONFIGURATION} -sdk iphoneos BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\"\nxcodebuild -target \"${LIB_NAME}\" -configuration ${CONFIGURATION} -sdk iphonesimulator -arch i386 -arch x86_64 BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\"\nxcodebuild -target \"${LIB_NAME}Resources\"-configuration ${CONFIGURATION} -sdk iphoneos BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\"\n\n# make sure the output directory exists\nmkdir -p \"${UNIVERSAL_OUTPUTFOLDER}\"\nrm -rf \"${UNIVERSAL_OUTPUTFOLDER}/*\"\n\n# Step 2. Create universal binary file using lipo\nlipo -create -output \"${UNIVERSAL_OUTPUTFOLDER}/lib${LIB_NAME}.a\" \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/lib${LIB_NAME}.a\" \"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/lib${LIB_NAME}.a\"\n\n# Last touch. copy the header files. Just for convenience\ncp -R \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/include\" \"${UNIVERSAL_OUTPUTFOLDER}/\"\n\ncp -R \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${LIB_NAME}Resources.bundle\" \"${UNIVERSAL_OUTPUTFOLDER}/\"\n";
 		};
 		2DA390A61D34D37E0044AE42 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -770,20 +733,11 @@
 				2DA3906A1D34CDC70044AE42 /* ObjLoader.cpp in Sources */,
 				2DA3906B1D34CDC70044AE42 /* ObjModel.cpp in Sources */,
 				2DA3906C1D34CDC70044AE42 /* UIImage+Resize.m in Sources */,
-				2DA3906D1D34CDC70044AE42 /* ImageTargetsEAGLView.mm in Sources */,
-				2DA3906E1D34CDC70044AE42 /* ImageTargetsViewController.mm in Sources */,
 				2DCF471C1D34F720005226C9 /* ARViewController.mm in Sources */,
-				2DA3906F1D34CDC70044AE42 /* SampleAppAboutViewController.m in Sources */,
 				2DCF47221D35E796005226C9 /* AREAGLView.mm in Sources */,
-				2DA390701D34CDC70044AE42 /* SampleAppMenuViewController.mm in Sources */,
-				2DA390711D34CDC70044AE42 /* SampleAppSelectorViewController.m in Sources */,
-				2DA390721D34CDC70044AE42 /* PresentMenuSegue.m in Sources */,
-				2DA390731D34CDC70044AE42 /* UnwindMenuSegue.m in Sources */,
-				2DA390741D34CDC70044AE42 /* SampleApplication3DModel.m in Sources */,
 				2DA390751D34CDC70044AE42 /* SampleApplicationSession.mm in Sources */,
 				2DA390761D34CDC70044AE42 /* SampleApplicationShaderUtils.m in Sources */,
 				2DA390771D34CDC70044AE42 /* SampleApplicationUtils.cpp in Sources */,
-				2DA390781D34CDC70044AE42 /* Texture.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
