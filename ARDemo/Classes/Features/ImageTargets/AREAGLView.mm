@@ -65,6 +65,8 @@ const float kObjectScaleOffTargetTracking = 12.0f;
     ModelMap modelsMap;
     
     Vuforia::Matrix44F translateMat, scaleMat, rotateMat;
+    
+    BOOL targetFound;
 }
 
 @property (nonatomic, weak) SampleApplicationSession * vapp;
@@ -233,6 +235,10 @@ const float kObjectScaleOffTargetTracking = 12.0f;
     {
         iTrackResultNumber = state.getNumTrackableResults();
         NSLog(@"track results number %d",iTrackResultNumber);
+        if(iTrackResultNumber == 1)
+            targetFound = YES;
+        else
+            targetFound = NO;
     }
     
     for (int i = 0; i < state.getNumTrackableResults(); ++i) {
@@ -420,21 +426,34 @@ const float kObjectScaleOffTargetTracking = 12.0f;
 
 - (void) rotateWithX:(float)x Y:(float)y
 {
-    Vuforia::Matrix44F tempMat1, tempMat2;
-    SampleApplicationUtils::setRotationMatrix(x, 0, 1, 0, tempMat1.data);
-    SampleApplicationUtils::multiplyMatrix(tempMat1.data, rotateMat.data, tempMat2.data);
-    SampleApplicationUtils::setRotationMatrix(-y, 1, 0, 0, tempMat1.data);
-    SampleApplicationUtils::multiplyMatrix(tempMat1.data, tempMat2.data, rotateMat.data);
+    if(targetFound)
+    {
+        Vuforia::Matrix44F tempMat1, tempMat2;
+        SampleApplicationUtils::setRotationMatrix(x, 0, 1, 0, tempMat1.data);
+        SampleApplicationUtils::multiplyMatrix(tempMat1.data, rotateMat.data, tempMat2.data);
+        SampleApplicationUtils::setRotationMatrix(-y, 1, 0, 0, tempMat1.data);
+        SampleApplicationUtils::multiplyMatrix(tempMat1.data, tempMat2.data, rotateMat.data);
+    }
 }
 
 - (void) moveWithX:(float)x Y:(float)y
 {
-    SampleApplicationUtils::translatePoseMatrix(-x, -y, 0, translateMat.data);
+    if(targetFound) SampleApplicationUtils::translatePoseMatrix(-x, -y, 0, translateMat.data);
 }
 
 - (void) scale:(float)s
 {
-    SampleApplicationUtils::scalePoseMatrix(s, s, s, scaleMat.data);
+    if(targetFound) SampleApplicationUtils::scalePoseMatrix(s, s, s, scaleMat.data);
+}
+
+- (void) reset
+{
+    if(targetFound)
+    {
+        SampleApplicationUtils::setIndentityMatrix(translateMat.data);
+        SampleApplicationUtils::setIndentityMatrix(scaleMat.data);
+        SampleApplicationUtils::setIndentityMatrix(rotateMat.data);
+    }
 }
 
 - (BOOL) enableTexture:(CZImage*)image

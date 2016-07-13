@@ -21,8 +21,6 @@
 #include <string>
 using namespace std;
 
-#define DEBUG
-
 typedef map<string, Vuforia::DataSet*> DataSetMap;
 @interface ARViewController ()  <SampleApplicationControl>
 {
@@ -416,7 +414,7 @@ typedef map<string, Vuforia::DataSet*> DataSetMap;
 
 - (void)reset:(UITapGestureRecognizer*) tap{
     if (tap.state == UIGestureRecognizerStateEnded) {
-        //        [eaglView reset];
+        [eaglView reset];
     }
 }
 
