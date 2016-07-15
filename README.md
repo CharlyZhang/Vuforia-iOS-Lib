@@ -22,10 +22,15 @@ If you wanna create a static library, Run the *createLib* target of project **AR
 
 Run the **TestARLib** project to test the lib.   Don't forget to copy your License Key firstly.
 
-# CUSTOMIZE
+## CUSTOMIZE
 You can customize the app with a confiuration, which is need when instantiating `ARViewController`. Datasets and models configuration are supported.
 
 - `AR_CONFIG_DATA_SETS` : to configure datasets
 - `AR_CONFIG_MODEL` : to configure 3D models
+
+## FAQ
+Camera view distorts when rotating device?  
+	- Actually the rotaion is locked in the ViewController, if it donesn't work in Xcode 7, you can try to click `Requires full screen` in **General** pannel of xcode.
+
 
 ## ARTICLE

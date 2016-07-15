@@ -65,7 +65,7 @@ typedef map<string, Vuforia::DataSet*> DataSetMap;
     
     CGRect viewFrame = [self getCurrentARViewFrame];
     
-    NSDictionary *modelsConfig = [configurations objectForKey:AR_CONFIG_MODEL];
+    NSArray *modelsConfig = [configurations objectForKey:AR_CONFIG_MODEL];
     eaglView = [[AREAGLView alloc] initWithFrame:viewFrame appSession:vapp modelsConfig:modelsConfig];
     [self setView:eaglView];
     AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
@@ -198,18 +198,18 @@ typedef map<string, Vuforia::DataSet*> DataSetMap;
 // load the data associated to the trackers
 - (bool) doLoadTrackersData {
     datasets.clear();
-    NSDictionary *datasetPath = [configurations objectForKey:AR_CONFIG_DATA_SETS];
+    NSArray *configDS = [configurations objectForKey:AR_CONFIG_DATA_SETS];
     
     curDataSetName = "";
-    for(NSString *dName in datasetPath)
+    for(NSDictionary *DS in configDS)
     {
-        Vuforia::DataSet* ds = [self loadObjectTrackerDataSet:datasetPath[dName]];
+        Vuforia::DataSet* ds = [self loadObjectTrackerDataSet:DS[AR_CONFIG_DATASET_PATH]];
         if(ds == NULL)
         {
-            NSLog(@"Failed to load datasets(%@)",dName);
+            NSLog(@"Failed to load datasets(%@)",DS[AR_CONFIG_DATASET_NAME]);
             return NO;
         }
-        string n([dName UTF8String]);
+        string n([DS[AR_CONFIG_DATASET_NAME] UTF8String]);
         datasets[n] = ds;
         if(curDataSetName == "") curDataSetName = n;
     }

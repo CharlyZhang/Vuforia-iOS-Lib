@@ -97,7 +97,7 @@ const float kObjectScaleOffTargetTracking = 12.0f;
 //------------------------------------------------------------------------------
 #pragma mark - Lifecycle
 
-- (id)initWithFrame:(CGRect)frame appSession:(SampleApplicationSession *) app modelsConfig:(NSDictionary*)configs
+- (id)initWithFrame:(CGRect)frame appSession:(SampleApplicationSession *) app modelsConfig:(NSArray*)modelsCfg
 {
     self = [super initWithFrame:frame];
     
@@ -124,7 +124,7 @@ const float kObjectScaleOffTargetTracking = 12.0f;
         
         offTargetTrackingEnabled = NO;
         
-        [self loadModels:configs];
+        [self loadModels:modelsCfg];
         [self initShaders];
         
         SampleApplicationUtils::checkGlError("Inital!");
@@ -181,11 +181,11 @@ const float kObjectScaleOffTargetTracking = 12.0f;
     offTargetTrackingEnabled = enabled;
 }
 
-- (void) loadModels:(NSDictionary *)configs {
-    for (NSString *modelName in configs)
+- (void) loadModels:(NSArray *)modelsCfg {
+    for (NSDictionary *models in modelsCfg)
     {
-        string name([modelName UTF8String]);
-        NSString *modelPath = [[[NSBundle mainBundle]bundlePath] stringByAppendingPathComponent:configs[modelName]];
+        string name([models[AR_CONFIG_TARGET_NAME] UTF8String]);
+        NSString *modelPath = [[[NSBundle mainBundle]bundlePath] stringByAppendingPathComponent:models[AR_CONFIG_MODEL_PATH]];
         CZObjModel *model = ModelFactory::createObjModel([modelPath UTF8String]);
         if(model)
             modelsMap[name] = model;

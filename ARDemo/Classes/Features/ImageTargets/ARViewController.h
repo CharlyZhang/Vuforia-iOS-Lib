@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-#define AR_CONFIG_INIT_FLAG    @"initFlag"
-#define AR_CONFIG_DATA_SETS    @"dataSets"
-#define AR_CONFIG_MODEL        @"models"
+#define AR_CONFIG_INIT_FLAG    @"InitFlag"
+#define AR_CONFIG_DATA_SETS    @"DataSets"
+#define AR_CONFIG_MODEL        @"Models"
+#define AR_CONFIG_DATASET_NAME  @"DataSetName"
+#define AR_CONFIG_DATASET_PATH  @"DataSetPath"
+#define AR_CONFIG_TARGET_NAME   @"TargetName"
+#define AR_CONFIG_MODEL_PATH    @"ModelPath"
 
 @protocol ARGLResourceHandler
 
