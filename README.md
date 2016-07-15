@@ -18,7 +18,7 @@ If you wanna see the demo, follow steps below:
 3. Run the *ARDemo* target of project **ARDemo**
 
 ### ARLib
-If you wanna create a static library, Run the *createLib* target of project **ARDemo**. This create the necessary resources, including **a bundle**, **a header file** and **a static lib**, in the directory `output`.
+If you wanna create a static library, Run the *createARLib* target of project **ARDemo**. This create the necessary resources, including **a bundle**, **a header file** and **a static lib**, in the directory `output`.
 
 Run the **TestARLib** project to test the lib.   Don't forget to copy your License Key firstly.
 
@@ -34,3 +34,4 @@ Camera view distorts when rotating device?
 
 
 ## ARTICLE
+[Vuforia在iOS上的再封装](http://my.oschina.net/chicboi/blog/712515)
