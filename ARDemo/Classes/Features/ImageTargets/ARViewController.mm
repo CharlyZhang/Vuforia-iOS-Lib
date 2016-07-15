@@ -134,19 +134,19 @@ typedef map<string, Vuforia::DataSet*> DataSetMap;
 
 - (BOOL) shouldAutorotate
 {
-    NSLog(@"shouldAutorotate");
+//    NSLog(@"shouldAutorotate");
     return NO;
 }
 
 - (NSUInteger)supportedInterfaceOrientations
 {
-    NSLog(@"supportedInterfaceOrientations");
+//    NSLog(@"supportedInterfaceOrientations");
     return UIInterfaceOrientationMaskPortrait;
 }
 
 - (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
 {
-    NSLog(@"preferredInterfaceOrientationForPresentation");
+//    NSLog(@"preferredInterfaceOrientationForPresentation");
     return UIInterfaceOrientationPortrait;
 }
 

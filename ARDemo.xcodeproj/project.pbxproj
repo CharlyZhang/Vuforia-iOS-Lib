@@ -88,7 +88,6 @@
 		2DA3915D1D34E6F70044AE42 /* Line.vertsh in Resources */ = {isa = PBXBuildFile; fileRef = 2DA38FD41D3487540044AE42 /* Line.vertsh */; };
 		2DA3915E1D34E6F70044AE42 /* Simple.fragsh in Resources */ = {isa = PBXBuildFile; fileRef = 2DA38FD51D3487540044AE42 /* Simple.fragsh */; };
 		2DA3915F1D34E6F70044AE42 /* Simple.vertsh in Resources */ = {isa = PBXBuildFile; fileRef = 2DA38FD61D3487540044AE42 /* Simple.vertsh */; };
-		2DC4E2FF1D34F01900BFB57B /* datasets in Resources */ = {isa = PBXBuildFile; fileRef = 2DC4E2FC1D34F01900BFB57B /* datasets */; };
 		2DC4E3001D34F01900BFB57B /* models in Resources */ = {isa = PBXBuildFile; fileRef = 2DC4E2FD1D34F01900BFB57B /* models */; };
 		2DCF471C1D34F720005226C9 /* ARViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2DCF471A1D34F720005226C9 /* ARViewController.mm */; };
 		2DCF471D1D34FDAC005226C9 /* ARViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2DCF471A1D34F720005226C9 /* ARViewController.mm */; };
@@ -98,6 +97,7 @@
 		2DCF472D1D36281A005226C9 /* ARResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2DCF472C1D36281A005226C9 /* ARResources.bundle */; };
 		2DCF472F1D38768B005226C9 /* libVuforia.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DCF472E1D38768B005226C9 /* libVuforia.a */; };
 		2DCF47301D38768B005226C9 /* libVuforia.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DCF472E1D38768B005226C9 /* libVuforia.a */; };
+		2DCF47311D387CA3005226C9 /* datasets in Resources */ = {isa = PBXBuildFile; fileRef = 2DC4E2FC1D34F01900BFB57B /* datasets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -584,6 +584,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DCF472D1D36281A005226C9 /* ARResources.bundle in Resources */,
+				2DCF47311D387CA3005226C9 /* datasets in Resources */,
 				2DC4E3001D34F01900BFB57B /* models in Resources */,
 				2DA38FAD1D3483530044AE42 /* LaunchScreen.storyboard in Resources */,
 				2DA38FAA1D3483530044AE42 /* Assets.xcassets in Resources */,
@@ -595,7 +596,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DC4E2FF1D34F01900BFB57B /* datasets in Resources */,
 				2DA3915C1D34E6F70044AE42 /* Line.fragsh in Resources */,
 				2DA3915D1D34E6F70044AE42 /* Line.vertsh in Resources */,
 				2DA3915E1D34E6F70044AE42 /* Simple.fragsh in Resources */,

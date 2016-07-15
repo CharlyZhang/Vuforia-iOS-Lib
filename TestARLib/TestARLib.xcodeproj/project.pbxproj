@@ -25,6 +25,7 @@
 		2DCF47001D34F15A005226C9 /* libAR.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DCF46FD1D34F15A005226C9 /* libAR.a */; };
 		2DCF47011D34F15A005226C9 /* ARResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2DCF46FE1D34F15A005226C9 /* ARResources.bundle */; };
 		2DCF47261D361F87005226C9 /* models in Resources */ = {isa = PBXBuildFile; fileRef = 2DCF47251D361F87005226C9 /* models */; };
+		2DCF47331D387CF1005226C9 /* datasets in Resources */ = {isa = PBXBuildFile; fileRef = 2DCF47321D387CF1005226C9 /* datasets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		2DCF46FE1D34F15A005226C9 /* ARResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ARResources.bundle; path = ../../output/Debug/ARResources.bundle; sourceTree = "<group>"; };
 		2DCF47241D361EF4005226C9 /* ARViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ARViewController.h; path = ../../output/Debug/include/ARViewController.h; sourceTree = "<group>"; };
 		2DCF47251D361F87005226C9 /* models */ = {isa = PBXFileReference; lastKnownFileType = folder; name = models; path = ../../ARDemo/Resources/models; sourceTree = "<group>"; };
+		2DCF47321D387CF1005226C9 /* datasets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = datasets; path = ../../ARDemo/Resources/datasets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 		2DA391421D34DAAB0044AE42 /* ARLib */ = {
 			isa = PBXGroup;
 			children = (
+				2DCF47321D387CF1005226C9 /* datasets */,
 				2DCF47251D361F87005226C9 /* models */,
 				2DCF47021D34F17F005226C9 /* include */,
 				2DCF46FD1D34F15A005226C9 /* libAR.a */,
@@ -203,6 +206,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DCF47261D361F87005226C9 /* models in Resources */,
+				2DCF47331D387CF1005226C9 /* datasets in Resources */,
 				2DA390C31D34DA3C0044AE42 /* LaunchScreen.storyboard in Resources */,
 				2DA390C01D34DA3C0044AE42 /* Assets.xcassets in Resources */,
 				2DCF47011D34F15A005226C9 /* ARResources.bundle in Resources */,
