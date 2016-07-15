@@ -96,6 +96,7 @@ typedef map<string, Vuforia::DataSet*> DataSetMap;
     
     // initialize AR
     NSString *initFlag = [configurations objectForKey:AR_CONFIG_INIT_FLAG];
+    NSLog(@"interfaceOrientation %ld",self.interfaceOrientation);
     [vapp initAR:Vuforia::GL_20 orientation:self.interfaceOrientation flags:initFlag];
     
     // show loading animation while AR is being initialized
@@ -133,7 +134,20 @@ typedef map<string, Vuforia::DataSet*> DataSetMap;
 
 - (BOOL) shouldAutorotate
 {
+    NSLog(@"shouldAutorotate");
     return NO;
+}
+
+- (NSUInteger)supportedInterfaceOrientations
+{
+    NSLog(@"supportedInterfaceOrientations");
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
+{
+    NSLog(@"preferredInterfaceOrientationForPresentation");
+    return UIInterfaceOrientationPortrait;
 }
 
 - (void)dealloc
