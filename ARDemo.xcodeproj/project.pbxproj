@@ -30,7 +30,6 @@
 		2DA38FC21D3486440044AE42 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FBE1D3486440044AE42 /* AppDelegate.m */; };
 		2DA38FC31D3486440044AE42 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FBF1D3486440044AE42 /* main.m */; };
 		2DA38FC41D3486440044AE42 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FC11D3486440044AE42 /* ViewController.m */; };
-		2DA38FC61D3486C40044AE42 /* libVuforia.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DA38FC51D3486C40044AE42 /* libVuforia.a */; };
 		2DA38FDA1D3487540044AE42 /* SampleApplication3DModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FCA1D3487540044AE42 /* SampleApplication3DModel.m */; };
 		2DA38FDB1D3487540044AE42 /* SampleApplicationSession.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FCC1D3487540044AE42 /* SampleApplicationSession.mm */; };
 		2DA38FDC1D3487540044AE42 /* SampleApplicationShaderUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FCE1D3487540044AE42 /* SampleApplicationShaderUtils.m */; };
@@ -82,7 +81,6 @@
 		2DA3907C1D34CDDC0044AE42 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DA390441D348C360044AE42 /* Security.framework */; };
 		2DA3907D1D34CDDC0044AE42 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DA390421D348C280044AE42 /* SystemConfiguration.framework */; };
 		2DA3907E1D34CDDC0044AE42 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DA390401D348BD20044AE42 /* AVFoundation.framework */; };
-		2DA3907F1D34CDDC0044AE42 /* libVuforia.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DA38FC51D3486C40044AE42 /* libVuforia.a */; };
 		2DA390801D34CDDC0044AE42 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DA38FBB1D3485A80044AE42 /* UIKit.framework */; };
 		2DA390811D34CDDC0044AE42 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DA38FB91D34859B0044AE42 /* QuartzCore.framework */; };
 		2DA390821D34CDDC0044AE42 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DA38FB71D3485920044AE42 /* OpenGLES.framework */; };
@@ -98,6 +96,8 @@
 		2DCF47221D35E796005226C9 /* AREAGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2DCF47201D35E796005226C9 /* AREAGLView.mm */; };
 		2DCF47231D361CB4005226C9 /* ARViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DCF47191D34F720005226C9 /* ARViewController.h */; };
 		2DCF472D1D36281A005226C9 /* ARResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2DCF472C1D36281A005226C9 /* ARResources.bundle */; };
+		2DCF472F1D38768B005226C9 /* libVuforia.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DCF472E1D38768B005226C9 /* libVuforia.a */; };
+		2DCF47301D38768B005226C9 /* libVuforia.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DCF472E1D38768B005226C9 /* libVuforia.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,7 +137,6 @@
 		2DA38FBF1D3486440044AE42 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Classes/main.m; sourceTree = "<group>"; };
 		2DA38FC01D3486440044AE42 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = Classes/ViewController.h; sourceTree = "<group>"; };
 		2DA38FC11D3486440044AE42 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = Classes/ViewController.m; sourceTree = "<group>"; };
-		2DA38FC51D3486C40044AE42 /* libVuforia.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libVuforia.a; path = ../../build/lib/arm/libVuforia.a; sourceTree = "<group>"; };
 		2DA38FC81D3487540044AE42 /* Quad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Quad.h; sourceTree = "<group>"; };
 		2DA38FC91D3487540044AE42 /* SampleApplication3DModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleApplication3DModel.h; sourceTree = "<group>"; };
 		2DA38FCA1D3487540044AE42 /* SampleApplication3DModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleApplication3DModel.m; sourceTree = "<group>"; };
@@ -211,6 +210,7 @@
 		2DCF471F1D35E796005226C9 /* AREAGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AREAGLView.h; sourceTree = "<group>"; };
 		2DCF47201D35E796005226C9 /* AREAGLView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AREAGLView.mm; sourceTree = "<group>"; };
 		2DCF472C1D36281A005226C9 /* ARResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ARResources.bundle; path = output/Debug/ARResources.bundle; sourceTree = "<group>"; };
+		2DCF472E1D38768B005226C9 /* libVuforia.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libVuforia.a; path = "external-deps/build/lib/arm/libVuforia.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,9 +224,9 @@
 				2DA390451D348C360044AE42 /* Security.framework in Frameworks */,
 				2DA390431D348C280044AE42 /* SystemConfiguration.framework in Frameworks */,
 				2DA390411D348BD20044AE42 /* AVFoundation.framework in Frameworks */,
+				2DCF472F1D38768B005226C9 /* libVuforia.a in Frameworks */,
 				2DA38FBC1D3485A80044AE42 /* UIKit.framework in Frameworks */,
 				2DA38FBA1D34859B0044AE42 /* QuartzCore.framework in Frameworks */,
-				2DA38FC61D3486C40044AE42 /* libVuforia.a in Frameworks */,
 				2DA38FB81D3485920044AE42 /* OpenGLES.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -241,7 +241,7 @@
 				2DA3907C1D34CDDC0044AE42 /* Security.framework in Frameworks */,
 				2DA3907D1D34CDDC0044AE42 /* SystemConfiguration.framework in Frameworks */,
 				2DA3907E1D34CDDC0044AE42 /* AVFoundation.framework in Frameworks */,
-				2DA3907F1D34CDDC0044AE42 /* libVuforia.a in Frameworks */,
+				2DCF47301D38768B005226C9 /* libVuforia.a in Frameworks */,
 				2DA390801D34CDDC0044AE42 /* UIKit.framework in Frameworks */,
 				2DA390811D34CDDC0044AE42 /* QuartzCore.framework in Frameworks */,
 				2DA390821D34CDDC0044AE42 /* OpenGLES.framework in Frameworks */,
@@ -295,6 +295,7 @@
 		2DA38FB61D3485630044AE42 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2DCF472E1D38768B005226C9 /* libVuforia.a */,
 				2DA391591D34E3730044AE42 /* libstdc++.6.0.9.tbd */,
 				2DA3904A1D348C670044AE42 /* CoreMotion.framework */,
 				2DA390481D348C5D0044AE42 /* CoreMedia.framework */,
@@ -302,7 +303,6 @@
 				2DA390441D348C360044AE42 /* Security.framework */,
 				2DA390421D348C280044AE42 /* SystemConfiguration.framework */,
 				2DA390401D348BD20044AE42 /* AVFoundation.framework */,
-				2DA38FC51D3486C40044AE42 /* libVuforia.a */,
 				2DA38FBB1D3485A80044AE42 /* UIKit.framework */,
 				2DA38FB91D34859B0044AE42 /* QuartzCore.framework */,
 				2DA38FB71D3485920044AE42 /* OpenGLES.framework */,
@@ -829,11 +829,11 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CODE_SIGN_IDENTITY = "iPhone Developer: LI Leichuan (YK29UXBS4P)";
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = ../../build/include;
+				HEADER_SEARCH_PATHS = "external-deps/build/include";
 				INFOPLIST_FILE = ARDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = ../../build/lib/arm;
+				LIBRARY_SEARCH_PATHS = "external-deps/build/lib/arm";
 				PRODUCT_BUNDLE_IDENTIFIER = com.founder.ARDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "996d68d1-7df3-411e-93da-d9d99561950b";
@@ -847,11 +847,11 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Founder Electronics Co Ltd";
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = ../../build/include;
+				HEADER_SEARCH_PATHS = "external-deps/build/include";
 				INFOPLIST_FILE = ARDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = ../../build/lib/arm;
+				LIBRARY_SEARCH_PATHS = "external-deps/build/lib/arm";
 				PRODUCT_BUNDLE_IDENTIFIER = com.founder.ARDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -860,9 +860,12 @@
 		2DA3905E1D34CD3C0044AE42 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				HEADER_SEARCH_PATHS = ../../build/include;
+				HEADER_SEARCH_PATHS = "external-deps/build/include";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LIBRARY_SEARCH_PATHS = ../../build/lib/arm;
+				LIBRARY_SEARCH_PATHS = (
+					"external-deps/build/lib/arm",
+					"external-deps/build/lib/arm",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -872,9 +875,12 @@
 		2DA3905F1D34CD3C0044AE42 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				HEADER_SEARCH_PATHS = ../../build/include;
+				HEADER_SEARCH_PATHS = "external-deps/build/include";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LIBRARY_SEARCH_PATHS = ../../build/lib/arm;
+				LIBRARY_SEARCH_PATHS = (
+					"external-deps/build/lib/arm",
+					"external-deps/build/lib/arm",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
