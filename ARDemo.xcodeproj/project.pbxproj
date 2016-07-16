@@ -829,11 +829,11 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CODE_SIGN_IDENTITY = "iPhone Developer: LI Leichuan (YK29UXBS4P)";
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = "external-deps/build/include";
+				HEADER_SEARCH_PATHS = "external-deps/Vuforia/build/include";
 				INFOPLIST_FILE = ARDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "external-deps/build/lib/arm";
+				LIBRARY_SEARCH_PATHS = "external-deps/Vuforia/build/lib/arm";
 				PRODUCT_BUNDLE_IDENTIFIER = com.founder.ARDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "996d68d1-7df3-411e-93da-d9d99561950b";
@@ -847,11 +847,11 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Founder Electronics Co Ltd";
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = "external-deps/build/include";
+				HEADER_SEARCH_PATHS = "external-deps/Vuforia/build/include";
 				INFOPLIST_FILE = ARDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "external-deps/build/lib/arm";
+				LIBRARY_SEARCH_PATHS = "external-deps/Vuforia/build/lib/arm";
 				PRODUCT_BUNDLE_IDENTIFIER = com.founder.ARDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -860,10 +860,10 @@
 		2DA3905E1D34CD3C0044AE42 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				HEADER_SEARCH_PATHS = "external-deps/build/include";
+				HEADER_SEARCH_PATHS = "external-deps/Vuforia/build/include";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
-					"external-deps/build/lib/arm",
+					"external-deps/Vuforia/build/lib/arm",
 					"external-deps/build/lib/arm",
 				);
 				OTHER_LDFLAGS = "-ObjC";
@@ -875,10 +875,10 @@
 		2DA3905F1D34CD3C0044AE42 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				HEADER_SEARCH_PATHS = "external-deps/build/include";
+				HEADER_SEARCH_PATHS = "external-deps/Vuforia/build/include";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
-					"external-deps/build/lib/arm",
+					"external-deps/Vuforia/build/lib/arm",
 					"external-deps/build/lib/arm",
 				);
 				OTHER_LDFLAGS = "-ObjC";

@@ -7,7 +7,7 @@ This is a static library based on [Vuforia](https://developer.vuforia.com/), mak
 ## USAGE
 
 ### PREREQUISITE
-Run `install_deps.sh` to install the Vuforia. SDK 
+Download the [Vuforia SDK for iOS](https://developer.vuforia.com/downloads/sdk) and upack it to the `external-deps` folder. 
 ### ARDemo
 If you wanna see the demo, follow steps below:  
 
