@@ -90,13 +90,15 @@ bool CZNode::removeSubNode(std::string &name)
 
 bool CZNode::removeAllSubNodesOfType(NodeType type)
 {
-    for(NodeMap::iterator itr = _childrenNodes.begin(); itr != _childrenNodes.end(); itr ++)
+    for(NodeMap::iterator itr = _childrenNodes.begin(); itr != _childrenNodes.end(); )
     {
         if(itr->second->getType() == type)
         {
             delete itr->second;
-            itr = _childrenNodes.erase(itr);
+            _childrenNodes.erase(itr++);
         }
+        else
+            itr++;
     }
     
     return true;

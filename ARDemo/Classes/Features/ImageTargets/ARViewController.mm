@@ -96,7 +96,7 @@ typedef map<string, Vuforia::DataSet*> DataSetMap;
     
     // initialize AR
     NSString *initFlag = [configurations objectForKey:AR_CONFIG_INIT_FLAG];
-    NSLog(@"interfaceOrientation %ld",self.interfaceOrientation);
+    NSLog(@"interfaceOrientation %d",self.interfaceOrientation);
     [vapp initAR:Vuforia::GL_20 orientation:self.interfaceOrientation flags:initFlag];
     
     // show loading animation while AR is being initialized
@@ -591,7 +591,7 @@ typedef map<string, Vuforia::DataSet*> DataSetMap;
             NSLog(@"INFO: successfully loaded data set");
             
             // Load the data set from the app's resources location
-            if (!dataSet->load([dataFile cStringUsingEncoding:NSASCIIStringEncoding], Vuforia::STORAGE_APPRESOURCE)) {
+            if (!dataSet->load([dataFile cStringUsingEncoding:NSASCIIStringEncoding], Vuforia::STORAGE_ABSOLUTE)) {
                 NSLog(@"ERROR: failed to load data set");
                 objectTracker->destroyDataSet(dataSet);
                 dataSet = NULL;

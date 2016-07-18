@@ -185,7 +185,8 @@ const float kObjectScaleOffTargetTracking = 12.0f;
     for (NSDictionary *models in modelsCfg)
     {
         string name([models[AR_CONFIG_TARGET_NAME] UTF8String]);
-        NSString *modelPath = [[[NSBundle mainBundle]bundlePath] stringByAppendingPathComponent:models[AR_CONFIG_MODEL_PATH]];
+//        NSString *modelPath = [[[NSBundle mainBundle]bundlePath] stringByAppendingPathComponent:models[AR_CONFIG_MODEL_PATH]];
+        NSString *modelPath = models[AR_CONFIG_MODEL_PATH];
         CZObjModel *model = ModelFactory::createObjModel([modelPath UTF8String]);
         if(model)
             modelsMap[name] = model;
