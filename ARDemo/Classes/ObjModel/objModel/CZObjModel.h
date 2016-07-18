@@ -13,6 +13,8 @@
 #include "CZNode.h"
 #include "ObjModel.hpp"
 
+namespace IAR {
+    
 /// CZObjModel
 class CZObjModel : public ObjModel, public CZNode
 {
@@ -24,4 +26,6 @@ public:
     
     void transform2GCard();
 };
+    
+}
 #endif

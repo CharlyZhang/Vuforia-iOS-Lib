@@ -5,6 +5,8 @@
 
 using namespace std;
 
+namespace IAR {
+    
 void CZMaterialLib::parseLine(ifstream& ifs, const string& ele_id)
 {
 	if ("newmtl" == ele_id) {
@@ -86,4 +88,6 @@ CZMaterialLib::~CZMaterialLib()
 	{
 		delete iterMtl->second;
 	}
+}
+
 }

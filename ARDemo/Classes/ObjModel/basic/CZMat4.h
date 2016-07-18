@@ -25,6 +25,8 @@
 #define _CZMAT4_H_
 #include <math.h>
 
+namespace IAR {
+    
 // VECTOR3D
 class VECTOR3D
 {
@@ -401,4 +403,5 @@ public:
 	float entries[16];
 };
 
+}
 #endif	//MATRIX4X4_H

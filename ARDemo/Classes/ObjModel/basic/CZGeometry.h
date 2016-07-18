@@ -5,6 +5,8 @@
 #include <vector>
 #include <string>
 
+namespace IAR {
+    
 /// CZFace
 class CZFace
 {
@@ -70,4 +72,5 @@ private:
 	void updateAABB(CZVector3D<float> p);
 };
 
+}
 #endif

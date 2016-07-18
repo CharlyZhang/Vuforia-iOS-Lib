@@ -15,6 +15,8 @@
 #include <map>
 #include <string>
 
+namespace IAR {
+    
 class CZNode
 {
 public:
@@ -59,5 +61,7 @@ protected:
     GLuint m_vboNorm;
     GLuint m_vboTexCoord;
 };
+
+}
 
 #endif /* CZNode_h */

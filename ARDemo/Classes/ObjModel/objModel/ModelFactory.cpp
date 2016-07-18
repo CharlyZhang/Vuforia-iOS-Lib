@@ -13,7 +13,8 @@
 #include <string>
 
 using namespace std;
-
+namespace IAR {
+    
 CZObjModel* ModelFactory::createObjModel(const char* filename)
 {
     if(filename == NULL)
@@ -50,4 +51,6 @@ CZObjModel* ModelFactory::createObjModelFromTemp(const char* filename)
     
     delete pModel;
     return nullptr;
+}
+
 }

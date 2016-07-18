@@ -3,6 +3,8 @@
 
 using namespace std;
 
+namespace IAR {
+
 bool CZObjFileParser::parseFile(const string& path)
 {
 	ifstream ifs(path.c_str(), ios::in | ios::ate);
@@ -127,4 +129,6 @@ int CZObjFileParser::parseNumberElement(ifstream &ifs, int *pData, char sep, int
 	}
 
 	return count;
+}
+
 }

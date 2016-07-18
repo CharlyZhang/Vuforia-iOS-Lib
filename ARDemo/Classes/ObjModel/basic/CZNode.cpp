@@ -8,6 +8,8 @@
 
 #include "CZNode.h"
 
+namespace IAR {
+    
 
 CZNode::CZNode(NodeType t /*= kEmpty*/): _type(t)
 {
@@ -136,4 +138,6 @@ bool CZNode::draw(CZShader *pShader, CZMat4 &viewProjMat)
     }
     
     return result;
+}
+    
 }

@@ -10,6 +10,15 @@
 #   import "UIImage+Resize.h"
 #else
 #include <android/bitmap.h>
+
+#endif
+
+using namespace std;
+
+namespace IAR {
+    
+#if defined(__ANDROID__)
+    
 extern JNIEnv *jniEnv;
 
 extern char* GetImageClass;
@@ -18,13 +27,7 @@ extern char* GetImageMethod;
 extern char* ModelLoadCallerClass;
 extern char* ModelLoadCallerMethod;
 
-#endif
-
-using namespace std;
-
-#if defined(__ANDROID__)
-
-
+    
 jstring charToJstring(JNIEnv* env, const char* pat)
 {
     return env->NewStringUTF(pat);
@@ -318,4 +321,6 @@ void modelLoadingDone()
     jniEnv->CallStaticVoidMethod(cls,mid);
     
 #endif
+}
+
 }

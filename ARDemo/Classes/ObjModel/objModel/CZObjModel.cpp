@@ -6,6 +6,8 @@
 
 using namespace std;
 
+namespace IAR {
+    
 CZObjModel::CZObjModel(): CZNode(kObjModel)
 {
 
@@ -106,5 +108,7 @@ void CZObjModel::transform2GCard()
     CZCheckGLError();
     
     GL_BIND_VERTEXARRAY(0);
+}
+    
 }
 

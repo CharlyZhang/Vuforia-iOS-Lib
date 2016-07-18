@@ -10,6 +10,8 @@
 
 using namespace std;
 
+namespace IAR {
+
 ObjModel::ObjModel()
 {
     mtlLibName = "Not Set";
@@ -70,4 +72,6 @@ void ObjModel::unpackRawData()
         pGeometry->firstIdx = totalVertNum;
         totalVertNum += vertNum;
     }
+}
+
 }

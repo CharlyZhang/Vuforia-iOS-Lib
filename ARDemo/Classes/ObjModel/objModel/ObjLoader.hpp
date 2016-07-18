@@ -14,6 +14,8 @@
 
 #include <string>
 
+namespace IAR {
+    
 class ObjLoader : public CZObjFileParser
 {
 public:
@@ -42,4 +44,5 @@ private:
     static ObjLoader objLoader;                     
 };
 
+}
 #endif /* ObjLoader_hpp */

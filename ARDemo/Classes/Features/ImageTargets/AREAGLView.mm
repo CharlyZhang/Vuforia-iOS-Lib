@@ -29,6 +29,7 @@
 #include <string>
 
 using namespace std;
+using namespace IAR;
 
 typedef map<CZImage*,short> TextureMap;
 typedef map<string, CZObjModel*> ModelMap;

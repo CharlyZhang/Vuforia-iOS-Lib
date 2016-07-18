@@ -4,6 +4,8 @@
 
 #include "CZVector.h"
 
+namespace IAR {
+    
 // 3D Point
 typedef CZVector3D<float> CZPoint3D;
 
@@ -82,4 +84,5 @@ public:
     ColorSpace colorSpace;
 };
 
+}
 #endif

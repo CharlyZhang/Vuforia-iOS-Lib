@@ -15,6 +15,8 @@
 
 using namespace std;
 
+namespace IAR {
+    
 bool CZShader::extensionsInit = true;
 bool CZShader::useGLSL = true;
 bool CZShader::bGeometryShader = false;
@@ -464,4 +466,6 @@ GLuint CZShader::getAttributeLocation(const char* atrrName)
 GLuint CZShader::getUniformLocation(const string& str)
 {
     return m_uniforms[str];
+}
+
 }

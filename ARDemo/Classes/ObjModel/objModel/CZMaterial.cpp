@@ -3,6 +3,8 @@
 
 using namespace std;
 
+namespace IAR {
+    
 CZMaterial::CZMaterial()
 {
     Ns = 10;						//	shininess
@@ -21,3 +23,4 @@ CZMaterial::~CZMaterial()
     if (texImage)   delete texImage;
 }
 
+}

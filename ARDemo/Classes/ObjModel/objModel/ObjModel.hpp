@@ -14,6 +14,8 @@
 #include "CZMaterialLib.h"
 #include <vector>
 
+namespace IAR {
+    
 class ObjLoader;
 
 class ObjModel
@@ -30,9 +32,9 @@ protected:
     std::string mtlLibName;							///< material lib name
     
     // raw data
-    std::vector<CZVector3D<float>> m_vertRawVector;
-    std::vector<CZVector3D<float>> m_normRawVector;
-    std::vector<CZVector2D<float>> m_texRawVector;
+    std::vector<CZVector3D<float> > m_vertRawVector;
+    std::vector<CZVector3D<float> > m_normRawVector;
+    std::vector<CZVector2D<float> > m_texRawVector;
 
 public:
     CZMaterialLib materialLib;
@@ -43,5 +45,7 @@ public:
     std::vector<CZVector3D<float> > normals;
     std::vector<CZVector2D<float> > texcoords;
 };
+    
+}
 
 #endif /* ObjModel_hpp */

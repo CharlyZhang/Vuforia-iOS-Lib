@@ -5,6 +5,8 @@
 #include "CZMaterial.h"
 
 #include <map>
+
+namespace IAR {
 typedef std::map<std::string, CZMaterial*> CZMaterialMap;
 
 /// CZMaterial library 
@@ -27,4 +29,5 @@ private:
 	CZMaterialMap m_materials;
 };
 
+}
 #endif

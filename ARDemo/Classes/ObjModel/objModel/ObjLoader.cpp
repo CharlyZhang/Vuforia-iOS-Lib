@@ -13,6 +13,8 @@
 
 using namespace std;
 
+namespace IAR {
+    
 CZGeometry* ObjLoader::pCurGeometry = nullptr;
 CZObjModel* ObjLoader::pCurModel = nullptr;
 ObjLoader ObjLoader::objLoader;                     //< 里
@@ -349,4 +351,6 @@ void ObjLoader::parseFace(std::ifstream &ifs)
     pCurGeometry->addFace(face);
     
     ifs.clear();
+}
+    
 }

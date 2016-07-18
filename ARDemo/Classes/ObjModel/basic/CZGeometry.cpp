@@ -3,6 +3,8 @@
 
 using namespace std;
 
+namespace IAR {
+    
 CZGeometry::CZGeometry(): aabbMin(CZVector3D<float>(FLT_MAX, FLT_MAX, FLT_MAX)), 
 						  aabbMax(CZVector3D<float>(-FLT_MAX, -FLT_MAX, -FLT_MAX))
 {
@@ -87,4 +89,6 @@ void CZGeometry::updateAABB(CZVector3D<float> p)
 
 	if(p.z > aabbMax.z)	aabbMax.z = p.z;
 	if(p.z < aabbMin.z) aabbMin.z = p.z;
+}
+
 }
