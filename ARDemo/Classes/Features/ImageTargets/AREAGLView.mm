@@ -427,6 +427,7 @@ const float kObjectScaleOffTargetTracking = 12.0f;
     return [context presentRenderbuffer:GL_RENDERBUFFER];
 }
 
+#pragma mark - Contorl
 
 - (void) rotateWithX:(float)x Y:(float)y
 {

@@ -257,6 +257,7 @@ typedef map<string, Vuforia::DataSet*> DataSetMap;
                                                            delegate:self
                                                   cancelButtonTitle:@"OK"
                                                   otherButtonTitles:nil];
+            alert.tag = 0;
             [alert show];
         });
     }
@@ -316,13 +317,28 @@ typedef map<string, Vuforia::DataSet*> DataSetMap;
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"kDismissARViewController" object:nil];
+    if(alertView.tag == 0)
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"kDismissARViewController" object:nil];
 }
 
 - (void)dismissARViewController
 {
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     [self.navigationController popToRootViewControllerAnimated:NO];
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if(alertView.tag == 1)
+    {
+        if(buttonIndex == 1)
+        {
+            AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+            appDelegate.glResourceHandler = nil;
+            
+            [self.delegate alertView:self];
+        }
+    }
 }
 
 #pragma mark - loading animation
@@ -386,6 +402,11 @@ typedef map<string, Vuforia::DataSet*> DataSetMap;
     UIPinchGestureRecognizer *pinch = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(scale:)];
     [view addGestureRecognizer:pinch];
     
+    UITapGestureRecognizer *doubletap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(exit:)];
+    doubletap.numberOfTouchesRequired = 1;
+    doubletap.numberOfTapsRequired = 2;
+    [view addGestureRecognizer:doubletap];
+    
     UITapGestureRecognizer *double2tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(reset:)];
     double2tap.numberOfTouchesRequired = 2;
     double2tap.numberOfTapsRequired = 2;
@@ -430,6 +451,22 @@ typedef map<string, Vuforia::DataSet*> DataSetMap;
 - (void)reset:(UITapGestureRecognizer*) tap{
     if (tap.state == UIGestureRecognizerStateEnded) {
         [eaglView reset];
+    }
+}
+
+- (void) exit:(UITapGestureRecognizer*) tap
+{
+    if (tap.state == UIGestureRecognizerStateEnded) {
+        dispatch_async( dispatch_get_main_queue(), ^{
+            
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"退出"
+                                                            message:@"您确定退出该AR资源？"
+                                                           delegate:self
+                                                  cancelButtonTitle:@"取消"
+                                                  otherButtonTitles:@"确定",nil];
+            alert.tag = 1;
+            [alert show];
+        });
     }
 }
 

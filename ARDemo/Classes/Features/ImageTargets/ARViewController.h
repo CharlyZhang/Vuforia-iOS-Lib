@@ -15,12 +15,21 @@
 #define AR_CONFIG_DATASET_PATH  @"DataSetPath"
 #define AR_CONFIG_TARGET_NAME   @"TargetName"
 #define AR_CONFIG_MODEL_PATH    @"ModelPath"
+@class ARViewController;
 
 @protocol ARGLResourceHandler
 
 @required
 - (void) freeOpenGLESResources;
 - (void) finishOpenGLESCommands;
+@end
+
+@protocol ARViewControllerDelegate
+
+@required
+
+- (void)alertView:(ARViewController *)arviewController didDismiss;
+
 @end
 
 @interface ARViewController : UIViewController
@@ -38,5 +47,6 @@
 @property (nonatomic) BOOL flashEnabled;
 @property (nonatomic) BOOL frontCameraEnabled;
 @property (nonatomic, strong) NSString *activeDataSetName;
+@property (nonatomic, weak) id<ARViewControllerDelegate> delegate;
 
 @end
