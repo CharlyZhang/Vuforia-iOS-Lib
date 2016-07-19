@@ -28,7 +28,7 @@
 
 @required
 
-- (void)alertView:(ARViewController *)arviewController didDismiss;
+- (void)didDismissARviewController:(ARViewController *) arviewctrl;
 
 @end
 

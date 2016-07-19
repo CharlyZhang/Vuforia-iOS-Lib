@@ -73,6 +73,7 @@ const float kObjectScaleOffTargetTracking = 12.0f;
 }
 
 @property (nonatomic, weak) SampleApplicationSession * vapp;
+@property (copy) void(^completionBlock)();
 
 
 - (void)initShaders;
@@ -98,7 +99,7 @@ const float kObjectScaleOffTargetTracking = 12.0f;
 //------------------------------------------------------------------------------
 #pragma mark - Lifecycle
 
-- (id)initWithFrame:(CGRect)frame appSession:(SampleApplicationSession *) app modelsConfig:(NSArray*)modelsCfg
+- (id)initWithFrame:(CGRect)frame appSession:(SampleApplicationSession *) app
 {
     self = [super initWithFrame:frame];
     
@@ -124,8 +125,7 @@ const float kObjectScaleOffTargetTracking = 12.0f;
         }
         
         offTargetTrackingEnabled = NO;
-        
-        [self loadModels:modelsCfg];
+
         [self initShaders];
         
         SampleApplicationUtils::checkGlError("Inital!");
@@ -182,18 +182,26 @@ const float kObjectScaleOffTargetTracking = 12.0f;
     offTargetTrackingEnabled = enabled;
 }
 
-- (void) loadModels:(NSArray *)modelsCfg {
-    for (NSDictionary *models in modelsCfg)
-    {
-        string name([models[AR_CONFIG_TARGET_NAME] UTF8String]);
-//        NSString *modelPath = [[[NSBundle mainBundle]bundlePath] stringByAppendingPathComponent:models[AR_CONFIG_MODEL_PATH]];
-        NSString *modelPath = models[AR_CONFIG_MODEL_PATH];
-        CZObjModel *model = ModelFactory::createObjModel([modelPath UTF8String]);
-        if(model)
-            modelsMap[name] = model;
-        else
-            NSLog(@"model(%@) loading failed!",modelPath);
-    }
+- (void) loadModels:(NSArray *)modelsCfg complete:(void (^ _Nullable)())completion{
+    self.completionBlock = completion;
+    
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue, ^(void){
+        for (NSDictionary *models in modelsCfg)
+        {
+            string name([models[AR_CONFIG_TARGET_NAME] UTF8String]);
+            //        NSString *modelPath = [[[NSBundle mainBundle]bundlePath] stringByAppendingPathComponent:models[AR_CONFIG_MODEL_PATH]];
+            NSString *modelPath = models[AR_CONFIG_MODEL_PATH];
+            CZObjModel *model = ModelFactory::createObjModel([modelPath UTF8String]);
+            if(model)
+                modelsMap[name] = model;
+            else
+                NSLog(@"model(%@) loading failed!",modelPath);
+        }
+        NSLog(@"finish loading");
+        
+        dispatch_async(dispatch_get_main_queue(), self.completionBlock);
+    });
 }
 
 //------------------------------------------------------------------------------

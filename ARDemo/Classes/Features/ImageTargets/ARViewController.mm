@@ -65,8 +65,7 @@ typedef map<string, Vuforia::DataSet*> DataSetMap;
     
     CGRect viewFrame = [self getCurrentARViewFrame];
     
-    NSArray *modelsConfig = [configurations objectForKey:AR_CONFIG_MODEL];
-    eaglView = [[AREAGLView alloc] initWithFrame:viewFrame appSession:vapp modelsConfig:modelsConfig];
+    eaglView = [[AREAGLView alloc] initWithFrame:viewFrame appSession:vapp];
     [self setView:eaglView];
     AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     appDelegate.glResourceHandler = eaglView;
@@ -94,13 +93,16 @@ typedef map<string, Vuforia::DataSet*> DataSetMap;
      name:UIApplicationDidBecomeActiveNotification
      object:nil];
     
-    // initialize AR
-    NSString *initFlag = [configurations objectForKey:AR_CONFIG_INIT_FLAG];
-    NSLog(@"interfaceOrientation %d",self.interfaceOrientation);
-    [vapp initAR:Vuforia::GL_20 orientation:self.interfaceOrientation flags:initFlag];
-    
     // show loading animation while AR is being initialized
     [self showLoadingAnimation];
+    
+    NSArray *modelsConfig = [configurations objectForKey:AR_CONFIG_MODEL];
+    [eaglView loadModels:modelsConfig complete:^{
+        // initialize AR
+        NSString *initFlag = [configurations objectForKey:AR_CONFIG_INIT_FLAG];
+        NSLog(@"interfaceOrientation %ld",self.interfaceOrientation);
+        [vapp initAR:Vuforia::GL_20 orientation:self.interfaceOrientation flags:initFlag];
+    }];
 }
 
 - (void)viewDidLoad {
@@ -238,8 +240,7 @@ typedef map<string, Vuforia::DataSet*> DataSetMap;
 
 // callback called when the initailization of the AR is done
 - (void) onInitARDone:(NSError *)initError {
-    UIActivityIndicatorView *loadingIndicator = (UIActivityIndicatorView *)[eaglView viewWithTag:1];
-    [loadingIndicator removeFromSuperview];
+    [self hideLoadingAnimation];
     
     if (initError == nil) {
         NSError * error = nil;
@@ -336,7 +337,10 @@ typedef map<string, Vuforia::DataSet*> DataSetMap;
             AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
             appDelegate.glResourceHandler = nil;
             
-            [self.delegate alertView:self];
+            [self freeOpenGLESResources];
+            [self finishOpenGLESCommands];
+            
+            [self.delegate didDismissARviewController:self];
         }
     }
 }
