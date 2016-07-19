@@ -353,14 +353,18 @@ typedef map<string, Vuforia::DataSet*> DataSetMap;
     int smallerBoundsSize = MIN(mainBounds.size.width, mainBounds.size.height);
     int largerBoundsSize = MAX(mainBounds.size.width, mainBounds.size.height);
     UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
-    if (orientation == UIInterfaceOrientationPortrait || orientation == UIInterfaceOrientationPortraitUpsideDown ) {
-        indicatorBounds = CGRectMake(smallerBoundsSize / 2 - 12,
-                                     largerBoundsSize / 2 - 12, 24, 24);
-    }
-    else {
-        indicatorBounds = CGRectMake(largerBoundsSize / 2 - 12,
-                                     smallerBoundsSize / 2 - 12, 24, 24);
-    }
+    
+    indicatorBounds = CGRectMake(smallerBoundsSize / 2 - 12,
+                                 largerBoundsSize / 2 - 12, 24, 24);
+//    
+//    if (orientation == UIInterfaceOrientationPortrait || orientation == UIInterfaceOrientationPortraitUpsideDown ) {
+//        indicatorBounds = CGRectMake(smallerBoundsSize / 2 - 12,
+//                                     largerBoundsSize / 2 - 12, 24, 24);
+//    }
+//    else {
+//        indicatorBounds = CGRectMake(largerBoundsSize / 2 - 12,
+//                                     smallerBoundsSize / 2 - 12, 24, 24);
+//    }
     
     UIActivityIndicatorView *loadingIndicator = [[UIActivityIndicatorView alloc]
                                                  initWithFrame:indicatorBounds];
