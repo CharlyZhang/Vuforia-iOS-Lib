@@ -187,6 +187,7 @@ const float kObjectScaleOffTargetTracking = 12.0f;
     
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_async(queue, ^(void){
+        [EAGLContext setCurrentContext:context];
         for (NSDictionary *models in modelsCfg)
         {
             string name([models[AR_CONFIG_TARGET_NAME] UTF8String]);
