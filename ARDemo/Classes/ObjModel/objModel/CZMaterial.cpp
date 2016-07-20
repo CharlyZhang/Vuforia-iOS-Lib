@@ -3,7 +3,7 @@
 
 using namespace std;
 
-namespace IAR {
+namespace CZ3D {
     
 CZMaterial::CZMaterial()
 {
@@ -22,5 +22,6 @@ CZMaterial::~CZMaterial()
 {
     if (texImage)   delete texImage;
 }
-
+    
 }
+

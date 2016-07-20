@@ -5,7 +5,7 @@
 
 using namespace std;
 
-namespace IAR {
+namespace CZ3D {
     
 void CZMaterialLib::parseLine(ifstream& ifs, const string& ele_id)
 {

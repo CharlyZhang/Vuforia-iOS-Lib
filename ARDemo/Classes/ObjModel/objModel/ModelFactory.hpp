@@ -9,7 +9,7 @@
 #ifndef ModelFactory_hpp
 #define ModelFactory_hpp
 
-namespace IAR {
+namespace CZ3D {
     
 class CZObjModel;
 

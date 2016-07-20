@@ -13,7 +13,8 @@
 #include <string>
 
 using namespace std;
-namespace IAR {
+
+namespace CZ3D {
     
 CZObjModel* ModelFactory::createObjModel(const char* filename)
 {

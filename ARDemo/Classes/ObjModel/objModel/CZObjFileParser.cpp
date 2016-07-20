@@ -3,8 +3,8 @@
 
 using namespace std;
 
-namespace IAR {
-
+namespace CZ3D {
+    
 bool CZObjFileParser::parseFile(const string& path)
 {
 	ifstream ifs(path.c_str(), ios::in | ios::ate);

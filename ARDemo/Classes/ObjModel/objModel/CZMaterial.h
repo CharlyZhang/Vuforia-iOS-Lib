@@ -5,8 +5,8 @@
 #include "CZDefine.h"
 #include "CZBasic.h"
 
-namespace IAR {
-
+namespace CZ3D {
+    
 class CZMaterial
 {
 public:
@@ -21,7 +21,6 @@ public:
 	float	Ks[4];	///<	specular color
     CZImage *texImage;
 };
-    
-}
 
+}
 #endif

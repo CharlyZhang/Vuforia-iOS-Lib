@@ -14,7 +14,7 @@
 #include "CZMaterialLib.h"
 #include <vector>
 
-namespace IAR {
+namespace CZ3D {
     
 class ObjLoader;
 
@@ -29,21 +29,17 @@ protected:
     void clearRawData();
     void unpackRawData();                 ///< to make `vert`, `normal` and `texcoord` share the same amount of data
     
-    std::string mtlLibName;							///< material lib name
-    
     // raw data
-    std::vector<CZVector3D<float> > m_vertRawVector;
-    std::vector<CZVector3D<float> > m_normRawVector;
-    std::vector<CZVector2D<float> > m_texRawVector;
-
+    std::vector<CZVector3D<float>> m_vertRawVector;
+    std::vector<CZVector3D<float>> m_normRawVector;
+    std::vector<CZVector2D<float>> m_texRawVector;
+    
 public:
+    std::string mtlLibName;							///< material lib name
     CZMaterialLib materialLib;
-
+    
     std::vector<CZGeometry*> geometries;
-
-    std::vector<CZVector3D<float> > positions;
-    std::vector<CZVector3D<float> > normals;
-    std::vector<CZVector2D<float> > texcoords;
+    std::vector<VertexData> vertexs;
 };
     
 }

@@ -16,7 +16,7 @@
 #include <string>
 #include <map>
 
-namespace IAR {
+namespace CZ3D {
     
 class CZShader
 {
@@ -64,7 +64,6 @@ private:
 	bool m_ready;
 	std::map<std::string,unsigned int> m_uniforms;
 };
-    
-}
 
+}
 #endif

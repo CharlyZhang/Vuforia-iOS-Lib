@@ -30,9 +30,7 @@
 		2DA38FC21D3486440044AE42 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FBE1D3486440044AE42 /* AppDelegate.m */; };
 		2DA38FC31D3486440044AE42 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FBF1D3486440044AE42 /* main.m */; };
 		2DA38FC41D3486440044AE42 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FC11D3486440044AE42 /* ViewController.m */; };
-		2DA38FDA1D3487540044AE42 /* SampleApplication3DModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FCA1D3487540044AE42 /* SampleApplication3DModel.m */; };
 		2DA38FDB1D3487540044AE42 /* SampleApplicationSession.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FCC1D3487540044AE42 /* SampleApplicationSession.mm */; };
-		2DA38FDC1D3487540044AE42 /* SampleApplicationShaderUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FCE1D3487540044AE42 /* SampleApplicationShaderUtils.m */; };
 		2DA38FDD1D3487540044AE42 /* SampleApplicationUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FCF1D3487540044AE42 /* SampleApplicationUtils.cpp */; };
 		2DA38FE21D3487540044AE42 /* Texture.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FD91D3487540044AE42 /* Texture.mm */; };
 		2DA38FF71D3489710044AE42 /* SampleAppAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FED1D3489710044AE42 /* SampleAppAboutViewController.m */; };
@@ -73,7 +71,6 @@
 		2DA3906B1D34CDC70044AE42 /* ObjModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DA390241D3489FC0044AE42 /* ObjModel.cpp */; };
 		2DA3906C1D34CDC70044AE42 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA3902B1D3489FC0044AE42 /* UIImage+Resize.m */; };
 		2DA390751D34CDC70044AE42 /* SampleApplicationSession.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FCC1D3487540044AE42 /* SampleApplicationSession.mm */; };
-		2DA390761D34CDC70044AE42 /* SampleApplicationShaderUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FCE1D3487540044AE42 /* SampleApplicationShaderUtils.m */; };
 		2DA390771D34CDC70044AE42 /* SampleApplicationUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FCF1D3487540044AE42 /* SampleApplicationUtils.cpp */; };
 		2DA390791D34CDDC0044AE42 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DA3904A1D348C670044AE42 /* CoreMotion.framework */; };
 		2DA3907A1D34CDDC0044AE42 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DA390481D348C5D0044AE42 /* CoreMedia.framework */; };
@@ -84,10 +81,6 @@
 		2DA390801D34CDDC0044AE42 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DA38FBB1D3485A80044AE42 /* UIKit.framework */; };
 		2DA390811D34CDDC0044AE42 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DA38FB91D34859B0044AE42 /* QuartzCore.framework */; };
 		2DA390821D34CDDC0044AE42 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DA38FB71D3485920044AE42 /* OpenGLES.framework */; };
-		2DA3915C1D34E6F70044AE42 /* Line.fragsh in Resources */ = {isa = PBXBuildFile; fileRef = 2DA38FD31D3487540044AE42 /* Line.fragsh */; };
-		2DA3915D1D34E6F70044AE42 /* Line.vertsh in Resources */ = {isa = PBXBuildFile; fileRef = 2DA38FD41D3487540044AE42 /* Line.vertsh */; };
-		2DA3915E1D34E6F70044AE42 /* Simple.fragsh in Resources */ = {isa = PBXBuildFile; fileRef = 2DA38FD51D3487540044AE42 /* Simple.fragsh */; };
-		2DA3915F1D34E6F70044AE42 /* Simple.vertsh in Resources */ = {isa = PBXBuildFile; fileRef = 2DA38FD61D3487540044AE42 /* Simple.vertsh */; };
 		2DC4E3001D34F01900BFB57B /* models in Resources */ = {isa = PBXBuildFile; fileRef = 2DC4E2FD1D34F01900BFB57B /* models */; };
 		2DCF471C1D34F720005226C9 /* ARViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2DCF471A1D34F720005226C9 /* ARViewController.mm */; };
 		2DCF471D1D34FDAC005226C9 /* ARViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2DCF471A1D34F720005226C9 /* ARViewController.mm */; };
@@ -98,6 +91,14 @@
 		2DCF472F1D38768B005226C9 /* libVuforia.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DCF472E1D38768B005226C9 /* libVuforia.a */; };
 		2DCF47301D38768B005226C9 /* libVuforia.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DCF472E1D38768B005226C9 /* libVuforia.a */; };
 		2DCF47311D387CA3005226C9 /* datasets in Resources */ = {isa = PBXBuildFile; fileRef = 2DC4E2FC1D34F01900BFB57B /* datasets */; };
+		2DCF48191D3F7857005226C9 /* Render.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DCF48171D3F7857005226C9 /* Render.cpp */; };
+		2DCF48281D3F83ED005226C9 /* CZAnimaitonManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DCF481C1D3F83ED005226C9 /* CZAnimaitonManager.cpp */; };
+		2DCF48291D3F83ED005226C9 /* CZAnimation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DCF481E1D3F83ED005226C9 /* CZAnimation.cpp */; };
+		2DCF482A1D3F83ED005226C9 /* CZShapeAnimation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DCF48201D3F83ED005226C9 /* CZShapeAnimation.cpp */; };
+		2DCF482B1D3F83ED005226C9 /* CZCube.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DCF48231D3F83ED005226C9 /* CZCube.cpp */; };
+		2DCF482C1D3F83ED005226C9 /* Application3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DCF48261D3F83ED005226C9 /* Application3D.cpp */; };
+		2DCF482F1D3F8BB1005226C9 /* scene_violin.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 2DCF482D1D3F8BAA005226C9 /* scene_violin.cfg */; };
+		2DCF48311D3F8BCF005226C9 /* glsl in Resources */ = {isa = PBXBuildFile; fileRef = 2DCF48301D3F8BCF005226C9 /* glsl */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,12 +139,8 @@
 		2DA38FC01D3486440044AE42 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = Classes/ViewController.h; sourceTree = "<group>"; };
 		2DA38FC11D3486440044AE42 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = Classes/ViewController.m; sourceTree = "<group>"; };
 		2DA38FC81D3487540044AE42 /* Quad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Quad.h; sourceTree = "<group>"; };
-		2DA38FC91D3487540044AE42 /* SampleApplication3DModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleApplication3DModel.h; sourceTree = "<group>"; };
-		2DA38FCA1D3487540044AE42 /* SampleApplication3DModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleApplication3DModel.m; sourceTree = "<group>"; };
 		2DA38FCB1D3487540044AE42 /* SampleApplicationSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleApplicationSession.h; sourceTree = "<group>"; };
 		2DA38FCC1D3487540044AE42 /* SampleApplicationSession.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SampleApplicationSession.mm; sourceTree = "<group>"; };
-		2DA38FCD1D3487540044AE42 /* SampleApplicationShaderUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleApplicationShaderUtils.h; sourceTree = "<group>"; };
-		2DA38FCE1D3487540044AE42 /* SampleApplicationShaderUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleApplicationShaderUtils.m; sourceTree = "<group>"; };
 		2DA38FCF1D3487540044AE42 /* SampleApplicationUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SampleApplicationUtils.cpp; sourceTree = "<group>"; };
 		2DA38FD01D3487540044AE42 /* SampleApplicationUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleApplicationUtils.h; sourceTree = "<group>"; };
 		2DA38FD11D3487540044AE42 /* SampleGLResourceHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleGLResourceHandler.h; sourceTree = "<group>"; };
@@ -211,6 +208,21 @@
 		2DCF47201D35E796005226C9 /* AREAGLView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AREAGLView.mm; sourceTree = "<group>"; };
 		2DCF472C1D36281A005226C9 /* ARResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ARResources.bundle; path = output/Debug/ARResources.bundle; sourceTree = "<group>"; };
 		2DCF472E1D38768B005226C9 /* libVuforia.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libVuforia.a; path = "external-deps/build/lib/arm/libVuforia.a"; sourceTree = "<group>"; };
+		2DCF48171D3F7857005226C9 /* Render.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Render.cpp; sourceTree = "<group>"; };
+		2DCF48181D3F7857005226C9 /* Render.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Render.hpp; sourceTree = "<group>"; };
+		2DCF481C1D3F83ED005226C9 /* CZAnimaitonManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CZAnimaitonManager.cpp; sourceTree = "<group>"; };
+		2DCF481D1D3F83ED005226C9 /* CZAnimaitonManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CZAnimaitonManager.hpp; sourceTree = "<group>"; };
+		2DCF481E1D3F83ED005226C9 /* CZAnimation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CZAnimation.cpp; sourceTree = "<group>"; };
+		2DCF481F1D3F83ED005226C9 /* CZAnimation.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CZAnimation.hpp; sourceTree = "<group>"; };
+		2DCF48201D3F83ED005226C9 /* CZShapeAnimation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CZShapeAnimation.cpp; sourceTree = "<group>"; };
+		2DCF48211D3F83ED005226C9 /* CZShapeAnimation.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CZShapeAnimation.hpp; sourceTree = "<group>"; };
+		2DCF48231D3F83ED005226C9 /* CZCube.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CZCube.cpp; sourceTree = "<group>"; };
+		2DCF48241D3F83ED005226C9 /* CZCube.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CZCube.hpp; sourceTree = "<group>"; };
+		2DCF48251D3F83ED005226C9 /* CZShape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZShape.h; sourceTree = "<group>"; };
+		2DCF48261D3F83ED005226C9 /* Application3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Application3D.cpp; sourceTree = "<group>"; };
+		2DCF48271D3F83ED005226C9 /* Application3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Application3D.h; sourceTree = "<group>"; };
+		2DCF482D1D3F8BAA005226C9 /* scene_violin.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = scene_violin.cfg; path = Classes/ObjModel/scene_violin.cfg; sourceTree = "<group>"; };
+		2DCF48301D3F8BCF005226C9 /* glsl */ = {isa = PBXFileReference; lastKnownFileType = folder; name = glsl; path = Classes/ObjModel/glsl; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -314,12 +326,8 @@
 			isa = PBXGroup;
 			children = (
 				2DA38FC81D3487540044AE42 /* Quad.h */,
-				2DA38FC91D3487540044AE42 /* SampleApplication3DModel.h */,
-				2DA38FCA1D3487540044AE42 /* SampleApplication3DModel.m */,
 				2DA38FCB1D3487540044AE42 /* SampleApplicationSession.h */,
 				2DA38FCC1D3487540044AE42 /* SampleApplicationSession.mm */,
-				2DA38FCD1D3487540044AE42 /* SampleApplicationShaderUtils.h */,
-				2DA38FCE1D3487540044AE42 /* SampleApplicationShaderUtils.m */,
 				2DA38FCF1D3487540044AE42 /* SampleApplicationUtils.cpp */,
 				2DA38FD01D3487540044AE42 /* SampleApplicationUtils.h */,
 				2DA38FD11D3487540044AE42 /* SampleGLResourceHandler.h */,
@@ -392,6 +400,10 @@
 		2DA38FFC1D3489FC0044AE42 /* ObjModel */ = {
 			isa = PBXGroup;
 			children = (
+				2DCF48261D3F83ED005226C9 /* Application3D.cpp */,
+				2DCF48271D3F83ED005226C9 /* Application3D.h */,
+				2DCF481B1D3F83ED005226C9 /* animation */,
+				2DCF48221D3F83ED005226C9 /* shape */,
 				2DA390071D3489FC0044AE42 /* basic */,
 				2DA390171D3489FC0044AE42 /* objModel */,
 				2DA3902A1D3489FC0044AE42 /* UIImage+Resize.h */,
@@ -404,6 +416,8 @@
 		2DA390071D3489FC0044AE42 /* basic */ = {
 			isa = PBXGroup;
 			children = (
+				2DCF48171D3F7857005226C9 /* Render.cpp */,
+				2DCF48181D3F7857005226C9 /* Render.hpp */,
 				2DA390081D3489FC0044AE42 /* CZBasic.h */,
 				2DA390091D3489FC0044AE42 /* CZDefine.h */,
 				2DA3900A1D3489FC0044AE42 /* CZGeometry.cpp */,
@@ -458,6 +472,8 @@
 		2DA3904D1D348CD80044AE42 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				2DCF482D1D3F8BAA005226C9 /* scene_violin.cfg */,
+				2DCF48301D3F8BCF005226C9 /* glsl */,
 				2DA38FFC1D3489FC0044AE42 /* ObjModel */,
 				2DA38FE31D3487E30044AE42 /* Features */,
 				2DA38FEB1D3489710044AE42 /* SampleAppUI */,
@@ -474,6 +490,29 @@
 				2DA390971D34D0940044AE42 /* Info.plist */,
 			);
 			path = ARResources;
+			sourceTree = "<group>";
+		};
+		2DCF481B1D3F83ED005226C9 /* animation */ = {
+			isa = PBXGroup;
+			children = (
+				2DCF481C1D3F83ED005226C9 /* CZAnimaitonManager.cpp */,
+				2DCF481D1D3F83ED005226C9 /* CZAnimaitonManager.hpp */,
+				2DCF481E1D3F83ED005226C9 /* CZAnimation.cpp */,
+				2DCF481F1D3F83ED005226C9 /* CZAnimation.hpp */,
+				2DCF48201D3F83ED005226C9 /* CZShapeAnimation.cpp */,
+				2DCF48211D3F83ED005226C9 /* CZShapeAnimation.hpp */,
+			);
+			path = animation;
+			sourceTree = "<group>";
+		};
+		2DCF48221D3F83ED005226C9 /* shape */ = {
+			isa = PBXGroup;
+			children = (
+				2DCF48231D3F83ED005226C9 /* CZCube.cpp */,
+				2DCF48241D3F83ED005226C9 /* CZCube.hpp */,
+				2DCF48251D3F83ED005226C9 /* CZShape.h */,
+			);
+			path = shape;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -596,10 +635,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DA3915C1D34E6F70044AE42 /* Line.fragsh in Resources */,
-				2DA3915D1D34E6F70044AE42 /* Line.vertsh in Resources */,
-				2DA3915E1D34E6F70044AE42 /* Simple.fragsh in Resources */,
-				2DA3915F1D34E6F70044AE42 /* Simple.vertsh in Resources */,
+				2DCF48311D3F8BCF005226C9 /* glsl in Resources */,
+				2DCF482F1D3F8BB1005226C9 /* scene_violin.cfg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -655,23 +692,27 @@
 				2DA390321D3489FC0044AE42 /* CZMat4.cpp in Sources */,
 				2DA390311D3489FC0044AE42 /* CZGeometry.cpp in Sources */,
 				2DA38FFA1D3489710044AE42 /* PresentMenuSegue.m in Sources */,
+				2DCF48191D3F7857005226C9 /* Render.cpp in Sources */,
 				2DA38FF91D3489710044AE42 /* SampleAppSelectorViewController.m in Sources */,
+				2DCF48281D3F83ED005226C9 /* CZAnimaitonManager.cpp in Sources */,
 				2DA38FC41D3486440044AE42 /* ViewController.m in Sources */,
+				2DCF482C1D3F83ED005226C9 /* Application3D.cpp in Sources */,
 				2DA38FF81D3489710044AE42 /* SampleAppMenuViewController.mm in Sources */,
 				2DA3903D1D3489FC0044AE42 /* ObjModel.cpp in Sources */,
 				2DA390391D3489FC0044AE42 /* CZObjFileParser.cpp in Sources */,
 				2DA38FF71D3489710044AE42 /* SampleAppAboutViewController.m in Sources */,
 				2DA38FFB1D3489710044AE42 /* UnwindMenuSegue.m in Sources */,
-				2DA38FDC1D3487540044AE42 /* SampleApplicationShaderUtils.m in Sources */,
 				2DA390381D3489FC0044AE42 /* CZMaterialLib.cpp in Sources */,
 				2DA3903F1D3489FC0044AE42 /* UIImage+Resize.m in Sources */,
 				2DA3903A1D3489FC0044AE42 /* CZObjModel.cpp in Sources */,
+				2DCF48291D3F83ED005226C9 /* CZAnimation.cpp in Sources */,
 				2DA38FDD1D3487540044AE42 /* SampleApplicationUtils.cpp in Sources */,
 				2DA38FE21D3487540044AE42 /* Texture.mm in Sources */,
+				2DCF482A1D3F83ED005226C9 /* CZShapeAnimation.cpp in Sources */,
+				2DCF482B1D3F83ED005226C9 /* CZCube.cpp in Sources */,
 				2DA390341D3489FC0044AE42 /* CZShader.cpp in Sources */,
 				2DA38FC31D3486440044AE42 /* main.m in Sources */,
 				2DA38FC21D3486440044AE42 /* AppDelegate.m in Sources */,
-				2DA38FDA1D3487540044AE42 /* SampleApplication3DModel.m in Sources */,
 				2DA390331D3489FC0044AE42 /* CZNode.cpp in Sources */,
 				2DA390371D3489FC0044AE42 /* CZMaterial.cpp in Sources */,
 				2DA390351D3489FC0044AE42 /* CZUtil.mm in Sources */,
@@ -703,7 +744,6 @@
 				2DCF471C1D34F720005226C9 /* ARViewController.mm in Sources */,
 				2DCF47221D35E796005226C9 /* AREAGLView.mm in Sources */,
 				2DA390751D34CDC70044AE42 /* SampleApplicationSession.mm in Sources */,
-				2DA390761D34CDC70044AE42 /* SampleApplicationShaderUtils.m in Sources */,
 				2DA390771D34CDC70044AE42 /* SampleApplicationUtils.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,6 +11,8 @@
 #ifndef _DEBUG
 	#define _DEBUG
 #endif
+
+#define NAMESPACE CZ3D
 //////////////////////////////////////////////////////////////////////////
 //	OpenGL definition
 //////////////////////////////////////////////////////////////////////////
@@ -73,11 +75,12 @@
 #include "CZLog.h"
 #include "CZBasic.h"
 
-namespace IAR {
-    
+namespace CZ3D {
+ 
 extern void CZCheckGLError_(const char *file, int line);
 extern CZImage *CZLoadTexture(const std::string &filename);
 extern void modelLoadingDone();
+
 }
 
 #ifdef _DEBUG

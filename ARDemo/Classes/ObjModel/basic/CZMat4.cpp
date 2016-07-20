@@ -22,7 +22,7 @@
 
 using namespace std;
 
-namespace IAR {
+namespace CZ3D {
     
 // VECTOR3D
 void VECTOR3D::Normalize()
@@ -1068,4 +1068,5 @@ void CZMat4::SetRotationPartEuler(const double angleX, const double angleY, cons
 	entries[9] = ( float )( crsp*sy-sr*cy );
 	entries[10] = ( float )( cr*cp );
 }
+
 }

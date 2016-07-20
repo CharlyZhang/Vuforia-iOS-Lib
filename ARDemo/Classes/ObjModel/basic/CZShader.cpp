@@ -15,7 +15,7 @@
 
 using namespace std;
 
-namespace IAR {
+namespace CZ3D {
     
 bool CZShader::extensionsInit = true;
 bool CZShader::useGLSL = true;

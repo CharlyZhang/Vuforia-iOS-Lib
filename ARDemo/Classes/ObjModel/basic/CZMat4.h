@@ -25,7 +25,7 @@
 #define _CZMAT4_H_
 #include <math.h>
 
-namespace IAR {
+namespace CZ3D {
     
 // VECTOR3D
 class VECTOR3D

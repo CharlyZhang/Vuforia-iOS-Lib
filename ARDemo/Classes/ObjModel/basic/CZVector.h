@@ -5,7 +5,7 @@
 #include <iostream>
 #include <cmath>
 
-namespace IAR {
+namespace CZ3D {
     
 template <class T>
 class CZVector3D

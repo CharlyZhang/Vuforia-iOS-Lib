@@ -8,10 +8,8 @@
 
 #import "AREAGLView.h"
 
-#import "ModelFactory.hpp"
-#import "CZObjModel.h"
+#import "Application3D.h"
 #import "SampleApplicationUtils.h"
-#import "SampleApplicationShaderUtils.h"
 #import "ARViewController.h"                //< for `ARGLResourceHandler`
 
 #import <QuartzCore/QuartzCore.h>
@@ -25,14 +23,9 @@
 #import <Vuforia/Renderer.h>
 #import <Vuforia/TrackableResult.h>
 #import <Vuforia/VideoBackgroundConfig.h>
-#include <map>
-#include <string>
 
 using namespace std;
-using namespace IAR;
-
-typedef map<CZImage*,short> TextureMap;
-typedef map<string, CZObjModel*> ModelMap;
+using namespace CZ3D;
 
 const float kObjectScaleNormal = 3.0f;
 const float kObjectScaleOffTargetTracking = 12.0f;
@@ -49,23 +42,9 @@ const float kObjectScaleOffTargetTracking = 12.0f;
     GLuint colorRenderbuffer;
     GLuint depthRenderbuffer;
     
-    // Shader handles
-    GLuint shaderProgramID;
-    GLint vertexHandle;
-    GLint normalHandle;
-    GLint textureCoordHandle;
-    GLint mvpMatrixHandle;
-    GLint texSampler2DHandle;
-    GLint kdHandle;
-    GLint hasTexHandle;
-    
-    // Texture used when rendering augmentation
-    GLuint textures[128];
-    TextureMap textureMap;
-    
     BOOL offTargetTrackingEnabled;
     
-    ModelMap modelsMap;
+    CZ3D::Application3D *app3d;
     
     Vuforia::Matrix44F translateMat, scaleMat, rotateMat;
     
@@ -75,8 +54,6 @@ const float kObjectScaleOffTargetTracking = 12.0f;
 @property (nonatomic, weak) SampleApplicationSession * vapp;
 @property (copy) void(^completionBlock)();
 
-
-- (void)initShaders;
 - (void)createFramebuffer;
 - (void)deleteFramebuffer;
 - (void)setFramebuffer;
@@ -110,11 +87,6 @@ const float kObjectScaleOffTargetTracking = 12.0f;
             [self setContentScaleFactor:[UIScreen mainScreen].nativeScale];
         }
         
-        //
-        textureMap.clear();
-        modelsMap.clear();
-        for(auto i = 0; i < 128; i ++) textures[i] = -1;
-        
         // Create the OpenGL ES context
         context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
         
@@ -124,9 +96,18 @@ const float kObjectScaleOffTargetTracking = 12.0f;
             [EAGLContext setCurrentContext:context];
         }
         
+        NSString *configPath = [[[NSBundle mainBundle]bundlePath]stringByAppendingString:@"/ARResources.bundle/scene_violin.cfg"];
+        
+        NSString *docPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+        
+        app3d = new CZ3D::Application3D;
+        
+        app3d->init([[[[NSBundle mainBundle]bundlePath] stringByAppendingString:@"/ARResources.bundle/glsl/"] UTF8String],[configPath UTF8String]);
+        app3d->setDocDirectory([docPath UTF8String]);
+        app3d->setBackgroundColor(1, 1, 1, 1);
+        
+        
         offTargetTrackingEnabled = NO;
-
-        [self initShaders];
         
         SampleApplicationUtils::checkGlError("Inital!");
         
@@ -145,16 +126,9 @@ const float kObjectScaleOffTargetTracking = 12.0f;
     [self deleteFramebuffer];
     
     // Tear down context
-    if ([EAGLContext currentContext] == context) {
-        [EAGLContext setCurrentContext:nil];
-    }
-    
-    for (auto i = 0; i < 128 && textures[i] != -1; i++)
-        glDeleteTextures(1, &textures[i]);
-    textureMap.clear();
-    for(ModelMap::iterator itr = modelsMap.begin(); itr != modelsMap.end(); itr++)
-        delete itr->second;
-    modelsMap.clear();
+    [EAGLContext setCurrentContext:context];
+    delete app3d;
+    [EAGLContext setCurrentContext:nil];
 }
 
 
@@ -190,14 +164,10 @@ const float kObjectScaleOffTargetTracking = 12.0f;
         [EAGLContext setCurrentContext:context];
         for (NSDictionary *models in modelsCfg)
         {
-            string name([models[AR_CONFIG_TARGET_NAME] UTF8String]);
-            //        NSString *modelPath = [[[NSBundle mainBundle]bundlePath] stringByAppendingPathComponent:models[AR_CONFIG_MODEL_PATH]];
             NSString *modelPath = models[AR_CONFIG_MODEL_PATH];
-            CZObjModel *model = ModelFactory::createObjModel([modelPath UTF8String]);
-            if(model)
-                modelsMap[name] = model;
-            else
-                NSLog(@"model(%@) loading failed!",modelPath);
+            const char *targetName = [models[AR_CONFIG_TARGET_NAME] UTF8String];
+            app3d->loadObjModel(targetName,[modelPath UTF8String]);
+            app3d->setNodeVisible(targetName, NO);
         }
         NSLog(@"finish loading");
         
@@ -234,13 +204,11 @@ const float kObjectScaleOffTargetTracking = 12.0f;
     } else {
         glEnable(GL_CULL_FACE);
     }
-    glCullFace(GL_BACK);
+//    glCullFace(GL_BACK);
     if(Vuforia::Renderer::getInstance().getVideoBackgroundConfig().mReflection == Vuforia::VIDEO_BACKGROUND_REFLECTION_ON)
         glFrontFace(GL_CW);  //Front camera
     else
         glFrontFace(GL_CCW);   //Back camera
-    
-    glActiveTexture(GL_TEXTURE0);
     
     // Set the viewport
     glViewport(vapp.viewport.posX, vapp.viewport.posY, vapp.viewport.sizeX, vapp.viewport.sizeY);
@@ -264,61 +232,18 @@ const float kObjectScaleOffTargetTracking = 12.0f;
         //const Vuforia::Trackable& trackable = result->getTrackable();
         Vuforia::Matrix44F modelViewMatrix = Vuforia::Tool::convertPose2GLMatrix(result->getPose());
         
-        // OpenGL 2
-        Vuforia::Matrix44F modelViewProjection;
+        CZMat4 mvMat(&modelViewMatrix.data[0]);
         
-        if (offTargetTrackingEnabled) {
-            SampleApplicationUtils::rotatePoseMatrix(90, 1, 0, 0,&modelViewMatrix.data[0]);
-            SampleApplicationUtils::scalePoseMatrix(kObjectScaleOffTargetTracking, kObjectScaleOffTargetTracking, kObjectScaleOffTargetTracking, &modelViewMatrix.data[0]);
-        } else {
-            SampleApplicationUtils::translatePoseMatrix(0.0f, 0.0f, kObjectScaleNormal, &modelViewMatrix.data[0]);
-            SampleApplicationUtils::scalePoseMatrix(kObjectScaleNormal, kObjectScaleNormal, kObjectScaleNormal, &modelViewMatrix.data[0]);
-        }
-        
-        Vuforia::Matrix44F modelMat,mat;
-        SampleApplicationUtils::multiplyMatrix(scaleMat.data, rotateMat.data, mat.data);
-        SampleApplicationUtils::multiplyMatrix(translateMat.data, mat.data, modelMat.data);
-        SampleApplicationUtils::multiplyMatrix(modelViewMatrix.data, modelMat.data, mat.data);
-        SampleApplicationUtils::multiplyMatrix(&vapp.projectionMatrix.data[0], &mat.data[0], &modelViewProjection.data[0]);
-        
-        glUseProgram(shaderProgramID);
-        
-        CZObjModel *pModel = modelsMap[string(trackable.getName())];
-        if (pModel) {
-            glVertexAttribPointer(vertexHandle, 3, GL_FLOAT, GL_FALSE, 0, (const GLvoid*)pModel->positions.data());
-            glVertexAttribPointer(normalHandle, 3, GL_FLOAT, GL_FALSE, 0, (const GLvoid*)pModel->normals.data());
-            glVertexAttribPointer(textureCoordHandle, 2, GL_FLOAT, GL_FALSE, 0, (const GLvoid*)pModel->texcoords.data());
-        }
-        
-        glEnableVertexAttribArray(vertexHandle);
-        glEnableVertexAttribArray(normalHandle);
-        glEnableVertexAttribArray(textureCoordHandle);
-        
-        glUniformMatrix4fv(mvpMatrixHandle, 1, GL_FALSE, (const GLfloat*)&modelViewProjection.data[0]);
-        
-        glUniform1i(texSampler2DHandle, 0 /*GL_TEXTURE0*/);
-        
-        if (pModel) {
-            for (std::vector<CZGeometry*>::iterator itr = pModel->geometries.begin(); itr != pModel->geometries.end(); itr++)
-            {
-                CZGeometry *pGeometry = *itr;
-                CZMaterial *pMaterial = pModel->materialLib.get(pGeometry->materialName);
-                glUniform3f(kdHandle, pMaterial->Kd[0],pMaterial->Kd[1],pMaterial->Kd[2]);
-                if ([self enableTexture:pMaterial->texImage])
-                    glUniform1i(hasTexHandle, 1);
-                else
-                    glUniform1i(hasTexHandle, 0);
-                glDrawArrays(GL_TRIANGLES, (GLint)pGeometry->firstIdx, (GLsizei)pGeometry->vertNum);
-                
-            }
-        }
-        
-        glDisableVertexAttribArray(vertexHandle);
-        glDisableVertexAttribArray(normalHandle);
-        glDisableVertexAttribArray(textureCoordHandle);
-        
-        SampleApplicationUtils::checkGlError("EAGLView renderFrameVuforia");
+        app3d->setNodeMVMat(trackable.getName(), mvMat);
+        app3d->setNodeVisible(trackable.getName(), YES);
     }
+    
+    // OpenGL 2
+    CZMat4 projMat(&vapp.projectionMatrix.data[0]);
+    app3d->rawFrame(projMat);
+    
+    app3d->hideAllSubNodes();
+    
     
     glDisable(GL_DEPTH_TEST);
     glDisable(GL_CULL_FACE);
@@ -329,26 +254,6 @@ const float kObjectScaleOffTargetTracking = 12.0f;
 
 //------------------------------------------------------------------------------
 #pragma mark - OpenGL ES management
-
-- (void)initShaders
-{
-    shaderProgramID = [SampleApplicationShaderUtils createProgramWithVertexShaderFileName:@"ARResources.bundle/Simple.vertsh"
-                                                                   fragmentShaderFileName:@"ARResources.bundle/Simple.fragsh"];
-    
-    if (0 < shaderProgramID) {
-        vertexHandle = glGetAttribLocation(shaderProgramID, "vertexPosition");
-        normalHandle = glGetAttribLocation(shaderProgramID, "vertexNormal");
-        textureCoordHandle = glGetAttribLocation(shaderProgramID, "vertexTexCoord");
-        mvpMatrixHandle = glGetUniformLocation(shaderProgramID, "modelViewProjectionMatrix");
-        texSampler2DHandle  = glGetUniformLocation(shaderProgramID,"texSampler2D");
-        kdHandle = glGetUniformLocation(shaderProgramID, "kd");
-        hasTexHandle = glGetUniformLocation(shaderProgramID, "hasTex");
-    }
-    else {
-        NSLog(@"Could not initialise augmentation shader");
-    }
-}
-
 
 - (void)createFramebuffer
 {
@@ -442,93 +347,28 @@ const float kObjectScaleOffTargetTracking = 12.0f;
 {
     if(targetFound)
     {
-        Vuforia::Matrix44F tempMat1, tempMat2;
-        SampleApplicationUtils::setRotationMatrix(x, 0, 1, 0, tempMat1.data);
-        SampleApplicationUtils::multiplyMatrix(tempMat1.data, rotateMat.data, tempMat2.data);
-        SampleApplicationUtils::setRotationMatrix(-y, 1, 0, 0, tempMat1.data);
-        SampleApplicationUtils::multiplyMatrix(tempMat1.data, tempMat2.data, rotateMat.data);
+        app3d->rotate(x, y);
     }
 }
 
 - (void) moveWithX:(float)x Y:(float)y
 {
-    if(targetFound) SampleApplicationUtils::translatePoseMatrix(-x, -y, 0, translateMat.data);
+    if(targetFound)
+        app3d->translate(x, y);
 }
 
 - (void) scale:(float)s
 {
-    if(targetFound) SampleApplicationUtils::scalePoseMatrix(s, s, s, scaleMat.data);
+    if(targetFound)
+        app3d->scale(s);
 }
 
 - (void) reset
 {
     if(targetFound)
     {
-        SampleApplicationUtils::setIndentityMatrix(translateMat.data);
-        SampleApplicationUtils::setIndentityMatrix(scaleMat.data);
-        SampleApplicationUtils::setIndentityMatrix(rotateMat.data);
+        app3d->reset();
     }
-}
-
-- (BOOL) enableTexture:(CZImage*)image
-{
-    if(image == NULL || image->data == NULL)
-    {
-        LOG_WARN("image is illegal\n");
-        return NO;
-    }
-    
-    TextureMap::iterator itr = textureMap.find(image);
-    
-    short texInd;
-    if(itr == textureMap.end())
-    {
-        if (itr == textureMap.begin()) texInd = 0;
-        else    texInd = (--itr)->second + 1;
-        
-        if(texInd >= 128)
-        {
-            LOG_ERROR("texture resources exceed!\n");
-            return false;
-        }
-        else
-        {
-            //generate an OpenGL texture ID for this texture
-            glGenTextures(1, &textures[texInd]);
-            //bind to the new texture ID
-            glBindTexture(GL_TEXTURE_2D, textures[texInd]);
-            //store the texture data for OpenGL use
-            if (image->colorSpace == CZImage::RGBA) {
-                glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, (GLsizei)image->width , (GLsizei)image->height,
-                             0, GL_RGBA, GL_UNSIGNED_BYTE, image->data);
-            }
-            else if (image->colorSpace == CZImage::RGB) {
-                glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, (GLsizei)image->width , (GLsizei)image->height,
-                             0, GL_RGB, GL_UNSIGNED_BYTE, image->data);
-            }
-            else if (image->colorSpace == CZImage::GRAY) {
-                glTexImage2D(GL_TEXTURE_2D, 0, GL_LUMINANCE, (GLsizei)image->width , (GLsizei)image->height,
-                             0, GL_LUMINANCE, GL_UNSIGNED_BYTE, image->data);
-            }
-            //	gluBuild2DMipmaps(GL_TEXTURE_2D, components, width, height, texFormat, GL_UNSIGNED_BYTE, bits);
-            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-            textureMap[image] = texInd;
-            NSLog(@"image(%ld), textureId %d",(long)image,textures[texInd]);
-        }
-    }
-    else
-    {
-        texInd = itr->second;
-    }
-    
-    glBindTexture(GL_TEXTURE_2D, textures[texInd]);
-    CZCheckGLError();
-    
-    return YES;
-
 }
 
 @end

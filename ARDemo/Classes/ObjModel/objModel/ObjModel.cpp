@@ -10,8 +10,8 @@
 
 using namespace std;
 
-namespace IAR {
-
+namespace CZ3D {
+    
 ObjModel::ObjModel()
 {
     mtlLibName = "Not Set";
@@ -29,14 +29,9 @@ ObjModel::~ObjModel()
     geometries.swap(temp);
     
     clearRawData();
-    vector<CZVector3D<float>> temp1;
-    vector<CZVector2D<float>> temp2;
-    positions.clear();
-    positions.swap(temp1);
-    normals.clear();
-    normals.swap(temp1);
-    texcoords.clear();
-    texcoords.swap(temp2);
+    vector<VertexData> temp1;
+    vertexs.clear();
+    vertexs.swap(temp1);
 }
 
 void ObjModel::clearRawData()
@@ -59,16 +54,13 @@ void ObjModel::clearRawData()
 
 void ObjModel::unpackRawData()
 {
-    positions.clear();
-    normals.clear();
-    texcoords.clear();
+    vertexs.clear();
     
     long totalVertNum = 0;
     for (vector<CZGeometry*>::iterator itr = geometries.begin(); itr != geometries.end(); itr++)
     {
         CZGeometry *pGeometry = (*itr);
-        long vertNum = pGeometry->unpackRawData(m_vertRawVector, m_normRawVector, m_texRawVector, \
-                                                positions,normals,texcoords);
+        long vertNum = pGeometry->unpackRawData(m_vertRawVector, m_normRawVector, m_texRawVector, vertexs);
         pGeometry->firstIdx = totalVertNum;
         totalVertNum += vertNum;
     }

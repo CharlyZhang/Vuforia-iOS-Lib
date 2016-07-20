@@ -6,7 +6,8 @@
 
 #include <map>
 
-namespace IAR {
+namespace CZ3D {
+    
 typedef std::map<std::string, CZMaterial*> CZMaterialMap;
 
 /// CZMaterial library 

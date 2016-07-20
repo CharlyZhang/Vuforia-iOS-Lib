@@ -4,8 +4,8 @@
 
 #include "CZVector.h"
 
-namespace IAR {
-    
+namespace CZ3D {
+
 // 3D Point
 typedef CZVector3D<float> CZPoint3D;
 
@@ -29,6 +29,14 @@ typedef struct _CZDirectionalLight {
 	CZPoint3D direction;
 	CZPoint3D intensity;
 } CZDirectionalLight;
+
+class VertexData
+{
+public:
+    CZVector3D<float> position;
+    CZVector3D<float> normal;
+    CZVector2D<float> texcoord;
+};
 
 // Scene
 typedef struct _CZScene {
@@ -83,6 +91,6 @@ public:
     unsigned char *data;
     ColorSpace colorSpace;
 };
-
 }
+
 #endif
