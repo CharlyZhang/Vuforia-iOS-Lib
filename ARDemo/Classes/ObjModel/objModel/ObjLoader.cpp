@@ -91,13 +91,8 @@ bool ObjLoader::loadFromTemp(CZObjModel *objModel, std::string &path)
     
     
     fread(&(totalVertNum), sizeof(totalVertNum), 1, fp);
-    
-//    pCurModel->positions.resize(totalVertNum);
-//    pCurModel->normals.resize(totalVertNum);
-//    pCurModel->texcoords.resize(totalVertNum);
-//    fread(pCurModel->positions.data(), sizeof(CZVector3D<float>), totalVertNum, fp);
-//    fread(pCurModel->normals.data(), sizeof(CZVector3D<float>), totalVertNum, fp);
-//    fread(pCurModel->texcoords.data(), sizeof(CZVector2D<float>), totalVertNum, fp);
+    pCurModel->vertexs.resize(totalVertNum);
+    fread(pCurModel->vertexs.data(), sizeof(VertexData), totalVertNum, fp);
     
     // material
     fread((char*)(&count), sizeof(count), 1, fp);
@@ -125,7 +120,7 @@ bool ObjLoader::loadFromTemp(CZObjModel *objModel, std::string &path)
             fread((char*)&w, sizeof(int), 1, fp);
             fread((char*)&h, sizeof(int), 1, fp);
             char colorComponentNum;
-            CZImage::ColorSpace colorSpace;
+            CZImage::ColorSpace colorSpace = CZImage::RGB;
             fread(&colorComponentNum, sizeof(char), 1, fp);
             switch (colorComponentNum)
             {
@@ -190,11 +185,9 @@ bool ObjLoader::saveToTemp(CZObjModel *objModel, const string& path)
     }
     
     // data
-//    long totalVertNum = objModel->positions.size();
-//    fwrite(&(totalVertNum), sizeof(totalVertNum), 1, fp);
-//    fwrite(objModel->positions.data(), sizeof(CZVector3D<float>), totalVertNum, fp);
-//    fwrite(objModel->normals.data(), sizeof(CZVector3D<float>), totalVertNum, fp);
-//    fwrite(objModel->texcoords.data(), sizeof(CZVector2D<float>), totalVertNum, fp);
+    long totalVertNum = objModel->vertexs.size();
+    fwrite(&(totalVertNum), sizeof(totalVertNum), 1, fp);
+    fwrite(objModel->vertexs.data(), sizeof(VertexData), totalVertNum, fp);
     
     // material
     CZMaterialMap materialMap = objModel->materialLib.getAll();

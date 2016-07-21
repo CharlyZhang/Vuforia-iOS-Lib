@@ -83,14 +83,9 @@ namespace CZ3D {
         return true;
     }
     
-#define DEBUG
     bool Application3D::loadObjModel(const char* filename, const char* filepath, bool quickLoad /* = true */)
     {
         CZObjModel *pModel = nullptr;
-        
-#ifdef DEBUG
-        quickLoad = false;
-#endif
         
         bool success = false;
         string strFilePath(filepath);
