@@ -32,6 +32,12 @@ You can customize the app with a confiuration, which is need when instantiating 
 Camera view distorts when rotating device?  
 	- Actually the rotaion is locked in the ViewController, if it donesn't work in Xcode 7, you can try to click `Requires full screen` in **General** pannel of xcode.
 
+## UPDATE
+### V2.0.0
+1. Loading models in background;
+2. Add exit protocol;
+3. Support simutaneous targets;
+4. Support illumination model; 
 
 ## ARTICLE
 [Vuforia在iOS上的再封装](http://my.oschina.net/chicboi/blog/712515)

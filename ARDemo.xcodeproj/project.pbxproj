@@ -99,6 +99,12 @@
 		2DCF482C1D3F83ED005226C9 /* Application3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DCF48261D3F83ED005226C9 /* Application3D.cpp */; };
 		2DCF482F1D3F8BB1005226C9 /* scene_violin.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 2DCF482D1D3F8BAA005226C9 /* scene_violin.cfg */; };
 		2DCF48311D3F8BCF005226C9 /* glsl in Resources */ = {isa = PBXBuildFile; fileRef = 2DCF48301D3F8BCF005226C9 /* glsl */; };
+		2DCF48321D408CF2005226C9 /* Application3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DCF48261D3F83ED005226C9 /* Application3D.cpp */; };
+		2DCF48331D408D0E005226C9 /* CZAnimaitonManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DCF481C1D3F83ED005226C9 /* CZAnimaitonManager.cpp */; };
+		2DCF48341D408D12005226C9 /* CZAnimation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DCF481E1D3F83ED005226C9 /* CZAnimation.cpp */; };
+		2DCF48351D408D15005226C9 /* CZShapeAnimation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DCF48201D3F83ED005226C9 /* CZShapeAnimation.cpp */; };
+		2DCF48361D408D1A005226C9 /* CZCube.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DCF48231D3F83ED005226C9 /* CZCube.cpp */; };
+		2DCF48371D408D1F005226C9 /* Render.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DCF48171D3F7857005226C9 /* Render.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -728,18 +734,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DCF48331D408D0E005226C9 /* CZAnimaitonManager.cpp in Sources */,
 				2DA390601D34CDC70044AE42 /* CZGeometry.cpp in Sources */,
 				2DA390611D34CDC70044AE42 /* CZMat4.cpp in Sources */,
 				2DA390621D34CDC70044AE42 /* CZNode.cpp in Sources */,
 				2DA390631D34CDC70044AE42 /* CZShader.cpp in Sources */,
+				2DCF48341D408D12005226C9 /* CZAnimation.cpp in Sources */,
 				2DA390641D34CDC70044AE42 /* CZUtil.mm in Sources */,
 				2DA390651D34CDC70044AE42 /* CZMaterial.cpp in Sources */,
 				2DA390661D34CDC70044AE42 /* CZMaterialLib.cpp in Sources */,
+				2DCF48361D408D1A005226C9 /* CZCube.cpp in Sources */,
 				2DA390671D34CDC70044AE42 /* CZObjFileParser.cpp in Sources */,
 				2DA390681D34CDC70044AE42 /* CZObjModel.cpp in Sources */,
+				2DCF48321D408CF2005226C9 /* Application3D.cpp in Sources */,
 				2DA390691D34CDC70044AE42 /* ModelFactory.cpp in Sources */,
 				2DA3906A1D34CDC70044AE42 /* ObjLoader.cpp in Sources */,
+				2DCF48351D408D15005226C9 /* CZShapeAnimation.cpp in Sources */,
 				2DA3906B1D34CDC70044AE42 /* ObjModel.cpp in Sources */,
+				2DCF48371D408D1F005226C9 /* Render.cpp in Sources */,
 				2DA3906C1D34CDC70044AE42 /* UIImage+Resize.m in Sources */,
 				2DCF471C1D34F720005226C9 /* ARViewController.mm in Sources */,
 				2DCF47221D35E796005226C9 /* AREAGLView.mm in Sources */,
