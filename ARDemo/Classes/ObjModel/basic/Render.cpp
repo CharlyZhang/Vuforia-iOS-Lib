@@ -46,6 +46,8 @@ namespace CZ3D {
     
     Render::~Render()
     {
+        LOG_DEBUG("destructing Render (%ld)\n", (long)this);
+        
         for (ShaderMap::iterator itr = shaders.begin(); itr != shaders.end(); itr++)
         {
             delete itr->second;

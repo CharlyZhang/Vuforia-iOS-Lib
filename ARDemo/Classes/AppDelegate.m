@@ -16,7 +16,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
     // Override point for customization after application launch.
+#ifdef DIRECT_LAUNCH
     NSDictionary *config = @{AR_CONFIG_INIT_FLAG : @"Your Vuforia License Key",
                              
                              AR_CONFIG_DATA_SETS : @[
@@ -41,7 +43,7 @@
                                      ]};
     self.window.rootViewController = [[ARViewController alloc]initWithParam:config];
     [self.window makeKeyAndVisible];
-    
+#endif
     return YES;
 }
 

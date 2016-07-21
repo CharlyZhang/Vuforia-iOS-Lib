@@ -10,7 +10,7 @@ CZObjModel::CZObjModel(): CZNode(kObjModel)
 }
 CZObjModel::~CZObjModel()
 {
-	
+	LOG_DEBUG("destructing CZObjModel (%ld)\n", (long)this);
 }
 
 }

@@ -18,6 +18,8 @@ namespace CZ3D {
     
     CZNode::~CZNode()
     {
+        LOG_DEBUG("destructing CZNode (%ld)\n", (long)this);
+        
         for(NodeMap::iterator itr = _childrenNodes.begin(); itr != _childrenNodes.end(); itr ++)
         {
             delete itr->second;

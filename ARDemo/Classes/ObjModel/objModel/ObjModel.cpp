@@ -19,6 +19,7 @@ ObjModel::ObjModel()
 
 ObjModel::~ObjModel()
 {
+    LOG_DEBUG("destructing ObjModel (%ld)\n", (long)this);
     // geometry
     for (vector<CZGeometry*>::iterator itr = geometries.begin(); itr != geometries.end(); itr++)
     {

@@ -154,6 +154,7 @@ typedef map<string, Vuforia::DataSet*> DataSetMap;
 
 - (void)dealloc
 {
+    NSLog(@"ARViewController dealloc!");
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     datasets.clear();
 }

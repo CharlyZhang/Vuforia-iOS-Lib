@@ -34,6 +34,8 @@ namespace CZ3D {
     
     Application3D::~Application3D()
     {
+        LOG_DEBUG("destructing Application3D (%ld)\n", (long)this);
+        
 #ifdef __ANDROID__
         if(GetImageClass)		{	delete [] GetImageClass; GetImageClass = nullptr;}
         if(GetImageMethod)		{	delete [] GetImageMethod; GetImageMethod = nullptr;}
