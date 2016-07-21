@@ -616,7 +616,6 @@ namespace CZ3D {
     {
         if(image == NULL || image->data == NULL)
         {
-            LOG_WARN("image is illegal\n");
             return false;
         }
         

@@ -49,6 +49,7 @@ typedef struct _CZScene {
     float     cameraFov;                    //< camera fov
     float     cameraNearPlane;
     float     camearFarPlane;
+    float     initScaleFactor;              //< for AR
 } CZScene;
 
 

@@ -15,6 +15,9 @@
 #define AR_CONFIG_DATASET_PATH  @"DataSetPath"
 #define AR_CONFIG_TARGET_NAME   @"TargetName"
 #define AR_CONFIG_MODEL_PATH    @"ModelPath"
+
+#define MAX_SIMUTANEOUS_REC_NUM 2
+
 @class ARViewController;
 
 @protocol ARGLResourceHandler

@@ -78,6 +78,7 @@ namespace CZ3D {
             //scene.directionalLight.direction = CZPoint3D(-105.351,-86.679,-133.965);
             scene.bgColor = CZColor(0.8f, 0.8f, 0.9f, 1.f);
             scene.mColor = CZColor(1.f, 1.f, 1.f, 1.f);
+            scene.initScaleFactor = 1.0f;
         }
         
         return true;
@@ -88,6 +89,7 @@ namespace CZ3D {
         CZObjModel *pModel = nullptr;
         
         bool success = false;
+        
         string strFilePath(filepath);
         string tempFilePath = strFilePath + ".b";
         if(documentDirectory)
@@ -238,6 +240,7 @@ namespace CZ3D {
     void Application3D::reset()
     {
         rootNode.resetMatrix();
+        rootNode.scaleMat.SetScale(scene.initScaleFactor);
         
         // TO DO:
         // copy the initial scene
@@ -509,6 +512,8 @@ namespace CZ3D {
             parseBackgroundColor(ifs);
         else if ("render_color" == ele_id)
             parseMainColor(ifs);
+        else if ("initScaleFactor" == ele_id)
+            ifs >> scene.initScaleFactor;
         else
             skipLine(ifs);
     }

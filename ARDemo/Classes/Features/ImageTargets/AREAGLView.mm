@@ -27,9 +27,6 @@
 using namespace std;
 using namespace CZ3D;
 
-const float kObjectScaleNormal = 3.0f;
-const float kObjectScaleOffTargetTracking = 12.0f;
-
 @interface AREAGLView ()
 {
 @private
@@ -199,12 +196,14 @@ const float kObjectScaleOffTargetTracking = 12.0f;
     // We must detect if background reflection is active and adjust the culling direction.
     // If the reflection is active, this means the pose matrix has been reflected as well,
     // therefore standard counter clockwise face culling will result in "inside out" models.
-    if (offTargetTrackingEnabled) {
-        glDisable(GL_CULL_FACE);
-    } else {
-        glEnable(GL_CULL_FACE);
-    }
-//    glCullFace(GL_BACK);
+//    if (offTargetTrackingEnabled) {
+//        glDisable(GL_CULL_FACE);
+//    } else {
+//        glEnable(GL_CULL_FACE);
+//    }
+    
+    glDisable(GL_CULL_FACE);
+    glCullFace(GL_BACK);
     if(Vuforia::Renderer::getInstance().getVideoBackgroundConfig().mReflection == Vuforia::VIDEO_BACKGROUND_REFLECTION_ON)
         glFrontFace(GL_CW);  //Front camera
     else
@@ -218,7 +217,7 @@ const float kObjectScaleOffTargetTracking = 12.0f;
     {
         iTrackResultNumber = state.getNumTrackableResults();
         NSLog(@"track results number %d",iTrackResultNumber);
-        if(iTrackResultNumber == 1)
+        if(iTrackResultNumber > 0)
             targetFound = YES;
         else
             targetFound = NO;

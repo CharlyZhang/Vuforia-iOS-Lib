@@ -176,6 +176,7 @@ typedef map<string, Vuforia::DataSet*> DataSetMap;
         return ;
     }
     
+    NSLog(@"active dataset (%@)",activeDataSetName);
     curDataSetName = name;
 }
 
@@ -245,6 +246,7 @@ typedef map<string, Vuforia::DataSet*> DataSetMap;
     if (initError == nil) {
         NSError * error = nil;
         [vapp startAR:Vuforia::CameraDevice::CAMERA_DIRECTION_BACK error:&error];
+         Vuforia::setHint(Vuforia::HINT_MAX_SIMULTANEOUS_IMAGE_TARGETS, MAX_SIMUTANEOUS_REC_NUM);
         
         // by default, we try to set the continuous auto focus mode
         continuousAutofocusEnabled = Vuforia::CameraDevice::getInstance().setFocusMode(Vuforia::CameraDevice::FOCUS_MODE_CONTINUOUSAUTO);
