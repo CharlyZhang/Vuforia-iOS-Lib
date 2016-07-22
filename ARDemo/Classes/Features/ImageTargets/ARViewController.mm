@@ -242,8 +242,9 @@ typedef map<string, Vuforia::DataSet*> DataSetMap;
 
 // callback called when the initailization of the AR is done
 - (void) onInitARDone:(NSError *)initError {
-    [self hideLoadingAnimation];
-    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self hideLoadingAnimation];
+    });
     if (initError == nil) {
         NSError * error = nil;
         [vapp startAR:Vuforia::CameraDevice::CAMERA_DIRECTION_BACK error:&error];
@@ -336,13 +337,7 @@ typedef map<string, Vuforia::DataSet*> DataSetMap;
     if(alertView.tag == 1)
     {
         if(buttonIndex == 1)
-        {
-            AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
-            appDelegate.glResourceHandler = nil;
-            
-            [self freeOpenGLESResources];
-            [self finishOpenGLESCommands];
-            
+        { 
             [self.delegate didDismissARviewController:self];
         }
     }
