@@ -18,7 +18,7 @@
  @{@"targetName" : @"modelPath"}
 /*/
 - (id)initWithFrame:(CGRect)frame appSession:(SampleApplicationSession *) app;
-- (void) loadModels:(NSArray *)modelsCfg complete:(void (^ __nullable)(void))completion;
+- (void) loadModels:(NSArray *)modelsCfg;
 
 - (void)finishOpenGLESCommands;
 - (void)freeOpenGLESResources;

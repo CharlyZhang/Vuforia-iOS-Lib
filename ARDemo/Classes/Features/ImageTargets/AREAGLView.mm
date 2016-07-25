@@ -49,7 +49,6 @@ using namespace CZ3D;
 }
 
 @property (nonatomic, weak) SampleApplicationSession * vapp;
-@property (copy) void(^completionBlock)();
 
 - (void)createFramebuffer;
 - (void)deleteFramebuffer;
@@ -153,9 +152,7 @@ using namespace CZ3D;
     offTargetTrackingEnabled = enabled;
 }
 
-- (void) loadModels:(NSArray *)modelsCfg complete:(void (^ _Nullable)())completion{
-    self.completionBlock = completion;
-    
+- (void) loadModels:(NSArray *)modelsCfg{
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_async(queue, ^(void){
         [EAGLContext setCurrentContext:context];
@@ -167,8 +164,6 @@ using namespace CZ3D;
             app3d->setNodeVisible(targetName, NO);
         }
         NSLog(@"finish loading");
-        
-        dispatch_async(dispatch_get_main_queue(), self.completionBlock);
     });
 }
 

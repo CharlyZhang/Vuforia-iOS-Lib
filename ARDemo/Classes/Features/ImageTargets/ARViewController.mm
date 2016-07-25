@@ -97,8 +97,7 @@ typedef map<string, Vuforia::DataSet*> DataSetMap;
     [self showLoadingAnimation];
     
     NSArray *modelsConfig = [configurations objectForKey:AR_CONFIG_MODEL];
-    [eaglView loadModels:modelsConfig complete:^{
-    }];
+    [eaglView loadModels:modelsConfig];
     
     // initialize AR
     NSString *initFlag = [configurations objectForKey:AR_CONFIG_INIT_FLAG];
