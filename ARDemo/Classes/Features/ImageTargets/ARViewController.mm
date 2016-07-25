@@ -67,6 +67,7 @@ typedef map<string, Vuforia::DataSet*> DataSetMap;
     
     eaglView = [[AREAGLView alloc] initWithFrame:viewFrame appSession:vapp];
     [self setView:eaglView];
+    [eaglView setUpApp3D];
     AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     appDelegate.glResourceHandler = eaglView;
     
@@ -337,7 +338,8 @@ typedef map<string, Vuforia::DataSet*> DataSetMap;
     if(alertView.tag == 1)
     {
         if(buttonIndex == 1)
-        { 
+        {
+            [eaglView freeApp3D];
             [self.delegate didDismissARviewController:self];
         }
     }

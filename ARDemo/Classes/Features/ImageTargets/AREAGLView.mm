@@ -92,20 +92,9 @@ using namespace CZ3D;
             [EAGLContext setCurrentContext:context];
         }
         
-        NSString *configPath = [[[NSBundle mainBundle]bundlePath]stringByAppendingString:@"/ARResources.bundle/scene_violin.cfg"];
-        
-        NSString *docPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-        
-        app3d = new CZ3D::Application3D;
-        
-        app3d->init([[[[NSBundle mainBundle]bundlePath] stringByAppendingString:@"/ARResources.bundle/glsl/"] UTF8String],[configPath UTF8String]);
-        app3d->setDocDirectory([docPath UTF8String]);
-        app3d->setBackgroundColor(1, 1, 1, 1);
-        
+        app3d = nullptr;
         
         offTargetTrackingEnabled = NO;
-        
-        SampleApplicationUtils::checkGlError("Inital!");
         
         SampleApplicationUtils::setIndentityMatrix(translateMat.data);
         SampleApplicationUtils::setIndentityMatrix(scaleMat.data);
@@ -121,9 +110,8 @@ using namespace CZ3D;
 {
     [self deleteFramebuffer];
     
+    [self freeApp3D];
     // Tear down context
-    [EAGLContext setCurrentContext:context];
-    delete app3d;
     [EAGLContext setCurrentContext:nil];
 }
 
@@ -148,11 +136,45 @@ using namespace CZ3D;
     glFinish();
 }
 
+- (void)setUpApp3D
+{
+    if (context != [EAGLContext currentContext]) {
+        [EAGLContext setCurrentContext:context];
+    }
+    
+    NSString *configPath = [[[NSBundle mainBundle]bundlePath]stringByAppendingString:@"/ARResources.bundle/scene_violin.cfg"];
+    
+    NSString *docPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    
+    delete app3d;
+    app3d = new CZ3D::Application3D;
+    
+    app3d->init([[[[NSBundle mainBundle]bundlePath] stringByAppendingString:@"/ARResources.bundle/glsl/"] UTF8String],[configPath UTF8String]);
+    app3d->setDocDirectory([docPath UTF8String]);
+    app3d->setBackgroundColor(1, 1, 1, 1);
+}
+
+// safe when be called more than once
+- (void)freeApp3D
+{
+    if (context != [EAGLContext currentContext]) {
+        [EAGLContext setCurrentContext:context];
+    }
+    
+    delete app3d;
+    app3d = nullptr;
+}
+
 - (void) setOffTargetTrackingMode:(BOOL) enabled {
     offTargetTrackingEnabled = enabled;
 }
 
-- (void) loadModels:(NSArray *)modelsCfg{
+- (void) loadModels:(NSArray *)modelsCfg {
+    if(app3d == nullptr)
+    {
+        NSLog(@"Error: app3d is nullptr:!");
+        return ;
+    }
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_async(queue, ^(void){
         [EAGLContext setCurrentContext:context];
@@ -228,15 +250,15 @@ using namespace CZ3D;
         
         CZMat4 mvMat(&modelViewMatrix.data[0]);
         
-        app3d->setNodeMVMat(trackable.getName(), mvMat);
-        app3d->setNodeVisible(trackable.getName(), YES);
+        if(app3d) app3d->setNodeMVMat(trackable.getName(), mvMat);
+        if(app3d) app3d->setNodeVisible(trackable.getName(), YES);
     }
     
     // OpenGL 2
     CZMat4 projMat(&vapp.projectionMatrix.data[0]);
-    app3d->rawFrame(projMat);
+    if(app3d) app3d->rawFrame(projMat);
     
-    app3d->hideAllSubNodes();
+    if(app3d) app3d->hideAllSubNodes();
     
     
     glDisable(GL_DEPTH_TEST);
@@ -339,7 +361,7 @@ using namespace CZ3D;
 
 - (void) rotateWithX:(float)x Y:(float)y
 {
-    if(targetFound)
+    if(targetFound && app3d)
     {
         app3d->rotate(x, y);
     }
@@ -347,19 +369,19 @@ using namespace CZ3D;
 
 - (void) moveWithX:(float)x Y:(float)y
 {
-    if(targetFound)
+    if(targetFound && app3d)
         app3d->translate(x, y);
 }
 
 - (void) scale:(float)s
 {
-    if(targetFound)
+    if(targetFound && app3d)
         app3d->scale(s);
 }
 
 - (void) reset
 {
-    if(targetFound)
+    if(targetFound && app3d)
     {
         app3d->reset();
     }

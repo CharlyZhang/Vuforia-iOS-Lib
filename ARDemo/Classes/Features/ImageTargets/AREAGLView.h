@@ -22,6 +22,8 @@
 
 - (void)finishOpenGLESCommands;
 - (void)freeOpenGLESResources;
+- (void)setUpApp3D;
+- (void)freeApp3D;
 
 - (void) setOffTargetTrackingMode:(BOOL) enabled;
 
