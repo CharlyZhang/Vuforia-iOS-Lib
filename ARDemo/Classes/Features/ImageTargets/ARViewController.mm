@@ -98,11 +98,12 @@ typedef map<string, Vuforia::DataSet*> DataSetMap;
     
     NSArray *modelsConfig = [configurations objectForKey:AR_CONFIG_MODEL];
     [eaglView loadModels:modelsConfig complete:^{
-        // initialize AR
-        NSString *initFlag = [configurations objectForKey:AR_CONFIG_INIT_FLAG];
-        NSLog(@"interfaceOrientation %ld",self.interfaceOrientation);
-        [vapp initAR:Vuforia::GL_20 orientation:self.interfaceOrientation flags:initFlag];
     }];
+    
+    // initialize AR
+    NSString *initFlag = [configurations objectForKey:AR_CONFIG_INIT_FLAG];
+    NSLog(@"interfaceOrientation %ld",self.interfaceOrientation);
+    [vapp initAR:Vuforia::GL_20 orientation:self.interfaceOrientation flags:initFlag];
 }
 
 - (void)viewDidLoad {

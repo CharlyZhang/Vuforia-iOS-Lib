@@ -30,13 +30,9 @@
 		2DA38FC21D3486440044AE42 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FBE1D3486440044AE42 /* AppDelegate.m */; };
 		2DA38FC31D3486440044AE42 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FBF1D3486440044AE42 /* main.m */; };
 		2DA38FC41D3486440044AE42 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FC11D3486440044AE42 /* ViewController.m */; };
-		2DA38FDB1D3487540044AE42 /* SampleApplicationSession.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FCC1D3487540044AE42 /* SampleApplicationSession.mm */; };
+		2DA38FDB1D3487540044AE42 /* SampleApplicationSession.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FCC1D3487540044AE42 /* SampleApplicationSession.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		2DA38FDD1D3487540044AE42 /* SampleApplicationUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FCF1D3487540044AE42 /* SampleApplicationUtils.cpp */; };
 		2DA38FE21D3487540044AE42 /* Texture.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FD91D3487540044AE42 /* Texture.mm */; };
-		2DA38FF71D3489710044AE42 /* SampleAppAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FED1D3489710044AE42 /* SampleAppAboutViewController.m */; };
-		2DA38FF81D3489710044AE42 /* SampleAppMenuViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FEF1D3489710044AE42 /* SampleAppMenuViewController.mm */; };
-		2DA38FF91D3489710044AE42 /* SampleAppSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FF11D3489710044AE42 /* SampleAppSelectorViewController.m */; };
-		2DA38FFA1D3489710044AE42 /* PresentMenuSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FF41D3489710044AE42 /* PresentMenuSegue.m */; };
 		2DA38FFB1D3489710044AE42 /* UnwindMenuSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA38FF61D3489710044AE42 /* UnwindMenuSegue.m */; };
 		2DA390311D3489FC0044AE42 /* CZGeometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DA3900A1D3489FC0044AE42 /* CZGeometry.cpp */; };
 		2DA390321D3489FC0044AE42 /* CZMat4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DA3900D1D3489FC0044AE42 /* CZMat4.cpp */; };
@@ -83,8 +79,8 @@
 		2DA390821D34CDDC0044AE42 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DA38FB71D3485920044AE42 /* OpenGLES.framework */; };
 		2DC4E3001D34F01900BFB57B /* models in Resources */ = {isa = PBXBuildFile; fileRef = 2DC4E2FD1D34F01900BFB57B /* models */; };
 		2DCF471C1D34F720005226C9 /* ARViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2DCF471A1D34F720005226C9 /* ARViewController.mm */; };
-		2DCF471D1D34FDAC005226C9 /* ARViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2DCF471A1D34F720005226C9 /* ARViewController.mm */; };
-		2DCF47211D35E796005226C9 /* AREAGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2DCF47201D35E796005226C9 /* AREAGLView.mm */; };
+		2DCF471D1D34FDAC005226C9 /* ARViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2DCF471A1D34F720005226C9 /* ARViewController.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		2DCF47211D35E796005226C9 /* AREAGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2DCF47201D35E796005226C9 /* AREAGLView.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		2DCF47221D35E796005226C9 /* AREAGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2DCF47201D35E796005226C9 /* AREAGLView.mm */; };
 		2DCF47231D361CB4005226C9 /* ARViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DCF47191D34F720005226C9 /* ARViewController.h */; };
 		2DCF472D1D36281A005226C9 /* ARResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2DCF472C1D36281A005226C9 /* ARResources.bundle */; };
@@ -697,16 +693,12 @@
 			files = (
 				2DA390321D3489FC0044AE42 /* CZMat4.cpp in Sources */,
 				2DA390311D3489FC0044AE42 /* CZGeometry.cpp in Sources */,
-				2DA38FFA1D3489710044AE42 /* PresentMenuSegue.m in Sources */,
 				2DCF48191D3F7857005226C9 /* Render.cpp in Sources */,
-				2DA38FF91D3489710044AE42 /* SampleAppSelectorViewController.m in Sources */,
 				2DCF48281D3F83ED005226C9 /* CZAnimaitonManager.cpp in Sources */,
 				2DA38FC41D3486440044AE42 /* ViewController.m in Sources */,
 				2DCF482C1D3F83ED005226C9 /* Application3D.cpp in Sources */,
-				2DA38FF81D3489710044AE42 /* SampleAppMenuViewController.mm in Sources */,
 				2DA3903D1D3489FC0044AE42 /* ObjModel.cpp in Sources */,
 				2DA390391D3489FC0044AE42 /* CZObjFileParser.cpp in Sources */,
-				2DA38FF71D3489710044AE42 /* SampleAppAboutViewController.m in Sources */,
 				2DA38FFB1D3489710044AE42 /* UnwindMenuSegue.m in Sources */,
 				2DA390381D3489FC0044AE42 /* CZMaterialLib.cpp in Sources */,
 				2DA3903F1D3489FC0044AE42 /* UIImage+Resize.m in Sources */,
@@ -879,6 +871,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer: LI Leichuan (YK29UXBS4P)";
 				ENABLE_BITCODE = NO;
 				HEADER_SEARCH_PATHS = "external-deps/Vuforia/build/include";
@@ -897,6 +890,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Founder Electronics Co Ltd";
 				ENABLE_BITCODE = NO;
 				HEADER_SEARCH_PATHS = "external-deps/Vuforia/build/include";

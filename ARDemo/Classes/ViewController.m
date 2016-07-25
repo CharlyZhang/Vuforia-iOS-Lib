@@ -10,6 +10,9 @@
 #import "ARViewController.h"
 
 @interface ViewController () <ARViewControllerDelegate>
+{
+    ARViewController *arViewCtrl;
+}
 
 @end
 
@@ -49,7 +52,8 @@
                                          AR_CONFIG_MODEL_PATH   :   [[[NSBundle mainBundle]bundlePath] stringByAppendingPathComponent:@"models/南禅寺1/ww.obj"]
                                          }
                                      ]};
-    ARViewController *arViewCtrl = [[ARViewController alloc]initWithParam:config];
+    
+    arViewCtrl = [[ARViewController alloc]initWithParam:config];
     arViewCtrl.delegate = self;
     [self presentViewController:arViewCtrl animated:YES completion:nil];
 }
@@ -57,7 +61,7 @@
 - (void) didDismissARviewController:(ARViewController *)arviewctrl
 {
     [self dismissViewControllerAnimated:NO completion:nil];
-    arviewctrl = nil;
+    [arviewctrl release];
 }
 
 @end

@@ -12,7 +12,7 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property (nonatomic, weak) id<ARGLResourceHandler> glResourceHandler;
+@property (nonatomic, assign) id<ARGLResourceHandler> glResourceHandler;
 
 @end
 
