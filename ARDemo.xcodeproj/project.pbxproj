@@ -21,6 +21,12 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		2D584D1C1D4EE35600938058 /* ARScannerViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2D584D1B1D4EE35600938058 /* ARScannerViewController.mm */; };
+		2D584D1F1D4F1D2600938058 /* ARScannerEAGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2D584D1E1D4F1D2600938058 /* ARScannerEAGLView.mm */; };
+		2D584D3B1D4F560E00938058 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D584D3A1D4F560E00938058 /* MBProgressHUD.m */; };
+		2D584D401D4F57C600938058 /* App3DView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2D584D3D1D4F57C600938058 /* App3DView.mm */; };
+		2D584D411D4F57C600938058 /* Obj3DViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D584D3F1D4F57C600938058 /* Obj3DViewController.m */; };
+		2D584D431D4F57D700938058 /* icon_close.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D584D421D4F57D700938058 /* icon_close.png */; };
 		2DA38FA81D3483530044AE42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DA38FA61D3483530044AE42 /* Main.storyboard */; };
 		2DA38FAA1D3483530044AE42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DA38FA91D3483530044AE42 /* Assets.xcassets */; };
 		2DA38FAD1D3483530044AE42 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DA38FAB1D3483530044AE42 /* LaunchScreen.storyboard */; };
@@ -127,6 +133,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2D584D1A1D4EE35600938058 /* ARScannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ARScannerViewController.h; path = Classes/image_scanner/ARScannerViewController.h; sourceTree = "<group>"; };
+		2D584D1B1D4EE35600938058 /* ARScannerViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ARScannerViewController.mm; path = Classes/image_scanner/ARScannerViewController.mm; sourceTree = "<group>"; };
+		2D584D1D1D4F1D2600938058 /* ARScannerEAGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ARScannerEAGLView.h; path = Classes/image_scanner/ARScannerEAGLView.h; sourceTree = "<group>"; };
+		2D584D1E1D4F1D2600938058 /* ARScannerEAGLView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ARScannerEAGLView.mm; path = Classes/image_scanner/ARScannerEAGLView.mm; sourceTree = "<group>"; };
+		2D584D391D4F560E00938058 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBProgressHUD.h; path = vendor/MBProgressHUD/MBProgressHUD.h; sourceTree = SOURCE_ROOT; };
+		2D584D3A1D4F560E00938058 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBProgressHUD.m; path = vendor/MBProgressHUD/MBProgressHUD.m; sourceTree = SOURCE_ROOT; };
+		2D584D3C1D4F57C600938058 /* App3DView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = App3DView.h; path = Classes/image_scanner/3D/App3DView.h; sourceTree = "<group>"; };
+		2D584D3D1D4F57C600938058 /* App3DView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = App3DView.mm; path = Classes/image_scanner/3D/App3DView.mm; sourceTree = "<group>"; };
+		2D584D3E1D4F57C600938058 /* Obj3DViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Obj3DViewController.h; path = Classes/image_scanner/3D/Obj3DViewController.h; sourceTree = "<group>"; };
+		2D584D3F1D4F57C600938058 /* Obj3DViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Obj3DViewController.m; path = Classes/image_scanner/3D/Obj3DViewController.m; sourceTree = "<group>"; };
+		2D584D421D4F57D700938058 /* icon_close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_close.png; path = Resources/icon_close.png; sourceTree = "<group>"; };
 		2DA38F9A1D3483530044AE42 /* ARDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DA38FA71D3483530044AE42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2DA38FA91D3483530044AE42 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -265,9 +282,52 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2D584D181D4EE29A00938058 /* image_scanner */ = {
+			isa = PBXGroup;
+			children = (
+				2D584D231D4F3D9800938058 /* 3D */,
+				2D584D1A1D4EE35600938058 /* ARScannerViewController.h */,
+				2D584D1B1D4EE35600938058 /* ARScannerViewController.mm */,
+				2D584D1D1D4F1D2600938058 /* ARScannerEAGLView.h */,
+				2D584D1E1D4F1D2600938058 /* ARScannerEAGLView.mm */,
+			);
+			name = image_scanner;
+			sourceTree = "<group>";
+		};
+		2D584D221D4F3C9400938058 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				2D584D351D4F464800938058 /* MBProgressHUD */,
+			);
+			name = Vendor;
+			sourceTree = "<group>";
+		};
+		2D584D231D4F3D9800938058 /* 3D */ = {
+			isa = PBXGroup;
+			children = (
+				2D584D421D4F57D700938058 /* icon_close.png */,
+				2D584D3C1D4F57C600938058 /* App3DView.h */,
+				2D584D3D1D4F57C600938058 /* App3DView.mm */,
+				2D584D3E1D4F57C600938058 /* Obj3DViewController.h */,
+				2D584D3F1D4F57C600938058 /* Obj3DViewController.m */,
+			);
+			name = 3D;
+			sourceTree = "<group>";
+		};
+		2D584D351D4F464800938058 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				2D584D391D4F560E00938058 /* MBProgressHUD.h */,
+				2D584D3A1D4F560E00938058 /* MBProgressHUD.m */,
+			);
+			name = MBProgressHUD;
+			path = Carthage/Checkouts/Application3D/ios/vendor/MBProgressHUD;
+			sourceTree = "<group>";
+		};
 		2DA38F911D3483520044AE42 = {
 			isa = PBXGroup;
 			children = (
+				2D584D221D4F3C9400938058 /* Vendor */,
 				2DCF472C1D36281A005226C9 /* ARResources.bundle */,
 				2DA390961D34D0930044AE42 /* ARResources */,
 				2DA38FB61D3485630044AE42 /* Frameworks */,
@@ -474,6 +534,7 @@
 		2DA3904D1D348CD80044AE42 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				2D584D181D4EE29A00938058 /* image_scanner */,
 				2DCF482D1D3F8BAA005226C9 /* scene_violin.cfg */,
 				2DCF48301D3F8BCF005226C9 /* glsl */,
 				2DA38FFC1D3489FC0044AE42 /* ObjModel */,
@@ -630,6 +691,7 @@
 				2DA38FAD1D3483530044AE42 /* LaunchScreen.storyboard in Resources */,
 				2DA38FAA1D3483530044AE42 /* Assets.xcassets in Resources */,
 				2DA38FA81D3483530044AE42 /* Main.storyboard in Resources */,
+				2D584D431D4F57D700938058 /* icon_close.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -695,9 +757,12 @@
 				2DA390311D3489FC0044AE42 /* CZGeometry.cpp in Sources */,
 				2DCF48191D3F7857005226C9 /* Render.cpp in Sources */,
 				2DCF48281D3F83ED005226C9 /* CZAnimaitonManager.cpp in Sources */,
+				2D584D3B1D4F560E00938058 /* MBProgressHUD.m in Sources */,
 				2DA38FC41D3486440044AE42 /* ViewController.m in Sources */,
 				2DCF482C1D3F83ED005226C9 /* Application3D.cpp in Sources */,
+				2D584D401D4F57C600938058 /* App3DView.mm in Sources */,
 				2DA3903D1D3489FC0044AE42 /* ObjModel.cpp in Sources */,
+				2D584D1F1D4F1D2600938058 /* ARScannerEAGLView.mm in Sources */,
 				2DA390391D3489FC0044AE42 /* CZObjFileParser.cpp in Sources */,
 				2DA38FFB1D3489710044AE42 /* UnwindMenuSegue.m in Sources */,
 				2DA390381D3489FC0044AE42 /* CZMaterialLib.cpp in Sources */,
@@ -711,11 +776,13 @@
 				2DA390341D3489FC0044AE42 /* CZShader.cpp in Sources */,
 				2DA38FC31D3486440044AE42 /* main.m in Sources */,
 				2DA38FC21D3486440044AE42 /* AppDelegate.m in Sources */,
+				2D584D1C1D4EE35600938058 /* ARScannerViewController.mm in Sources */,
 				2DA390331D3489FC0044AE42 /* CZNode.cpp in Sources */,
 				2DA390371D3489FC0044AE42 /* CZMaterial.cpp in Sources */,
 				2DA390351D3489FC0044AE42 /* CZUtil.mm in Sources */,
 				2DCF471D1D34FDAC005226C9 /* ARViewController.mm in Sources */,
 				2DCF47211D35E796005226C9 /* AREAGLView.mm in Sources */,
+				2D584D411D4F57C600938058 /* Obj3DViewController.m in Sources */,
 				2DA3903B1D3489FC0044AE42 /* ModelFactory.cpp in Sources */,
 				2DA38FDB1D3487540044AE42 /* SampleApplicationSession.mm in Sources */,
 				2DA3903C1D3489FC0044AE42 /* ObjLoader.cpp in Sources */,
@@ -871,12 +938,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
-				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: LI Leichuan (YK29UXBS4P)";
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = "external-deps/Vuforia/build/include";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				HEADER_SEARCH_PATHS = (
+					"external-deps/Vuforia/build/include",
+					Carthage/Build/iOS/MBProgressHUD.framework/Headers,
+				);
 				INFOPLIST_FILE = ARDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "external-deps/Vuforia/build/lib/arm";
 				PRODUCT_BUNDLE_IDENTIFIER = com.founder.ARDemo;
@@ -890,12 +964,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
-				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Founder Electronics Co Ltd";
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = "external-deps/Vuforia/build/include";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				HEADER_SEARCH_PATHS = (
+					"external-deps/Vuforia/build/include",
+					Carthage/Build/iOS/MBProgressHUD.framework/Headers,
+				);
 				INFOPLIST_FILE = ARDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "external-deps/Vuforia/build/lib/arm";
 				PRODUCT_BUNDLE_IDENTIFIER = com.founder.ARDemo;

@@ -7,11 +7,12 @@
 //
 
 #import "ViewController.h"
-#import "ARViewController.h"
+#import "ARScannerViewController.h"
+#import "Obj3DViewController.h"
 
-@interface ViewController () <ARViewControllerDelegate>
+@interface ViewController () <ARScannerViewControllerDelegate, Obj3DViewControllerDelegate>
 {
-    ARViewController *arViewCtrl;
+    ARScannerViewController *arScannerViewCtrl;
 }
 
 @end
@@ -29,8 +30,14 @@
 }
 
 - (IBAction)testClick:(UIButton *)sender {
+//    Obj3DViewController *obj3DViewCtrl =  [[Obj3DViewController alloc]initWithModelPath:[[[NSBundle mainBundle]bundlePath] stringByAppendingPathComponent:@"models/Orchid/huapeng.obj"]];
+//    obj3DViewCtrl.delegate = self;
+//    [self presentViewController:obj3DViewCtrl animated:YES completion:nil];
+//    
+//    return;
+    
     // Override point for customization after application launch.
-    NSDictionary *config = @{AR_CONFIG_INIT_FLAG : @"Your Vuforia License Key",
+    NSDictionary *config = @{AR_CONFIG_INIT_FLAG : @"Your License Key",
                              
                              AR_CONFIG_DATA_SETS : @[
                                      @{
@@ -42,26 +49,52 @@
                                          AR_CONFIG_DATASET_PATH : [[[NSBundle mainBundle]bundlePath] stringByAppendingPathComponent:@"datasets/ImageTargets/StonesAndChips.xml"]
                                          }
                                      ],
-                             AR_CONFIG_MODEL  : @[
-                                     @{
-                                         AR_CONFIG_TARGET_NAME  :   @"img20120929",
-                                         AR_CONFIG_MODEL_PATH   :   [[[NSBundle mainBundle]bundlePath] stringByAppendingPathComponent:@"models/plane/plane.obj"]
+                             AR_CONFIG_ACTION  : @{
+                                     @"img20120929"  :@{
+                                             AR_CONFIG_ACTION_TYPE      : KEY_ACTION_TYPE_3D,
+                                             AR_CONFIG_ACTION_RES_PATH  : [[[NSBundle mainBundle]bundlePath] stringByAppendingPathComponent:@"models/plane/plane.obj"]
                                          },
-                                     @{
-                                         AR_CONFIG_TARGET_NAME  :   @"SunStructure",
-                                         AR_CONFIG_MODEL_PATH   :   [[[NSBundle mainBundle]bundlePath] stringByAppendingPathComponent:@"models/南禅寺1/ww.obj"]
+                                     @"SunStructure"  :@{
+                                             AR_CONFIG_ACTION_TYPE      : KEY_ACTION_TYPE_3D,
+                                             AR_CONFIG_ACTION_RES_PATH  : [[[NSBundle mainBundle]bundlePath] stringByAppendingPathComponent:@"models/南禅寺1/ww.obj"]
                                          }
-                                     ]};
+                                     }};
     
-    arViewCtrl = [[ARViewController alloc]initWithParam:config];
-    arViewCtrl.delegate = self;
-    [self presentViewController:arViewCtrl animated:YES completion:nil];
+    arScannerViewCtrl = [[ARScannerViewController alloc]initWithParam:config];
+    arScannerViewCtrl.delegate = self;
+    [self presentViewController:arScannerViewCtrl animated:YES completion:nil];
 }
 
-- (void) didDismissARviewController:(ARViewController *)arviewctrl
+- (void) didDismissARScannerViewController:(ARScannerViewController *)arviewctrl Action:(NSDictionary *)actionDetail
+{
+    if(actionDetail == nil)
+        [self dismissViewControllerAnimated:NO completion:nil];
+    else {
+        NSString *actionType = [actionDetail objectForKey:AR_CONFIG_ACTION_TYPE];
+        NSString *resPath = [actionDetail objectForKey:AR_CONFIG_ACTION_RES_PATH];
+        
+        if ([actionType isEqualToString:KEY_ACTION_TYPE_3D]) {
+            Obj3DViewController *obj3DViewCtrl =  [[Obj3DViewController alloc]initWithModelPath:resPath];
+            obj3DViewCtrl.delegate = self;
+            [self dismissViewControllerAnimated:NO completion:^{
+                [self presentViewController:obj3DViewCtrl animated:NO completion:nil];
+            }];
+        }
+        else if([actionType isEqualToString:KEY_ACTION_TYPE_WEB]) {
+            
+        }
+        else if([actionType isEqualToString:KEY_ACTION_TYPE_QUIZ]) {
+            
+        }
+        else {
+            
+        }
+    }
+//    [arviewctrl release];
+}
+
+- (void) didDismissObj3DViewController:(Obj3DViewController *)obj3dViewCtrl
 {
     [self dismissViewControllerAnimated:NO completion:nil];
-    [arviewctrl release];
 }
-
 @end

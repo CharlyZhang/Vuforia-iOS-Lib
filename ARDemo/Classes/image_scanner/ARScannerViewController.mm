@@ -1,14 +1,14 @@
 //
-//  ARViewController.m
+//  ARScannerViewController.m
 //  ARDemo
 //
-//  Created by CharlyZhang on 16/7/12.
+//  Created by CharlyZhang on 16/8/1.
 //  Copyright © 2016年 CharlyZhang. All rights reserved.
 //
 
-#import "ARViewController.h"
+#import "ARScannerViewController.h"
 #import "SampleApplicationSession.h"
-#import "AREAGLView.h"
+#import "ARScannerEAGLView.h"
 #import "AppDelegate.h"
 #import <Vuforia/Vuforia.h>
 #import <Vuforia/TrackerManager.h>
@@ -22,21 +22,21 @@
 using namespace std;
 
 typedef map<string, Vuforia::DataSet*> DataSetMap;
-@interface ARViewController ()  <SampleApplicationControl>
+@interface ARScannerViewController ()  <SampleApplicationControl>
 {
     Vuforia::DataSet* dataSetCurrent;
     string curDataSetName;
     DataSetMap datasets;
 }
 
-@property (nonatomic, strong) AREAGLView* eaglView;
+@property (nonatomic, strong) ARScannerEAGLView* eaglView;
 @property (nonatomic, strong) UITapGestureRecognizer * tapGestureRecognizer;
 @property (nonatomic, strong) SampleApplicationSession * vapp;
 @property (nonatomic, strong) NSDictionary *configurations;
 
 @end
 
-@implementation ARViewController
+@implementation ARScannerViewController
 
 @synthesize tapGestureRecognizer, vapp, eaglView;
 @synthesize extendedTrackingEnabled, continuousAutofocusEnabled, flashEnabled, frontCameraEnabled;
@@ -55,7 +55,7 @@ typedef map<string, Vuforia::DataSet*> DataSetMap;
 {
     // Custom initialization
     self.title = @"Image Targets";
-   
+    
     extendedTrackingEnabled = NO;
     continuousAutofocusEnabled = YES;
     flashEnabled = NO;
@@ -65,21 +65,20 @@ typedef map<string, Vuforia::DataSet*> DataSetMap;
     
     CGRect viewFrame = [self getCurrentARViewFrame];
     
-    eaglView = [[AREAGLView alloc] initWithFrame:viewFrame appSession:vapp];
+    eaglView = [[ARScannerEAGLView alloc] initWithFrame:viewFrame appSession:vapp];
     [self setView:eaglView];
-    [eaglView setUpApp3D];
     AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     appDelegate.glResourceHandler = eaglView;
     
     // a single tap will trigger a single autofocus operation
     tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(autofocus:)];
-    
-    [self createInteractionGuesturesForView:self.view];
+
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(dismissARViewController)
                                                  name:@"kDismissARViewController"
                                                object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(targetFound:) name:NOTIFICATION_IMG_TARGET_FOUND object:nil];
     
     // we use the iOS notification to pause/resume the AR when the application goes (or come back from) background
     [[NSNotificationCenter defaultCenter]
@@ -96,9 +95,6 @@ typedef map<string, Vuforia::DataSet*> DataSetMap;
     
     // show loading animation while AR is being initialized
     [self showLoadingAnimation];
-    
-    NSArray *modelsConfig = [configurations objectForKey:AR_CONFIG_MODEL];
-    [eaglView loadModels:modelsConfig];
     
     // initialize AR
     NSString *initFlag = [configurations objectForKey:AR_CONFIG_INIT_FLAG];
@@ -137,25 +133,24 @@ typedef map<string, Vuforia::DataSet*> DataSetMap;
 
 - (BOOL) shouldAutorotate
 {
-//    NSLog(@"shouldAutorotate");
+    //    NSLog(@"shouldAutorotate");
     return NO;
 }
 
 - (NSUInteger)supportedInterfaceOrientations
 {
-//    NSLog(@"supportedInterfaceOrientations");
+    //    NSLog(@"supportedInterfaceOrientations");
     return UIInterfaceOrientationMaskPortrait;
 }
 
 - (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
 {
-//    NSLog(@"preferredInterfaceOrientationForPresentation");
+    //    NSLog(@"preferredInterfaceOrientationForPresentation");
     return UIInterfaceOrientationPortrait;
 }
 
 - (void)dealloc
 {
-    NSLog(@"ARViewController dealloc!");
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     datasets.clear();
 }
@@ -249,7 +244,7 @@ typedef map<string, Vuforia::DataSet*> DataSetMap;
     if (initError == nil) {
         NSError * error = nil;
         [vapp startAR:Vuforia::CameraDevice::CAMERA_DIRECTION_BACK error:&error];
-         Vuforia::setHint(Vuforia::HINT_MAX_SIMULTANEOUS_IMAGE_TARGETS, MAX_SIMUTANEOUS_REC_NUM);
+        Vuforia::setHint(Vuforia::HINT_MAX_SIMULTANEOUS_IMAGE_TARGETS, MAX_SIMUTANEOUS_REC_NUM);
         
         // by default, we try to set the continuous auto focus mode
         continuousAutofocusEnabled = Vuforia::CameraDevice::getInstance().setFocusMode(Vuforia::CameraDevice::FOCUS_MODE_CONTINUOUSAUTO);
@@ -339,8 +334,7 @@ typedef map<string, Vuforia::DataSet*> DataSetMap;
     {
         if(buttonIndex == 1)
         {
-            [eaglView freeApp3D];
-            [self.delegate didDismissARviewController:self];
+            [self.delegate didDismissARScannerViewController:self Action:nil];
         }
     }
 }
@@ -352,19 +346,19 @@ typedef map<string, Vuforia::DataSet*> DataSetMap;
     CGRect mainBounds = [[UIScreen mainScreen] bounds];
     int smallerBoundsSize = MIN(mainBounds.size.width, mainBounds.size.height);
     int largerBoundsSize = MAX(mainBounds.size.width, mainBounds.size.height);
-//    UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
+    //    UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
     
     indicatorBounds = CGRectMake(smallerBoundsSize / 2 - 12,
                                  largerBoundsSize / 2 - 12, 24, 24);
-//    
-//    if (orientation == UIInterfaceOrientationPortrait || orientation == UIInterfaceOrientationPortraitUpsideDown ) {
-//        indicatorBounds = CGRectMake(smallerBoundsSize / 2 - 12,
-//                                     largerBoundsSize / 2 - 12, 24, 24);
-//    }
-//    else {
-//        indicatorBounds = CGRectMake(largerBoundsSize / 2 - 12,
-//                                     smallerBoundsSize / 2 - 12, 24, 24);
-//    }
+    //
+    //    if (orientation == UIInterfaceOrientationPortrait || orientation == UIInterfaceOrientationPortraitUpsideDown ) {
+    //        indicatorBounds = CGRectMake(smallerBoundsSize / 2 - 12,
+    //                                     largerBoundsSize / 2 - 12, 24, 24);
+    //    }
+    //    else {
+    //        indicatorBounds = CGRectMake(largerBoundsSize / 2 - 12,
+    //                                     smallerBoundsSize / 2 - 12, 24, 24);
+    //    }
     
     UIActivityIndicatorView *loadingIndicator = [[UIActivityIndicatorView alloc]
                                                  initWithFrame:indicatorBounds];
@@ -396,70 +390,13 @@ typedef map<string, Vuforia::DataSet*> DataSetMap;
     return viewFrame;
 }
 
-- (void) createInteractionGuesturesForView:(UIView*)view {
-    UIPanGestureRecognizer *rot = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(rotate:)];
-    [rot setMinimumNumberOfTouches:1];
-    [rot setMaximumNumberOfTouches:1];
-    [view addGestureRecognizer:rot];
+- (void)targetFound:(NSNotification*) notification
+{
+    NSDictionary *userInfo = notification.userInfo;
+    NSString *targetName = [userInfo objectForKey:KEY_IMAGE_TARGET_NAME];
+    NSDictionary *actions = configurations[AR_CONFIG_ACTION];
     
-    UIPanGestureRecognizer *mov = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(move:)];
-    [mov setMinimumNumberOfTouches:2];
-    [mov setMaximumNumberOfTouches:2];
-    [view addGestureRecognizer:mov];
-    
-    UIPinchGestureRecognizer *pinch = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(scale:)];
-    [view addGestureRecognizer:pinch];
-    
-    UITapGestureRecognizer *doubletap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(exit:)];
-    doubletap.numberOfTouchesRequired = 1;
-    doubletap.numberOfTapsRequired = 2;
-    [view addGestureRecognizer:doubletap];
-    
-    UITapGestureRecognizer *double2tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(reset:)];
-    double2tap.numberOfTouchesRequired = 2;
-    double2tap.numberOfTapsRequired = 2;
-    [view addGestureRecognizer:double2tap];
-    
-}
-
--(void)rotate:(id)sender {
-    NSLog(@"rotate");
-    
-    static CGPoint lastPoint;
-    
-    CGPoint point = [(UIPanGestureRecognizer*)sender translationInView:self.view];
-    if([(UIPanGestureRecognizer*)sender state] == UIGestureRecognizerStateChanged) {
-        [eaglView rotateWithX:point.x - lastPoint.x Y:-point.y + lastPoint.y];
-    }
-    
-    lastPoint = point;
-}
-
--(void)move:(id)sender {
-    NSLog(@"move");
-    
-    static CGPoint lastPoint;
-    
-    CGPoint point = [(UIPanGestureRecognizer*)sender translationInView:self.view];
-    if([(UIPanGestureRecognizer*)sender state] == UIGestureRecognizerStateChanged) {
-        [eaglView moveWithX:(-point.x + lastPoint.x)/5 Y:(point.y - lastPoint.y)/5];
-    }
-    
-    lastPoint = point;
-}
-
-- (void)scale:(UIPinchGestureRecognizer*)pinch {
-    NSLog(@"scale");
-    if (pinch.state == UIGestureRecognizerStateChanged) {
-        [eaglView scale:pinch.scale];
-        pinch.scale = 1;
-    }
-}
-
-- (void)reset:(UITapGestureRecognizer*) tap{
-    if (tap.state == UIGestureRecognizerStateEnded) {
-        [eaglView reset];
-    }
+    [self.delegate didDismissARScannerViewController:self Action:[actions objectForKey:targetName]];
 }
 
 - (void) exit:(UITapGestureRecognizer*) tap

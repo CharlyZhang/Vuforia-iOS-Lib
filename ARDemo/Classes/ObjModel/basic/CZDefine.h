@@ -84,7 +84,7 @@ extern void modelLoadingDone();
 }
 
 #ifdef _DEBUG
-#define CZCheckGLError()	CZCheckGLError_(__FILE__, __LINE__)
+#define CZCheckGLError()	CZ3D::CZCheckGLError_(__FILE__, __LINE__)
 #else
 #define CZCheckGLError()
 #endif
