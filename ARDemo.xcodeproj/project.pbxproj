@@ -101,6 +101,7 @@
 		2DCF48351D408D15005226C9 /* CZShapeAnimation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DCF48201D3F83ED005226C9 /* CZShapeAnimation.cpp */; };
 		2DCF48361D408D1A005226C9 /* CZCube.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DCF48231D3F83ED005226C9 /* CZCube.cpp */; };
 		2DCF48371D408D1F005226C9 /* Render.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DCF48171D3F7857005226C9 /* Render.cpp */; };
+		2DD232C31D5894AC0085257F /* icon_close.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DD232C21D5894AC0085257F /* icon_close.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -225,6 +226,7 @@
 		2DCF48271D3F83ED005226C9 /* Application3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Application3D.h; sourceTree = "<group>"; };
 		2DCF482D1D3F8BAA005226C9 /* scene_violin.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = scene_violin.cfg; path = Classes/ObjModel/scene_violin.cfg; sourceTree = "<group>"; };
 		2DCF48301D3F8BCF005226C9 /* glsl */ = {isa = PBXFileReference; lastKnownFileType = folder; name = glsl; path = Classes/ObjModel/glsl; sourceTree = "<group>"; };
+		2DD232C21D5894AC0085257F /* icon_close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_close.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -489,6 +491,7 @@
 		2DA390961D34D0930044AE42 /* ARResources */ = {
 			isa = PBXGroup;
 			children = (
+				2DD232C21D5894AC0085257F /* icon_close.png */,
 				2DA390971D34D0940044AE42 /* Info.plist */,
 			);
 			path = ARResources;
@@ -639,6 +642,7 @@
 			files = (
 				2DCF48311D3F8BCF005226C9 /* glsl in Resources */,
 				2DCF482F1D3F8BB1005226C9 /* scene_violin.cfg in Resources */,
+				2DD232C31D5894AC0085257F /* icon_close.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -19,6 +19,9 @@
 #import <Vuforia/DataSet.h>
 #include <map>
 #include <string>
+
+#define CLOSE_BUTTON_OFFSET 10
+
 using namespace std;
 
 typedef map<string, Vuforia::DataSet*> DataSetMap;
@@ -27,6 +30,8 @@ typedef map<string, Vuforia::DataSet*> DataSetMap;
     Vuforia::DataSet* dataSetCurrent;
     string curDataSetName;
     DataSetMap datasets;
+    UIButton *closeButton;
+    CGSize closeIconButtonSize;
 }
 
 @property (nonatomic, strong) AREAGLView* eaglView;
@@ -74,11 +79,14 @@ typedef map<string, Vuforia::DataSet*> DataSetMap;
     // a single tap will trigger a single autofocus operation
     tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(autofocus:)];
     
-    [self createInteractionGuesturesForView:self.view];
-    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(dismissARViewController)
                                                  name:@"kDismissARViewController"
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didRotateInterfaceOrientation:)
+                                                 name:UIDeviceOrientationDidChangeNotification
                                                object:nil];
     
     // we use the iOS notification to pause/resume the AR when the application goes (or come back from) background
@@ -111,6 +119,17 @@ typedef map<string, Vuforia::DataSet*> DataSetMap;
     // Do any additional setup after loading the view.
     [self.navigationController setNavigationBarHidden:YES animated:NO];
     [self.view addGestureRecognizer:tapGestureRecognizer];
+
+    [self createInteractionGuesturesForView:self.view];
+    
+    NSString * closeIconButtonPath = [[[NSBundle mainBundle] resourcePath ]stringByAppendingString:@"/ARResources.bundle/icon_close.png"];
+    UIImage *closeIconImg = [UIImage imageWithContentsOfFile:closeIconButtonPath];
+    closeIconButtonSize = closeIconImg.size;
+    closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [closeButton setFrame:CGRectMake(CGRectGetWidth(self.view.bounds) - closeIconButtonSize.width - CLOSE_BUTTON_OFFSET, CLOSE_BUTTON_OFFSET, closeIconButtonSize.width, closeIconButtonSize.height)];
+    [closeButton setImage:closeIconImg forState:UIControlStateNormal];
+    [closeButton addTarget:self action:@selector(exitAR) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:closeButton];
     
     NSLog(@"self.navigationController.navigationBarHidden: %s", self.navigationController.navigationBarHidden ? "Yes" : "No");
 }
@@ -151,6 +170,11 @@ typedef map<string, Vuforia::DataSet*> DataSetMap;
 {
 //    NSLog(@"preferredInterfaceOrientationForPresentation");
     return UIInterfaceOrientationPortrait;
+}
+
+- (BOOL) prefersStatusBarHidden
+{
+    return YES;
 }
 
 - (void)dealloc
@@ -381,6 +405,35 @@ typedef map<string, Vuforia::DataSet*> DataSetMap;
 }
 
 #pragma mark - Private
+
+- (void) exitAR {
+    [eaglView freeApp3D];
+    [self.delegate didDismissARviewController:self];
+}
+
+- (void) didRotateInterfaceOrientation:(NSNotification*) notification
+{
+    UIDeviceOrientation curOrientation = [[UIDevice currentDevice]orientation];
+    CGRect newRect = closeButton.frame;
+    switch (curOrientation) {
+        case UIDeviceOrientationPortrait:
+            newRect = CGRectMake(CGRectGetWidth(self.view.bounds) - closeIconButtonSize.width - CLOSE_BUTTON_OFFSET, CLOSE_BUTTON_OFFSET, closeIconButtonSize.width, closeIconButtonSize.height);
+            break;
+        case UIDeviceOrientationPortraitUpsideDown:
+            newRect = CGRectMake(CLOSE_BUTTON_OFFSET, CGRectGetHeight(self.view.bounds) - closeIconButtonSize.height - CLOSE_BUTTON_OFFSET, closeIconButtonSize.width, closeIconButtonSize.height);
+            break;
+        case UIDeviceOrientationLandscapeLeft:
+            newRect = CGRectMake(CGRectGetWidth(self.view.bounds) - closeIconButtonSize.width - CLOSE_BUTTON_OFFSET, CGRectGetHeight(self.view.bounds) - closeIconButtonSize.height - CLOSE_BUTTON_OFFSET, closeIconButtonSize.width, closeIconButtonSize.height);
+            break;
+        case UIDeviceOrientationLandscapeRight:
+            newRect = CGRectMake(CLOSE_BUTTON_OFFSET, CLOSE_BUTTON_OFFSET, closeIconButtonSize.width, closeIconButtonSize.height);
+            break;
+        default:
+            break;
+    }
+    
+    closeButton.frame = newRect;
+}
 
 - (CGRect)getCurrentARViewFrame
 {
