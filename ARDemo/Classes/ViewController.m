@@ -66,6 +66,9 @@
     
     arScannerViewCtrl = [[ARScannerViewController alloc]initWithParam:config];
     arScannerViewCtrl.delegate = self;
+#ifdef DEBUG
+    arScannerViewCtrl.activeDataSetName = @"myData";
+#endif
     [self presentViewController:arScannerViewCtrl animated:YES completion:nil];
 }
 

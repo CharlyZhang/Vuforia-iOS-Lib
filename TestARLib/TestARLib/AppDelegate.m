@@ -39,7 +39,9 @@
                                          AR_CONFIG_MODEL_PATH   :   [[[NSBundle mainBundle]bundlePath] stringByAppendingPathComponent:@"models/南禅寺1/ww.obj"]
                                          }
                                      ]};
-    self.window.rootViewController = [[ARViewController alloc]initWithParam:config];
+    ARViewController *arViewCtrl = [[ARViewController alloc]initWithParam:config];
+    arViewCtrl.activeDataSetName = @"myData";
+    self.window.rootViewController = arViewCtrl;
     [self.window makeKeyAndVisible];
     
     return YES;

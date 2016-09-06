@@ -46,6 +46,7 @@ typedef map<string, Vuforia::DataSet*> DataSetMap;
 {
     if (self = [super init]) {
         configurations = config;
+        curDataSetName = "";
     }
     
     return self;
@@ -205,7 +206,6 @@ typedef map<string, Vuforia::DataSet*> DataSetMap;
     datasets.clear();
     NSArray *configDS = [configurations objectForKey:AR_CONFIG_DATA_SETS];
     
-    curDataSetName = "";
     for(NSDictionary *DS in configDS)
     {
         Vuforia::DataSet* ds = [self loadObjectTrackerDataSet:DS[AR_CONFIG_DATASET_PATH]];
@@ -224,9 +224,6 @@ typedef map<string, Vuforia::DataSet*> DataSetMap;
         return NO;
     }
     
-#ifdef DEBUG
-    self.activeDataSetName = @"myData";
-#endif
     return YES;
 }
 
