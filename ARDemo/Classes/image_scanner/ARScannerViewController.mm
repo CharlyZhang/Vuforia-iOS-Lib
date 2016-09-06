@@ -318,14 +318,15 @@ typedef map<string, Vuforia::DataSet*> DataSetMap;
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if(alertView.tag == 0)
+    if(alertView.tag == 0) {
         [[NSNotificationCenter defaultCenter] postNotificationName:@"kDismissARViewController" object:nil];
+        [self.delegate didDismissARScannerViewController:self Action:nil];
+    }
 }
 
 - (void)dismissARViewController
 {
     [self.navigationController setNavigationBarHidden:NO animated:YES];
-    [self.navigationController popToRootViewControllerAnimated:NO];
 }
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex

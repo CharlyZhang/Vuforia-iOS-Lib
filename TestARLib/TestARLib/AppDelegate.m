@@ -22,21 +22,21 @@
                              AR_CONFIG_DATA_SETS : @[
                                      @{
                                          AR_CONFIG_DATASET_NAME : @"myData",
-                                         AR_CONFIG_DATASET_PATH : @"datasets/ImageTargets/VuforiaTestDevice.xml"
+                                         AR_CONFIG_DATASET_PATH : [[[NSBundle mainBundle]bundlePath] stringByAppendingPathComponent:@"datasets/ImageTargets/VuforiaTestDevice.xml"]
                                          },
                                      @{
                                          AR_CONFIG_DATASET_NAME : @"chips",
-                                         AR_CONFIG_DATASET_PATH : @"datasets/ImageTargets/StonesAndChips.xml"
+                                         AR_CONFIG_DATASET_PATH : [[[NSBundle mainBundle]bundlePath] stringByAppendingPathComponent:@"datasets/ImageTargets/StonesAndChips.xml"]
                                          }
                                      ],
                              AR_CONFIG_MODEL  : @[
                                      @{
                                          AR_CONFIG_TARGET_NAME  :   @"img20120929",
-                                         AR_CONFIG_MODEL_PATH   :   @"models/plane/plane.obj"
+                                         AR_CONFIG_MODEL_PATH   :   [[[NSBundle mainBundle]bundlePath] stringByAppendingPathComponent:@"models/plane/plane.obj"]
                                          },
                                      @{
                                          AR_CONFIG_TARGET_NAME  :   @"SunStructure",
-                                         AR_CONFIG_MODEL_PATH   :   @"models/南禅寺1/ww.obj"
+                                         AR_CONFIG_MODEL_PATH   :   [[[NSBundle mainBundle]bundlePath] stringByAppendingPathComponent:@"models/南禅寺1/ww.obj"]
                                          }
                                      ]};
     self.window.rootViewController = [[ARViewController alloc]initWithParam:config];

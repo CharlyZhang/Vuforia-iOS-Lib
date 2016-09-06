@@ -26,7 +26,8 @@
 		2D584D3B1D4F560E00938058 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D584D3A1D4F560E00938058 /* MBProgressHUD.m */; };
 		2D584D401D4F57C600938058 /* App3DView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2D584D3D1D4F57C600938058 /* App3DView.mm */; };
 		2D584D411D4F57C600938058 /* Obj3DViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D584D3F1D4F57C600938058 /* Obj3DViewController.m */; };
-		2D584D431D4F57D700938058 /* icon_close.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D584D421D4F57D700938058 /* icon_close.png */; };
+		2D584D471D4F6BD800938058 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D584D461D4F6BD800938058 /* WebViewController.m */; };
+		2D7A36A01D7E709100712FE0 /* icon_close.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D7A369F1D7E709100712FE0 /* icon_close.png */; };
 		2DA38FA81D3483530044AE42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DA38FA61D3483530044AE42 /* Main.storyboard */; };
 		2DA38FAA1D3483530044AE42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DA38FA91D3483530044AE42 /* Assets.xcassets */; };
 		2DA38FAD1D3483530044AE42 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DA38FAB1D3483530044AE42 /* LaunchScreen.storyboard */; };
@@ -143,7 +144,9 @@
 		2D584D3D1D4F57C600938058 /* App3DView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = App3DView.mm; path = Classes/image_scanner/3D/App3DView.mm; sourceTree = "<group>"; };
 		2D584D3E1D4F57C600938058 /* Obj3DViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Obj3DViewController.h; path = Classes/image_scanner/3D/Obj3DViewController.h; sourceTree = "<group>"; };
 		2D584D3F1D4F57C600938058 /* Obj3DViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Obj3DViewController.m; path = Classes/image_scanner/3D/Obj3DViewController.m; sourceTree = "<group>"; };
-		2D584D421D4F57D700938058 /* icon_close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_close.png; path = Resources/icon_close.png; sourceTree = "<group>"; };
+		2D584D451D4F6BD800938058 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebViewController.h; path = Classes/image_scanner/WebViewController.h; sourceTree = "<group>"; };
+		2D584D461D4F6BD800938058 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WebViewController.m; path = Classes/image_scanner/WebViewController.m; sourceTree = "<group>"; };
+		2D7A369F1D7E709100712FE0 /* icon_close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_close.png; sourceTree = "<group>"; };
 		2DA38F9A1D3483530044AE42 /* ARDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DA38FA71D3483530044AE42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2DA38FA91D3483530044AE42 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -285,6 +288,7 @@
 		2D584D181D4EE29A00938058 /* image_scanner */ = {
 			isa = PBXGroup;
 			children = (
+				2D584D441D4F6B4300938058 /* Web */,
 				2D584D231D4F3D9800938058 /* 3D */,
 				2D584D1A1D4EE35600938058 /* ARScannerViewController.h */,
 				2D584D1B1D4EE35600938058 /* ARScannerViewController.mm */,
@@ -305,7 +309,6 @@
 		2D584D231D4F3D9800938058 /* 3D */ = {
 			isa = PBXGroup;
 			children = (
-				2D584D421D4F57D700938058 /* icon_close.png */,
 				2D584D3C1D4F57C600938058 /* App3DView.h */,
 				2D584D3D1D4F57C600938058 /* App3DView.mm */,
 				2D584D3E1D4F57C600938058 /* Obj3DViewController.h */,
@@ -322,6 +325,24 @@
 			);
 			name = MBProgressHUD;
 			path = Carthage/Checkouts/Application3D/ios/vendor/MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		2D584D441D4F6B4300938058 /* Web */ = {
+			isa = PBXGroup;
+			children = (
+				2D584D451D4F6BD800938058 /* WebViewController.h */,
+				2D584D461D4F6BD800938058 /* WebViewController.m */,
+			);
+			name = Web;
+			sourceTree = "<group>";
+		};
+		2D7A369E1D7E709100712FE0 /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				2D7A369F1D7E709100712FE0 /* icon_close.png */,
+			);
+			name = icons;
+			path = Resources/icons;
 			sourceTree = "<group>";
 		};
 		2DA38F911D3483520044AE42 = {
@@ -521,6 +542,7 @@
 		2DA3904C1D348CCF0044AE42 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2D7A369E1D7E709100712FE0 /* icons */,
 				2DC4E2FC1D34F01900BFB57B /* datasets */,
 				2DC4E2FD1D34F01900BFB57B /* models */,
 				2DA38FA61D3483530044AE42 /* Main.storyboard */,
@@ -691,7 +713,7 @@
 				2DA38FAD1D3483530044AE42 /* LaunchScreen.storyboard in Resources */,
 				2DA38FAA1D3483530044AE42 /* Assets.xcassets in Resources */,
 				2DA38FA81D3483530044AE42 /* Main.storyboard in Resources */,
-				2D584D431D4F57D700938058 /* icon_close.png in Resources */,
+				2D7A36A01D7E709100712FE0 /* icon_close.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -778,6 +800,7 @@
 				2DA38FC21D3486440044AE42 /* AppDelegate.m in Sources */,
 				2D584D1C1D4EE35600938058 /* ARScannerViewController.mm in Sources */,
 				2DA390331D3489FC0044AE42 /* CZNode.cpp in Sources */,
+				2D584D471D4F6BD800938058 /* WebViewController.m in Sources */,
 				2DA390371D3489FC0044AE42 /* CZMaterial.cpp in Sources */,
 				2DA390351D3489FC0044AE42 /* CZUtil.mm in Sources */,
 				2DCF471D1D34FDAC005226C9 /* ARViewController.mm in Sources */,

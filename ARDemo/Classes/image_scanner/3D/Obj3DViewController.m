@@ -72,8 +72,6 @@
 
 - (void)closeView
 {
-    [app3Dview removeFromSuperview];
-    app3Dview = nil;
     [self.delegate didDismissObj3DViewController:self];
 }
 

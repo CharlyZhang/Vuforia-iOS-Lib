@@ -18,7 +18,8 @@
 
 ///
 #define KEY_ACTION_TYPE_3D      @"kActionType3D"
-#define KEY_ACTION_TYPE_WEB     @"kActionTypeWeb"
+#define KEY_ACTION_TYPE_WEB     @"kActionTypeWeb"   // link
+#define KEY_ACTION_TYPE_HTML    @"kActionTypeHtml"  // local files
 #define KEY_ACTION_TYPE_QUIZ    @"kActionTypeQuiz"
 
 #define MAX_SIMUTANEOUS_REC_NUM 1
